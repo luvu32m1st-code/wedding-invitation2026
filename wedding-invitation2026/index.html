@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Wedding Invitation</title>
+</head>
+<body>
+
+    <!-- 簡易認証用のパスワードチェックエリア -->
+    <!-- <div id="password-gate">
+        <p>パスワードを入力してください</p>
+        <input type="password" id="pw-input">
+        <button onclick="checkPassword()">OK</button>
+    </div> -->
+
+    <!-- コンテンツエリア（認証成功まで非表示） -->
+    <!-- <div id="content" class="hidden"> -->
+        <h1>Wedding Invitation</h1>
+        <p>（新郎新婦の挨拶など）</p>
+        
+        <!-- Googleフォームをここに配置 -->
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfJ_2OZBfz6GpuZ2bBaylg-uLZPT-nnme4ZNeKmVmINsmQigQ/viewform?embedded=true" width="640" height="914" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const input = document.getElementById('pw-input').value;
+            if (input === "あなたの設定したパスワード") {
+                document.getElementById('password-gate').style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+            } else {
+                alert("パスワードが違います");
+            }
+        }
+    </script>
+</body>
+</html>
