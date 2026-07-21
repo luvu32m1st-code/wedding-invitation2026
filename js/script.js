@@ -11,12 +11,12 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 4000); // 4秒ごとに切り替え
     }
 
-    // 2. main-ttl.svg をふんわり表示
+    // 2. 中央のタイトル＆ロゴ（main-ttl.svg）をふんわり表示
     setTimeout(() => {
-        const keyvisualLogo = document.querySelector('.keyvisual-fadeIn');
-        if (keyvisualLogo) {
-            keyvisualLogo.classList.add('is-active');
-        }
+        const keyvisualElements = document.querySelectorAll('.keyvisual-fadeIn');
+        keyvisualElements.forEach(el => {
+            el.classList.add('is-active');
+        });
     }, 500);
 
     // 3. ナビゲーションのスクロール追従制御
