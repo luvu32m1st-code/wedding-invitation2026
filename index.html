@@ -12,7 +12,7 @@
 
     <title>Wedding Invitation</title>
 </head>
-<body>
+<body id="main">
 
     <!-- 簡易認証用のパスワードチェックエリア -->
     <!-- <div id="password-gate">
@@ -27,27 +27,29 @@
         <p>（新郎新婦の挨拶など）</p>
 
 
-        <div class="main_inner container">
-            <div class="main_img main_img_pc">
-                <div class="img" id="main_img01" src="img/Img-cover1.jpg" style="background-image"></div>
-                <div class="img" id="main_img02" src="img/Img-cover2.jpg" style="background-image"></div>
-            </div>
-            <div class="main_img main_img_sp">
-                <div class="img" id="main_img01" src="img/Img-cover1.jpg" style="background-image"></div>
-                <div class="img" id="main_img02" src="img/Img-cover2.jpg" style="background-image"></div>
-            </div>
-            <h1 class="cover_ttl">
-                <div class="cover_svg">
-                    <img src="img/main-ttl.svg" alt="">
-                </div>
-                <img src="img/main-ttl.svg" alt="" class="keyvisual-fadeIn">
-                <span class="keyvisual-fadeIn">WEDDING <br class="sp_only">INVITATION</span>
-            </h1>
+        <!-- ファーストビュー（全画面スライドショー） -->
+    <div class="first-view">
+        <div class="main_img_slider">
+            <div class="slide active" style="background-image: url('img/Img-cover1.jpg');"></div>
+            <div class="slide" style="background-image: url('img/Img-cover2.jpg');"></div>
+        </div>
+        
+        <!-- 中央にふんわり表示させるタイトルロゴ -->
+        <div class="cover_ttl_center">
+            <img src="img/main-ttl.svg" alt="" class="keyvisual-fadeIn">
         </div>
 
+        <!-- ナビゲーション（スクロール追従 ＋ ハンバーガー対応） -->
+        <nav class="temp-nav" id="sticky-nav">
+            <!-- スマホ用ハンバーガーボタン -->
+            <div class="menu-toggle" id="menu-toggle" aria-label="メニューを開閉する">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
 
-        <nav class="temp-nav">
-            <ul class="temp-nav-list">
+            <!-- メニューリスト -->
+            <ul class="temp-nav-list" id="nav-list">
                 <li class="nav-top"><a href="#main">TOP</a></li>
                 <li class="nav-message"><a href="#message">MESSAGE</a></li>
                 <li class="nav-profile"><a href="#profile">PROFILE</a></li>
@@ -55,22 +57,6 @@
                 <li class="nav-events"><a href="#events">EVENTS</a></li>
                 <li class="nav-rsvp"><a href="#rsvp">RSVP</a></li>
             </ul>
-        </nav>
-
-        <nav id="mobile-head">
-            <div id="nav-toggle">
-                <div><span></span><span></span><span></span></div>
-            </div>
-            <div class="nav cl" id="global-nav">
-                <ul>
-                    <li class="nav-top"><a href="#main">TOP</a></li>
-                    <li class="nav-message"><a href="#message">MESSAGE</a></li>
-                    <li class="nav-profile"><a href="#profile">PROFILE</a></li>
-                    <li class="nav-countdown"><a href="#countdown">COUNTDOWN</a></li>
-                    <li class="nav-events"><a href="#events">EVENTS</a></li>
-                    <li class="nav-rsvp"><a href="#rsvp">RSVP</a></li>
-                </ul>
-            </div>
         </nav>
 
 

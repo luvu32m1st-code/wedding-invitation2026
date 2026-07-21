@@ -207,3 +207,171 @@ iframe {
     opacity: 1;
     transform: translateY(0);
 }
+
+
+
+
+/* --- ファーストビュー・スライドショー設定 --- */
+.first-view {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.main_img_slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.main_img_slider .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.main_img_slider .slide.active {
+    opacity: 1;
+}
+
+/* --- 中央のタイトルロゴ（ふんわり表示用） --- */
+.cover_ttl_center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    text-align: center;
+}
+
+.cover_ttl_center img {
+    max-width: 80%;
+    height: auto;
+}
+
+.keyvisual-fadeIn {
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.keyvisual-fadeIn.is-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- ナビゲーション（初期：中腹右寄せ / スクロール時：追従） --- */
+.temp-nav {
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.temp-nav.fixed {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    transform: translateY(0);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.temp-nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.temp-nav-list li a {
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: #333;
+    transition: color 0.2s;
+}
+
+.temp-nav-list li a:hover {
+    color: #cb838a;
+}
+
+
+
+/* --- ハンバーガーボタンの初期設定（PCでは非表示） --- */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 22px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #333;
+    transition: all 0.3s ease;
+}
+
+/* --- レスポンシブ対応（画面幅768px以下） --- */
+@media screen and (max-width: 768px) {
+    /* ナビゲーション全体の配置を調整（右上固定など） */
+    .temp-nav {
+        top: 15px !important;
+        right: 15px !important;
+        padding: 10px 15px;
+    }
+
+    /* ハンバーガーボタンを表示 */
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* メニューリストを最初は非表示（あるいはスライドイン式に）にする */
+    .temp-nav-list {
+        display: none; /* デフォルトは非表示 */
+        flex-direction: column;
+        position: absolute;
+        top: 50px;
+        right: 0;
+        background: rgba(255, 255, 255, 0.98);
+        width: 200px;
+        padding: 20px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        border-radius: 8px;
+    }
+
+    /* JavaScriptで 'is-open' クラスが付与されたら表示 */
+    .temp-nav-list.is-open {
+        display: flex;
+    }
+
+    /* メニューが開いたときのハンバーガーボタンのアニメーション（バツ印化） */
+    .menu-toggle.is-active span:nth-child(1) {
+        transform: translateY(10px) rotate(45deg);
+    }
+    .menu-toggle.is-active span:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.is-active span:nth-child(3) {
+        transform: translateY(-10px) rotate(-45deg);
+    }
+}
