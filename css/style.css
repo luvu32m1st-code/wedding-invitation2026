@@ -253,7 +253,7 @@ iframe {
 }
 
 /* フェードインアニメーション */
-.imgEffect_fadeIn, .imgEffect_bottom_top {
+/*.imgEffect_fadeIn, .imgEffect_bottom_top {
     opacity: 0;
     transform: translateY(20px);
     transition: all 1.0s ease;
@@ -262,7 +262,7 @@ iframe {
 .imgEffect_fadeIn.is-active, .imgEffect_bottom_top.is-active {
     opacity: 1;
     transform: translateY(0);
-}
+}*/
 
 /* --- レスポンシブ対応（768px以下） --- */
 @media screen and (max-width: 768px) {
