@@ -8,10 +8,10 @@ document.addEventListener("DOMContentLoaded", function() {
             slides[currentSlide].classList.remove('active');
             currentSlide = (currentSlide + 1) % slides.length;
             slides[currentSlide].classList.add('active');
-        }, 4000); // 4秒ごとに切り替え
+        }, 4000);
     }
 
-    // 2. 中央のタイトル＆ロゴ（main-ttl.svg）をふんわり表示
+    // 2. 中央のタイトル＆ロゴ（ふんわり表示）
     setTimeout(() => {
         const keyvisualElements = document.querySelectorAll('.keyvisual-fadeIn');
         keyvisualElements.forEach(el => {
@@ -19,14 +19,15 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }, 500);
 
-    // 3. ナビゲーションのスクロール追従制御
+    // 3. ナビゲーションのスクロール追従制御（右側に常駐させる場合）
     const nav = document.getElementById('sticky-nav');
     const firstView = document.querySelector('.first-view');
 
     if (nav && firstView) {
         window.addEventListener('scroll', function() {
             const firstViewHeight = firstView.offsetHeight;
-            if (window.scrollY > firstViewHeight / 2) {
+            // ファーストビューを過ぎても右側に固定追従させ続ける場合
+            if (window.scrollY > firstViewHeight - 100) {
                 nav.classList.add('fixed');
             } else {
                 nav.classList.remove('fixed');
@@ -34,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // 4. ハンバーガーメニューの開閉制御
+    // 4. ハンバーガーメニューの開閉制御（スマホ用）
     const menuToggle = document.getElementById('menu-toggle');
     const navList = document.getElementById('nav-list');
 
@@ -53,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // 5. 各セクションのフェードイン監視（Intersection Observer）
+    // 5. 各セクションのフェードイン監視
     const targets = document.querySelectorAll('.imgEffect_fadeIn, .imgEffect_bottom_top');
     const options = {
         root: null,
