@@ -87,3 +87,123 @@ footer.foorer_free .footer_inner {
 @media screen and (max-width: 768px) {
     .modal_base_inner { width: 90%; padding: 40px 15px; }
 }
+
+
+
+/* 全体設定 */
+body {
+    font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", Meiryo, sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 60px 0;
+}
+
+/* タイトルフォント */
+.font_ttl {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 0.2em;
+    display: block;
+    margin-bottom: 20px;
+}
+
+/* 各セクションの余白と見た目 */
+#message, #profile, #countdown, #events, #rsvp {
+    text-align: center;
+    padding: 40px 0;
+}
+
+/* プロフィール設定 */
+.profile_inner ul {
+    display: inline-block;
+    width: 40%;
+    vertical-align: top;
+    margin: 20px;
+}
+
+.profile_inner .photo img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.and {
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+/* カウントダウン設定 */
+.count_number {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.count_number li {
+    background: #f7f7f7;
+    padding: 20px;
+    border-radius: 8px;
+    min-width: 80px;
+}
+
+/* イベント設定 */
+.event_content {
+    margin-bottom: 40px;
+}
+
+.event_time_box {
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+/* RSVPフォームエリア */
+.rsvp_content {
+    background: #fafafa;
+    padding: 40px;
+    border-radius: 12px;
+}
+
+iframe {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+/* レスポンシブ対応 */
+@media screen and (max-width: 768px) {
+    .profile_inner ul {
+        width: 100%;
+        margin: 20px 0;
+    }
+    
+    .count_number {
+        gap: 10px;
+    }
+    
+    .count_number li {
+        min-width: 50px;
+        padding: 10px;
+    }
+}
+
+
+
+/* アニメーション前の状態（HTMLの各要素にこれを設定） */
+.imgEffect_fadeIn {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1.0s ease;
+}
+
+/* クラスが付与された時の状態（JavaScriptで追加） */
+.imgEffect_fadeIn.is-active {
+    opacity: 1;
+    transform: translateY(0);
+}
