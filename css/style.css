@@ -1,100 +1,51 @@
 @charset "UTF-8";
 
-/* --- フォント定義の統合 --- */
+/* --- 1. 基本変数・リセット --- */
 :root {
     --font-heading: 'Google Sans', sans-serif;
     --font-base: 'Google Sans Text', 'Noto Sans JP', sans-serif;
 }
 
-/* --- ベーススタイル --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    outline: 0;
+}
+
+html, body {
+    width: 100%;
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
 body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    font-family: var(--font-base); /* 全体に適用 */
+    font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", Meiryo, sans-serif;
     color: #333;
     position: relative;
 }
 
 h1, h2, h3 {
-    font-family: var(--font-heading); /* 見出しのみGoogle Sansに変更 */
+    font-family: var(--font-heading);
     font-weight: 700;
 }
 
-/* --- (以下、既存のReset CSSやModal Stylesを記述) --- */
-
-
-
-/* --- 1. Reset CSS & Base Settings --- */
-*, *::before, *::after { box-sizing: border-box; }
-* { outline: 0; }
-
-html { font-size: 16px; }
-body {
+ul, ol {
+    list-style: none;
     margin: 0;
     padding: 0;
-    line-height: 1.6;
-    font-family: 游ゴシック, YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, sans-serif;
+}
+
+a {
+    text-decoration: none;
     color: #333;
-    position: relative;
+    transition: .25s;
 }
 
-/* 一括リセット */
-a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th,thead, time, tr, tt, u, ul, var, video {
-    margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline;
-}
-
-ul, ol { list-style: none; }
-table { border-collapse: collapse; border-spacing: 0; }
-a { text-decoration: none; color: #333; transition: .25s; }
-a:hover { opacity: 0.7; }
-
-/* --- 2. Common Utility Classes --- */
-.clearfix::after { content: "."; display: block; clear: both; height: 0; visibility: hidden; }
-.is_hidden { display: none; }
-.font-en { font-family: Roboto, Barlow, 'Open Sans', sans-serif; }
-.font-jn_mincyo { font-family: "游明朝体", "Yu Mincho", YuMincho, serif; }
-
-/* --- 3. Modal Styles --- */
-.modal-window {
-    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-    z-index: 999; opacity: 0; pointer-events: none;
-    transition: opacity .4s, transform .4s;
-    transform: translateY(100%);
-}
-.modal-window-active, .modal-window:target {
-    transform: translateY(0); opacity: 1; pointer-events: auto;
-}
-.modal_base_inner {
-    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-    width: 580px; padding: 60px 40px 40px; background-color: #fff; text-align: center;
-}
-
-/* --- 4. Login Screen --- */
-#login {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-    background-color: rgba(255,255,255,.95); z-index: 1000; text-align: center;
-}
-.login_form_part { width: 320px; margin: 0 auto; }
-.login_form_part input { width: 100%; height: 50px; border: 1px solid #999; border-radius: 4px; padding: 0 24px; }
-
-/* --- 5. Footer --- */
-footer.foorer_free .footer_inner {
-    width: 80%; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;
-}
-
-/* --- 6. Responsive Adjustments --- */
-@media screen and (max-width: 768px) {
-    .modal_base_inner { width: 90%; padding: 40px 15px; }
-}
-
-
-
-/* 全体設定 */
-body {
-    font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", Meiryo, sans-serif;
-    color: #333;
-    line-height: 1.6;
+a:hover {
+    opacity: 0.7;
 }
 
 .container {
@@ -104,114 +55,7 @@ body {
     padding: 60px 0;
 }
 
-/* タイトルフォント */
-.font_ttl {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 2rem;
-    letter-spacing: 0.2em;
-    display: block;
-    margin-bottom: 20px;
-}
-
-/* 各セクションの余白と見た目 */
-#message, #profile, #countdown, #events, #rsvp {
-    text-align: center;
-    padding: 40px 0;
-}
-
-/* プロフィール設定 */
-.profile_inner ul {
-    display: inline-block;
-    width: 40%;
-    vertical-align: top;
-    margin: 20px;
-}
-
-.profile_inner .photo img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.and {
-    margin: 20px 0;
-    font-weight: bold;
-}
-
-/* カウントダウン設定 */
-.count_number {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.count_number li {
-    background: #f7f7f7;
-    padding: 20px;
-    border-radius: 8px;
-    min-width: 80px;
-}
-
-/* イベント設定 */
-.event_content {
-    margin-bottom: 40px;
-}
-
-.event_time_box {
-    margin-top: 10px;
-    font-size: 0.9rem;
-}
-
-/* RSVPフォームエリア */
-.rsvp_content {
-    background: #fafafa;
-    padding: 40px;
-    border-radius: 12px;
-}
-
-iframe {
-    display: block;
-    margin: 0 auto;
-    max-width: 100%;
-}
-
-/* レスポンシブ対応 */
-@media screen and (max-width: 768px) {
-    .profile_inner ul {
-        width: 100%;
-        margin: 20px 0;
-    }
-    
-    .count_number {
-        gap: 10px;
-    }
-    
-    .count_number li {
-        min-width: 50px;
-        padding: 10px;
-    }
-}
-
-
-
-/* アニメーション前の状態（HTMLの各要素にこれを設定） */
-.imgEffect_fadeIn {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 1.0s ease;
-}
-
-/* クラスが付与された時の状態（JavaScriptで追加） */
-.imgEffect_fadeIn.is-active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
-
-
-/* --- ファーストビュー・スライドショー設定 --- */
+/* --- 2. ファーストビュー・スライドショー --- */
 .first-view {
     position: relative;
     width: 100%;
@@ -244,7 +88,7 @@ iframe {
     opacity: 1;
 }
 
-/* --- 中央のタイトルロゴ（ふんわり表示用） --- */
+/* --- 中央ロゴ --- */
 .cover_ttl_center {
     position: absolute;
     top: 50%;
@@ -270,7 +114,7 @@ iframe {
     transform: translateY(0);
 }
 
-/* --- ナビゲーション（初期：中腹右寄せ / スクロール時：追従） --- */
+/* --- ナビゲーション（通常 / 追従） --- */
 .temp-nav {
     position: absolute;
     top: 50%;
@@ -303,16 +147,13 @@ iframe {
     font-weight: 500;
     letter-spacing: 0.1em;
     color: #333;
-    transition: color 0.2s;
 }
 
 .temp-nav-list li a:hover {
     color: #cb838a;
 }
 
-
-
-/* --- ハンバーガーボタンの初期設定（PCでは非表示） --- */
+/* --- ハンバーガーボタン（初期非表示） --- */
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -331,23 +172,120 @@ iframe {
     transition: all 0.3s ease;
 }
 
-/* --- レスポンシブ対応（画面幅768px以下） --- */
+/* --- 各セクション --- */
+#introduction, #countdown, #events, #rsvp {
+    position: relative;
+    z-index: 2;
+    background-color: #fff;
+    text-align: center;
+    padding: 40px 0;
+}
+
+.font_ttl {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 0.2em;
+    display: block;
+    margin-bottom: 20px;
+}
+
+/* プロフィール */
+.profile_inner ul {
+    display: inline-block;
+    width: 40%;
+    vertical-align: top;
+    margin: 20px;
+}
+
+.profile_inner .photo img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.and {
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+/* カウントダウン */
+.count_number {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.count_number li {
+    background: #f7f7f7;
+    padding: 20px;
+    border-radius: 8px;
+    min-width: 80px;
+}
+
+/* イベント */
+.event_content {
+    margin-bottom: 40px;
+}
+
+.event_time_box {
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+/* RSVP */
+.rsvp_content {
+    background: #fafafa;
+    padding: 40px;
+    border-radius: 12px;
+}
+
+iframe {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+/* フェードインアニメーション */
+.imgEffect_fadeIn, .imgEffect_bottom_top {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1.0s ease;
+}
+
+.imgEffect_fadeIn.is-active, .imgEffect_bottom_top.is-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- レスポンシブ対応（768px以下） --- */
 @media screen and (max-width: 768px) {
-    /* ナビゲーション全体の配置を調整（右上固定など） */
+    .profile_inner ul {
+        width: 100%;
+        margin: 20px 0;
+    }
+    
+    .count_number {
+        gap: 10px;
+    }
+    
+    .count_number li {
+        min-width: 50px;
+        padding: 10px;
+    }
+
     .temp-nav {
         top: 15px !important;
         right: 15px !important;
         padding: 10px 15px;
     }
 
-    /* ハンバーガーボタンを表示 */
     .menu-toggle {
         display: flex;
     }
 
-    /* メニューリストを最初は非表示（あるいはスライドイン式に）にする */
     .temp-nav-list {
-        display: none; /* デフォルトは非表示 */
+        display: none;
         flex-direction: column;
         position: absolute;
         top: 50px;
@@ -359,12 +297,10 @@ iframe {
         border-radius: 8px;
     }
 
-    /* JavaScriptで 'is-open' クラスが付与されたら表示 */
     .temp-nav-list.is-open {
         display: flex;
     }
 
-    /* メニューが開いたときのハンバーガーボタンのアニメーション（バツ印化） */
     .menu-toggle.is-active span:nth-child(1) {
         transform: translateY(10px) rotate(45deg);
     }
