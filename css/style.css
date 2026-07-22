@@ -115,14 +115,14 @@ a:hover {
     transform: translateY(0);
 }
 
-/* --- ナビゲーション（初期：ファーストビュー中腹右寄り / スクロール時：画面右側に固定追従・背景なし・縦書き） --- */
+/* --- ナビゲーション（初期：ファーストビュー中腹右寄り / スクロール時：画面右側に固定追従・背景なし・縦書き・右から左へ並べ替え） --- */
 .temp-nav {
     position: absolute;
     top: 50%;
     right: 4%;
     transform: translateY(-50%);
     z-index: 10;
-    background: transparent; /* 背景色なし */
+    background: transparent;
     padding: 0;
     transition: all 0.3s ease;
 }
@@ -137,9 +137,9 @@ a:hover {
 
 .temp-nav-list {
     display: flex;
-    flex-direction: column; /* 縦並び */
-    gap: 15px;
-    align-items: center;
+    flex-direction: row-reverse; /* 項目を右から左へ並べる（TOPが右、RSVPが左） */
+    gap: 20px; /* 項目同士の間隔 */
+    align-items: flex-start;
 }
 
 .temp-nav-list li a {
@@ -147,8 +147,10 @@ a:hover {
     font-weight: 400;
     letter-spacing: 0.3em;
     color: #fff; /* 白文字 */
-    writing-mode: vertical-rl; /* 縦書き設定 */
+    writing-mode: vertical-rl; /* 各文字を縦書き（上から下）にする */
     text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+    display: block;
+    text-align: left;
 }
 
 .temp-nav-list li a:hover {
