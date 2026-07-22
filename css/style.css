@@ -145,9 +145,10 @@ a:hover {
 .temp-nav-list li a {
     font-size: 0.75rem;
     font-weight: 400;
-    letter-spacing: 0.3em;
-    color: #fff; /* 白文字 */
-    writing-mode: vertical-rl; /* 各文字を縦書き（上から下）にする */
+    letter-spacing: 0.2em;
+    color: #fff;
+    writing-mode: vertical-rl; /* 縦書きにする */
+    text-orientation: upright; /* アルファベットを1文字ずつ直立（縦向き）させる */
     text-shadow: 0 1px 3px rgba(0,0,0,0.6);
     display: block;
     text-align: left;
