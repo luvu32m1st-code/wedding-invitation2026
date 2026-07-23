@@ -5,6 +5,11 @@
     outline: 0;
 }
 
+body {
+    background-image: url(/img//pattern_weed.jpg);
+    background-repeat: repeat;
+}
+
 html, body {
     width: 100%;
     height: auto;
@@ -39,6 +44,16 @@ a:hover {
     margin: 0 auto;
     padding: 60px 0;
 }
+
+#events .font_ttl, #message .font_ttl, #profile .font_ttl, #rsvp .font_ttl {
+    display: none;
+    text-align: center;
+}
+dd, dt, ol, p, span, ul {
+    line-height: 1.6;
+}
+
+
 
 /* --- ファーストビュー・スライドショー設定 --- */
 .first-view {
@@ -89,19 +104,38 @@ a:hover {
 }
 
 .cover_svg img {
-    max-width: 60px; /* SVGロゴを小さめに調整 */
-    width: 100%;
-    height: auto;
-    margin-bottom: 15px;
+    height: 125px;
+    width: 150px;
 }
 
 .cover_ttl_center h1 {
     color: #fff;
-    font-size: 1.8rem; /* やや大きめ */
-    letter-spacing: 0.25em;
-    font-family: 'Google Sans', sans-serif;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.4);
-    white-space: nowrap; /* 改行させずに横並びを維持 */
+    font-family: Cormorant Garamond, sans-serif;
+    font-size: 50px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    line-height: 1.2;
+    background-size: cover;
+    height: 200px;
+    left: 50%;
+    position: absolute;
+    top: 47%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 670px;
+    z-index: 1;
+}
+
+.cover_ttl_center h1::before {
+    background-image:url(/img/keyvisual-hanko.svg) no-repeat 50%;
+    background-size: contain;
+    content: "";
+    height: 103px;
+    left: 58%;
+    position: absolute;
+    top: -17px;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    z-index: 10;
 }
 
 .keyvisual-fadeIn {
@@ -117,22 +151,11 @@ a:hover {
 
 /* --- ナビゲーション（初期：ファーストビュー中腹右寄り / スクロール時：画面右側に固定追従・背景なし・縦書き・右から左へ並べ替え） --- */
 .temp-nav {
-    position: absolute;
-    top: 50%;
-    right: 4%;
-    transform: translateY(-50%);
-    z-index: 10;
-    background: transparent;
-    padding: 0;
-    transition: all 0.3s ease;
-}
-
-.temp-nav.fixed {
     position: fixed;
+    right: 62px;
     top: 50%;
-    right: 4%;
     transform: translateY(-50%);
-    background: transparent;
+    z-index: 999;
 }
 
 .temp-nav-list {
@@ -146,10 +169,10 @@ a:hover {
     font-size: 0.75rem;
     font-weight: 400;
     letter-spacing: 0.2em;
-    color: #fff;
+    color: #333;
+    opacity: 1;
     writing-mode: vertical-rl; /* 縦書きにする */
     text-orientation: upright; /* アルファベットを1文字ずつ直立（縦向き）させる */
-    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
     display: block;
     text-align: left;
 }
@@ -197,6 +220,23 @@ a:hover {
     margin-bottom: 20px;
 }
 
+#message {
+    padding: 150px 0 113px;
+    position: relative;
+    margin: 0 auto;
+}
+
+#introduction h2 {
+    background-image: url(/img/message_title.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 319px;
+    margin: 0 auto 80px;
+    width: 58px;
+}
+
+
+
 /* プロフィール */
 .profile_inner ul {
     display: inline-block;
@@ -218,22 +258,115 @@ a:hover {
 }
 
 /* カウントダウン */
-.count_number {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+#countdown {
+    margin-bottom: 150px;
 }
 
-.count_number li {
-    background: #f7f7f7;
-    padding: 20px;
-    border-radius: 8px;
-    min-width: 80px;
+#countdown .countdown_inner {
+    background: url(/img/countdown_bg.jpg) repeat;
+    background-attachment: fixed;
+    padding: 130px 0 63px;
 }
+
+#countdown h2 {
+    background-image: url(/img/countdown_title.png);
+    background-size: cover;
+    height: 344px;
+    margin: 0 auto 70px;
+    width: 99px;
+    font-size: 4.375rem;
+}
+
+#countdown h2 span {
+    display: none;
+}
+
+#countdown .goal_time {
+    font-family: Ovo, serif;
+    font-size: 55px;
+    letter-spacing: .2em;
+    margin: 0 auto 8px;
+    position: relative;
+    width: -moz-max-content;
+    width: max-content;
+}
+
+#countdown .goal_time:before {
+    left: -67px;
+    background-color: #000;
+    content: "";
+    display: block;
+    height: 68px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2px;
+}
+
+.index #countdown .goal_time:after {
+    right: -57px;
+    background-color: #000;
+    content: "";
+    display: block;
+    height: 68px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2px;
+}
+
+#countdown .count_number {
+    display: flex;
+    height: 290px;
+    justify-content: space-between;
+    max-width: 900px;
+    position: relative;
+}
+
+.cf {
+    zoom: 1;
+}
+
+.cf:before {
+    content: "";
+    display: block;
+    overflow: hidden;
+}
+
+.cf:after {
+    clear: both;
+}
+
+#countdown .count_number li {
+    padding-top: 48px;
+    width: 166px;
+}
+
+#countdown .count_number .n-number {
+    font-family: Ovo, sans-serif;
+    font-size: 100px;
+    margin-bottom: -24px;
+    margin-left: 0;
+}
+
+#countdown .count_number .dhms {
+    font-family: Ovo, sans-serif;
+    font-size: 23px;
+    letter-spacing: .05em;
+    margin-right: 0;
+}
+
+#countdown .count_number li:last-of-type {
+    margin-right: 0;
+}
+
+
+
 
 /* イベント */
 .event_content {
     margin-bottom: 40px;
+    width: 48.125%;
 }
 
 .event_time_box {
@@ -241,12 +374,263 @@ a:hover {
     font-size: 0.9rem;
 }
 
-/* RSVP */
-.rsvp_content {
-    background: #fafafa;
-    padding: 40px;
-    border-radius: 12px;
+#events .events_inner {
+    background-color: #fff;
+    max-width: 1580px;
+    padding: 120px 0 92px;
+    width: 82.2916666667%;
 }
+
+#events h2 {
+    background-image: url(/img/events_title.png);
+    background-size: cover;
+    height: 27px;
+    margin: 0 auto 103px;
+    width: 200px;    
+}
+
+#events .event_content_wrap {
+    max-width: 960px;
+}
+
+#events .event01 {
+    float: left;
+}
+
+#events .events_daytime {
+    margin-bottom: 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .16);
+    padding-top: 146.5367965368%;
+    position: relative;
+}
+
+.index #events .events_daytime_1 {
+    background-image: url(/img/events_daytime_1.jpg);
+}
+
+#events .events_daytime .event_title {
+    left: 50%;
+    position: absolute;
+    top: 11%;
+    transform: translateX(-50%);
+}
+
+#events h3 {
+    font-family: Cormorant Infant, sans-serif;
+    font-size: 29px;
+    letter-spacing: .11em;
+    line-height: 31px;
+}
+
+#events h3 span {
+    box-sizing: border-box;
+    display: block;
+    font-family: "Noto Serif JP", sans-serif;
+    font-size: 50px;
+    height: 231.5px;
+    letter-spacing: .15em;
+    margin: 0 auto;
+    text-align: left;
+    text-orientation: upright;
+    writing-mode: vertical-rl;
+}
+
+#events .event01 h3 span {
+    padding-top: 30px;
+}
+
+#events .events_daytime .event_day {
+    left: 50%;
+    position: absolute;
+    top: 68%;
+    transform: translateX(-50%);
+    width: 100%;
+}
+
+#events .events_daytime .event_day p {
+    font-family: Ovo, sans-serif;
+    font-size: 45px;
+    letter-spacing: .05em;
+}
+
+#events .events_daytime .event_time_box {
+    display: flex;
+    justify-content: center;
+    left: 50%;
+    position: absolute;
+    top: 80.9%;
+    transform: translateX(-50%);
+    width: 100%;
+}
+
+#events .events_daytime .event_time_box li {
+    margin: 0 58px;
+}
+
+#events .events_daytime .event_time_box p {
+    font-family: "Noto Serif JP", sans-serif;
+    font-size: 17px;
+    letter-spacing: .1em;
+}
+
+#events .events_daytime .event_time_box p span {
+    display: block;
+    font-family: Ovo, sans-serif;
+    font-size: 30px;
+    letter-spacing: .05em;
+    margin-top: -2px;
+}
+
+.index #events .event02 {
+    float: right;
+}
+
+#events .events_daytime_2 {
+    background-image: url(/img/events_daytime_2.jpg);
+}
+
+#events .event_party {
+    padding-top: calc(70.52083% + 58px);
+    width: 100%;
+}
+
+
+
+/* 会場案内 */
+#layout3 .index #events .events_place {
+    padding: 0 5%;
+}
+
+#events .events_place li {
+    width: 100%;
+}
+
+.index #events .events_place .place_name p {
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: .1em;
+    margin-bottom: 18px;
+}
+
+#events .events_place p {
+    font-family: "Noto Serif JP", 游ゴシック, YuGothic, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+#events .events_place li a {
+    word-wrap: break-word;
+}
+
+a:link {
+    color: #333;
+    text-decoration: none;
+    word-break: break-all;
+}
+
+#events .events_place .place_googlemap {
+    margin-bottom: 25px;
+    text-align: right;
+}
+
+#events .events_place .place_googlemap .googlemap_img {
+    background-color: #ccc;
+    height: 247px;
+    margin-bottom: 2px;
+}
+
+#events .events_place .place_googlemap a:link {
+    color: inherit;
+}
+
+#events .events_place .cloak {
+    border-top: 1px solid #999;
+    padding-bottom: 7px;
+}
+
+#events .events_place .cloak h4 {
+    font-family: "Noto Serif JP", 游ゴシック, YuGothic, sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: .1em;
+    margin: 18px 0 10px;
+    text-align: left;
+}
+
+#events .events_place .cloak h4:before {
+    content: "■";
+}
+
+#events .events_place .cloak p {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.5333333333;
+    text-align: left;
+}
+
+
+
+
+/* RSVP */
+#rsvp {
+    padding: 200px 0 37px;
+}
+
+#rsvp .rsvp_bg {
+    background-color: #fff;
+    max-width: 900px;
+    padding-bottom: 97px;
+    width: 72.5%;
+}
+
+#rsvp .rsvp_content {
+    padding-top: 174px;
+    position: relative;
+    width: 71.8888888889%;
+}
+
+#rsvp .rsvp_content h2 {
+    background-image: url(/img/rsvp_title.png);
+    background-size: cover;
+    height: 137px;
+    left: 50%;
+    position: absolute;
+    top: -21px;
+    transform: translateX(-50%);
+    width: 203px;
+}
+
+.index #rsvp .rsvp_content .rsvp_deadline, .index #rsvp .rsvp_content .rsvp_text {
+    font-family: "Noto Serif JP", sans-serif;
+    font-size: 18px;
+    letter-spacing: .1em;
+    line-height: 30px;
+}
+
+#rsvp .rsvp_content .rsvp_text {
+    margin-bottom: 49px;
+}
+
+#rsvp .rsvp_content .rsvp_deadline {
+    font-weight: 500;
+    margin-bottom: 72px;
+}
+
+ #rsvp .rsvp_content .rsvp_deadline .deadline_day {
+    font-size: 33px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    line-height: 1;
+}
+
+
+
+
 
 iframe {
     display: block;
@@ -327,5 +711,50 @@ iframe {
     }
     .menu-toggle.is-active span:nth-child(3) {
         transform: translateY(-10px) rotate(-45deg);
+    }
+}
+
+
+
+
+#loader-bg {
+    background: url(/img/invitation/yui/countdown_bg.jpg);
+    background-repeat: repeat;
+    height: 100vh;
+    left: 0;
+    opacity: 1;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+#loader-bg .loader-img {
+    animation: load3 5s linear infinite;
+    background: url(/img/invitation/yui/pc/gold/flower.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: block;
+    height: 100px;
+    left: calc(50% - 45px);
+    position: absolute;
+    top: calc(50% - 67.5px);
+    width: 100px;
+    z-index: 10000;
+}
+
+@media screen and (max-width: 1160px) {
+    #loader-bg .loader-img {
+        height: 71px;
+        width: 71px;
+    }
+}
+
+@keyframes load3 {
+    0% {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(1turn);
     }
 }

@@ -14,6 +14,13 @@
 </head>
 <body id="main">
 
+    <!-- ローディング画面 -->
+    <div id="loader-bg">
+        <div class="loader-progress-bar"></div>
+        <div id="loader"></div>
+        <div class="loader-img"></div>
+    </div>
+
     <!-- ファーストビュー（全画面スライドショー ＆ 中央ロゴ） -->
     <div class="first-view">
         <div class="main_img_slider">
@@ -54,8 +61,7 @@
         <div class="introduction_inner container">
             <div id="message">
                 <div class="message_inner">
-                    <img src="img/message_title.svg">
-                    <h2 class="imgEffect_fadeIn"><span class="font_ttl">MESSAGE</span></h2>
+                    <h2 class="imgEffect_fadeIn"></h2>
                     <p class="imgEffect_fadeIn">皆様いかがお過ごしでしょうか<br>
                     このたび 結婚式を<br>
                     執り行うこととなりました<br><br>
@@ -102,7 +108,9 @@
     <div id="countdown">
         <div class="countdown_inner container">
             <div class="countdown_content">
-                <h2><span class="font_ttl">COUNTDOWN</span></h2>
+                <h2>
+                    <span class="font_ttl">COUNTDOWN</span>
+                </h2>
                 <p class="goal_time" id="countdown_date" data-datetime="1921637700">2030.11.23</p>
                 <ul class="count_number cf">
                     <li class="days"><p class="n-number" id="countdown_days">1629</p><p class="dhms">DAYS</p></li>
@@ -116,7 +124,9 @@
 
     <div id="events">
         <div class="events_inner container cf">
-            <h2 class="imgEffect_bottom_top"><span class="font_ttl">EVENTS</span></h2>
+            <h2 class="imgEffect_bottom_top">
+                <span class="font_ttl">EVENTS</span>
+            </h2>
             <div class="event_content_wrap">
                 <div class="event_content event01 imgEffect_bottom_top">
                     <ul class="events_daytime events_daytime_1">

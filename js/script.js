@@ -1,3 +1,17 @@
+window.addEventListener('load', function() {
+    const loaderBg = document.getElementById('loader-bg');
+    if (loaderBg) {
+        // ふわっと消すためのスタイルを追加
+        loaderBg.style.transition = 'opacity 0.8s ease';
+        loaderBg.style.opacity = '0';
+        
+        // 完全に非表示にする
+        setTimeout(() => {
+            loaderBg.style.display = 'none';
+        }, 800); // 0.8秒後にdisplay: none;にする
+    }
+});
+
 document.addEventListener("DOMContentLoaded", function() {
     // 1. ファーストビューの画像スライドショー
     const slides = document.querySelectorAll('.main_img_slider .slide');
