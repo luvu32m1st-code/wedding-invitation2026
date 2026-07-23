@@ -5,6 +5,10 @@
     outline: 0;
 }
 
+div, ul {
+    margin: 0 auto;
+}
+
 body {
     background-image: url(/img//pattern_weed.jpg);
     background-repeat: repeat;
@@ -108,21 +112,16 @@ dd, dt, ol, p, span, ul {
     width: 150px;
 }
 
-.cover_ttl_center h1 {
+ #main h1 span {
     color: #fff;
+    display: block;
     font-family: Cormorant Garamond, sans-serif;
     font-size: 50px;
     font-weight: 700;
     letter-spacing: .1em;
     line-height: 1.2;
-    background-size: cover;
-    height: 200px;
-    left: 50%;
-    position: absolute;
-    top: 47%;
-    transform: translateX(-50%) translateY(-50%);
-    width: 670px;
-    z-index: 1;
+    margin-top: 5px;
+    position: relative;
 }
 
 .cover_ttl_center h1::before {
@@ -483,7 +482,7 @@ dd, dt, ol, p, span, ul {
     margin-top: -2px;
 }
 
-.index #events .event02 {
+#events .event02 {
     float: right;
 }
 
@@ -628,15 +627,13 @@ a:link {
     line-height: 1;
 }
 
-
-
-
-
 iframe {
     display: block;
     margin: 0 auto;
     max-width: 100%;
 }
+
+
 
 /* フェードインアニメーション */
 .imgEffect_fadeIn, .imgEffect_bottom_top {
