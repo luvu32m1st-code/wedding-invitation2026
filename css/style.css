@@ -194,15 +194,15 @@ dd, dt, ol, p, span, ul {
     animation-name: fadeInAnime;
 }
 
-.keyvisual-fadeIn.is-active {
+.keyvisual-fadeIn .is-active {
     visibility: visible;
 }
 
-.cover_svg.keyvisual-fadeIn.is-active {
+.cover_svg .keyvisual-fadeIn .is-active {
     animation-delay: .5s;
 }
 
-h1.cover_ttl_center > span.keyvisual-fadeIn.is-active {
+#main h1 span .keyvisual-fadeIn .is-active {
     animation-delay: 2s !important;
 }
 
