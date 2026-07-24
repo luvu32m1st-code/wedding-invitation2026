@@ -250,7 +250,7 @@ dd, dt, ol, p, span, ul {
 }
 
 /* コンテンツエリア */
-#introduction, #countdown, #events, #rsvp {
+#introduction {
     position: relative;
     z-index: 2;
     background-color: #fff;
@@ -326,7 +326,11 @@ dd, dt, ol, p, span, ul {
     background-attachment: fixed;
     padding: 130px 0 100px;
     margin-bottom: 150px;
-    padding: 0;
+    position: relative;
+    z-index: 2;
+    background-color: #fff;
+    text-align: center;
+    padding: 40px 0;
 }
 
 #countdown .countdown_inner {
@@ -431,7 +435,14 @@ dd, dt, ol, p, span, ul {
 /* イベント */
 #events {
     width: 82.2916666667%;
+    position: relative;
+    z-index: 2;
+    background-color: #fff;
+    text-align: center;
+    padding: 40px 0;
 }
+
+
 
 .event_content {
     margin-bottom: 40px;
@@ -648,6 +659,9 @@ a:link {
 /* RSVP */
 #rsvp {
     padding: 200px 0 37px;
+    position: relative;
+    z-index: 2;
+    text-align: center;
 }
 
 #rsvp .rsvp_bg {
