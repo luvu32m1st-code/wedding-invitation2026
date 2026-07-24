@@ -497,16 +497,16 @@ dd, dt, ol, p, span, ul {
 #events .events_daytime .event_title {
     left: 50%;
     position: absolute;
-    top: 11%;
+    top: 9%;
     transform: translateX(-50%);
 }
 
 #events h3 {
-    font-family: Cormorant Infant !important;
+    font: inherit;
+    font-family: Garamond;
     font-size: 29px;
     letter-spacing: .11em;
     line-height: 31px;
-    font: inherit;
 }
 
 #events h3 span {
