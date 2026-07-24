@@ -502,7 +502,7 @@ dd, dt, ol, p, span, ul {
 }
 
 #events h3 {
-    font-family: Cormorant Infant, sans-serif;
+    font-family: Cormorant Infant !important;
     font-size: 29px;
     letter-spacing: .11em;
     line-height: 31px;
@@ -511,7 +511,7 @@ dd, dt, ol, p, span, ul {
 #events h3 span {
     box-sizing: border-box;
     display: block;
-    font-family: "Noto Serif JP", sans-serif;
+    font-family: "Noto Serif JP" !important;
     font-size: 50px;
     height: 231.5px;
     letter-spacing: .15em;
@@ -534,7 +534,7 @@ dd, dt, ol, p, span, ul {
 }
 
 #events .events_daytime .event_day p {
-    font-family: Ovo, sans-serif;
+    font-family: Ovo !important;
     font-size: 45px;
     letter-spacing: .05em;
 }
