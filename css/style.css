@@ -10,7 +10,7 @@ div, ul {
 }
 
 body {
-    background-image: url(/img//pattern_weed.jpg);
+    background-image: url(/img/pattern_weed.jpg);
     background-repeat: repeat;
 }
 
@@ -34,7 +34,7 @@ ul, ol {
 
 a {
     text-decoration: none;
-    color: #fff; /* ファーストビュー背景画像の上で見やすいよう白に設定 */
+    color: #fff;
     transition: .25s;
 }
 
@@ -51,10 +51,22 @@ a:hover {
     display: none;
     text-align: center;
 }
+
 dd, dt, ol, p, span, ul {
     line-height: 1.6;
 }
 
+.cf {
+    zoom: 1;
+}
+.cf:before {
+    content: "";
+    display: block;
+    overflow: hidden;
+}
+.cf:after {
+    clear: both;
+}
 
 
 /* --- ローディング画面スタイル --- */
@@ -92,14 +104,9 @@ dd, dt, ol, p, span, ul {
 }
 
 @keyframes load3 {
-    0% {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(1turn);
-    }
+    0% { transform: rotate(0deg); }
+    to { transform: rotate(1turn); }
 }
-
 
 
 /* --- ファーストビュー・スライドショー設定 --- */
@@ -139,7 +146,8 @@ dd, dt, ol, p, span, ul {
     visibility: visible;
 }
 
-/* --- 中央のタイトル＆ロゴ（小さめSVG ＆ 横並び大きめh1） --- */
+
+/* --- 中央のタイトル＆ロゴ --- */
 #main h1 {
     background-size: cover;
     height: 200px;
@@ -164,7 +172,7 @@ dd, dt, ol, p, span, ul {
     width: 150px;
 }
 
- #main h1 span {
+#main h1 span {
     color: #fff;
     display: block;
     font-family: 'Cormorant Garamond', 'Noto Serif JP', serif;
@@ -186,28 +194,29 @@ dd, dt, ol, p, span, ul {
     z-index: 10;
 }
 
+/* ファーストビューアニメーション */
 .keyvisual-fadeIn {
     opacity: 0;
-    /* visibility: hidden; */
+    visibility: hidden;
     animation-duration: 2s;
     animation-fill-mode: forwards;
     animation-name: fadeInAnime;
 }
 
-.keyvisual-fadeIn .is-active {
-    visibility: visible;
+.keyvisual-fadeIn.is-active {
+    visibility: visible !important;
 }
 
-.cover_svg .keyvisual-fadeIn .is-active {
+.cover_svg.keyvisual-fadeIn.is-active {
     animation-delay: .5s;
 }
 
-#main h1 span .keyvisual-fadeIn .is-active {
+#main h1 span.keyvisual-fadeIn.is-active {
     animation-delay: 2s !important;
 }
 
 
-/* --- ナビゲーション（初期：ファーストビュー中腹右寄り / スクロール時：画面右側に固定追従・背景なし・縦書き・右から左へ並べ替え） --- */
+/* --- ナビゲーション --- */
 .temp-nav {
     position: fixed;
     right: 62px;
@@ -218,8 +227,8 @@ dd, dt, ol, p, span, ul {
 
 .temp-nav-list {
     display: flex;
-    flex-direction: row-reverse; /* 項目を右から左へ並べる（TOPが右、RSVPが左） */
-    gap: 20px; /* 項目同士の間隔 */
+    flex-direction: row-reverse;
+    gap: 20px;
     align-items: flex-start;
 }
 
@@ -234,8 +243,8 @@ dd, dt, ol, p, span, ul {
     letter-spacing: 0.2em;
     color: #333;
     opacity: 1;
-    writing-mode: vertical-rl; /* 縦書きにする */
-    text-orientation: upright; /* アルファベットを1文字ずつ直立（縦向き）させる */
+    writing-mode: vertical-rl;
+    text-orientation: upright;
     display: block;
     text-align: left;
 }
@@ -244,7 +253,6 @@ dd, dt, ol, p, span, ul {
     color: #ff3b18;
 }
 
-/* --- ハンバーガーメニューボタン（初期非表示） --- */
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -262,21 +270,18 @@ dd, dt, ol, p, span, ul {
     transition: all 0.3s ease;
 }
 
-/* コンテンツエリア */
+
+/* --- コンテンツ共通・各セクション --- */
 #introduction {
     position: relative;
     z-index: 2;
     background-color: #fff;
     text-align: center;
-    padding: 40px 0;
-}
-
-#introduction {
     padding: 0;
 }
 
 #introduction a, #countdown a, #events a, #rsvp a {
-    color: #333; /* 下層セクションでは通常の文字色に戻す */
+    color: #333;
 }
 
 .font_ttl {
@@ -312,7 +317,6 @@ dd, dt, ol, p, span, ul {
 }
 
 
-
 /* プロフィール */
 .profile_inner ul {
     display: inline-block;
@@ -332,6 +336,7 @@ dd, dt, ol, p, span, ul {
     margin: 20px 0;
     font-weight: bold;
 }
+
 
 /* カウントダウン */
 #countdown {
@@ -369,7 +374,6 @@ dd, dt, ol, p, span, ul {
     letter-spacing: .2em;
     margin: 0 auto;
     position: relative;
-    width: -moz-max-content;
     width: max-content;
 }
 
@@ -385,19 +389,14 @@ dd, dt, ol, p, span, ul {
     width: 2px;
 }
 
-#countdown .goal_time:after {
-    right: -57px;
-}
-
-#countdown .goal_time:before {
-    left: -67px;
-}
+#countdown .goal_time:after { right: -57px; }
+#countdown .goal_time:before { left: -67px; }
 
 #countdown .count_number {
     display: flex;
     height: 290px;
     justify-content: space-between;
-    align-items: center; /* 縦方向の中央に配置する設定 */
+    align-items: center;
     max-width: 900px;
     margin: 0 auto;
     position: relative;
@@ -405,22 +404,8 @@ dd, dt, ol, p, span, ul {
 
 #countdown .count_number li {
     width: 166px;
-    padding-top: 0; /* 上部の余分なパディングをリセット */
+    padding-top: 0;
     text-align: center;
-}
-
-.cf {
-    zoom: 1;
-}
-
-.cf:before {
-    content: "";
-    display: block;
-    overflow: hidden;
-}
-
-.cf:after {
-    clear: both;
 }
 
 #countdown .count_number .n-number {
@@ -441,8 +426,6 @@ dd, dt, ol, p, span, ul {
 #countdown .count_number li:last-of-type {
     margin-right: 0;
 }
-
-
 
 
 /* イベント */
@@ -482,13 +465,11 @@ dd, dt, ol, p, span, ul {
     max-width: 960px;
 }
 
-#events .event01 {
-    float: left;
-}
+#events .event01 { float: left; }
+#events .event02 { float: right; }
 
-#events .events_daytime_1 {
-    background-image: url(/img/events_daytime_1.jpg);
-}
+#events .events_daytime_1 { background-image: url(/img/events_daytime_1.jpg); }
+#events .events_daytime_2 { background-image: url(/img/events_daytime_2.jpg); }
 
 #events .events_daytime {
     margin-bottom: 0;
@@ -584,19 +565,10 @@ dd, dt, ol, p, span, ul {
     margin-top: -2px;
 }
 
-#events .event02 {
-    float: right;
-}
-
-#events .events_daytime_2 {
-    background-image: url(/img/events_daytime_2.jpg);
-}
-
 #events .event_party {
     padding-top: calc(70.52083% + 58px);
     width: 100%;
 }
-
 
 
 /* 会場案内 */
@@ -615,7 +587,8 @@ dd, dt, ol, p, span, ul {
     margin-bottom: 18px;
 }
 
-#events .events_place p {
+#events .events_place p,
+#events .events_place .cloak p {
     font-family: "Noto Serif JP", 游ゴシック, YuGothic, sans-serif;
     font-size: 16px;
     font-weight: 500;
@@ -624,10 +597,7 @@ dd, dt, ol, p, span, ul {
     text-align: left;
 }
 
-#events .events_place li a {
-    word-wrap: break-word;
-}
-
+#events .events_place li a,
 a:link {
     color: #333;
     text-decoration: none;
@@ -643,10 +613,6 @@ a:link {
     background-color: #ccc;
     height: 247px;
     margin-bottom: 2px;
-}
-
-#events .events_place .place_googlemap a:link {
-    color: inherit;
 }
 
 #events .events_place .cloak {
@@ -666,15 +632,6 @@ a:link {
 #events .events_place .cloak h4:before {
     content: "■";
 }
-
-#events .events_place .cloak p {
-    font-size: 15px;
-    font-weight: 500;
-    line-height: 1.5333333333;
-    text-align: left;
-}
-
-
 
 
 /* RSVP */
@@ -726,7 +683,7 @@ a:link {
     margin-bottom: 72px;
 }
 
- #rsvp .rsvp_content .rsvp_deadline .deadline_day {
+#rsvp .rsvp_content .rsvp_deadline .deadline_day {
     font-size: 33px;
     font-weight: 700;
     letter-spacing: .1em;
@@ -740,18 +697,20 @@ iframe {
 }
 
 
-
-/* フェードインアニメーション */
-.imgEffect_fadeIn, .imgEffect_bottom_top {
+/* --- スクロールフェードインアニメーション --- */
+.imgEffect_fadeIn, .imgEffect_bottom_top, .imgEffect_bottom_top-one-quarter {
     opacity: 0;
     transform: translateY(20px);
     transition: all 2.0s ease;
 }
 
-.imgEffect_fadeIn.is-active, .imgEffect_bottom_top.is-active {
+.imgEffect_fadeIn.is-active, 
+.imgEffect_bottom_top.is-active, 
+.imgEffect_bottom_top-one-quarter.is-active {
     opacity: 1;
     transform: translateY(0);
 }
+
 
 /* --- レスポンシブ対応（768px以下） --- */
 @media screen and (max-width: 768px) {
@@ -770,7 +729,7 @@ iframe {
     }
 
     .cover_ttl_center h1 {
-        font-size: 1.2rem; /* スマホではサイズ調整 */
+        font-size: 1.2rem;
     }
 
     .temp-nav {
@@ -794,7 +753,7 @@ iframe {
         padding: 20px;
         box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         border-radius: 8px;
-        writing-mode: horizontal-tb; /* スマホの展開時は横書きに戻す */
+        writing-mode: horizontal-tb;
     }
 
     .temp-nav-list li a {
@@ -816,7 +775,3 @@ iframe {
         transform: translateY(-10px) rotate(-45deg);
     }
 }
-
-
-
-

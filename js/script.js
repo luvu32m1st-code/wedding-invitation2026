@@ -1,16 +1,21 @@
-window.addEventListener('load', function() {
-    const loaderBg = document.getElementById('loader-bg');
-    if (loaderBg) {
-        loaderBg.style.transition = 'opacity 0.8s ease';
-        loaderBg.style.opacity = '0';
-        setTimeout(() => {
-            loaderBg.style.display = 'none';
-        }, 800);
-    }
+// 1. ローディング画面の制御
+$(function() {
+    var h = $(window).height();
+    var w = $(window).width();
+    $('#loader-bg ,#loader').width(w).height(h).css('display','block');
 });
 
+$(window).on('load', function () {
+    stopload();
+});
+
+function stopload(){
+    $('#loader-bg').delay(800).fadeOut(800);
+    $('#loader').delay(600).fadeOut(300);
+}
+
 document.addEventListener("DOMContentLoaded", function() {
-    // 1. ファーストビューの画像スライドショー
+    // 2. ファーストビューの画像スライドショー
     const slides = document.querySelectorAll('.main_img_slider .slide');
     let currentSlide = 0;
 
@@ -22,15 +27,15 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 4000);
     }
 
-    // 2. 中央のタイトル＆ロゴ（ふんわり表示）
+    // 3. 中央のタイトル＆ロゴ（ふんわり表示）
     setTimeout(() => {
         const keyvisualElements = document.querySelectorAll('.keyvisual-fadeIn');
         keyvisualElements.forEach(el => {
             el.classList.add('is-active');
         });
-    }, 800);
+    }, 500);
 
-    // 3. ナビゲーションのスクロール追従制御
+    // 4. ナビゲーションのスクロール追従制御
     const nav = document.getElementById('sticky-nav');
     const firstView = document.querySelector('.first-view');
 
@@ -45,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // 4. ハンバーガーメニューの開閉制御（スマホ用）
+    // 5. ハンバーガーメニューの開閉制御（スマホ用）
     const menuToggle = document.getElementById('menu-toggle');
     const navList = document.getElementById('nav-list');
 
@@ -64,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // 5. 挙式日（2026年8月23日 日本時間）までの自動カウントダウン
+    // 6. 挙式日までの自動カウントダウン
     function updateCountdown() {
         const targetDate = new Date('2026-08-23T00:00:00+09:00').getTime();
         const now = new Date().getTime();
@@ -95,26 +100,83 @@ document.addEventListener("DOMContentLoaded", function() {
 
     updateCountdown();
     setInterval(updateCountdown, 1000);
+});
 
-    // 6. 各セクションのフェードイン監視
-    const targets = document.querySelectorAll('.imgEffect_fadeIn, .imgEffect_bottom_top');
-    const options = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.2
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-active');
-                entry.target.style.visibility = 'visible';
-            }
+// 7. スクロール時のフェードインアニメーション（ご提示いただいた分岐ロジック）
+$(document).ready(function(){
+    if (window.matchMedia( '(min-width: 481px)' ).matches) {
+        $('.imgEffect_fadeIn').css('visibility','hidden');
+        $('.imgEffect_bottom_top').css('visibility','hidden');
+        $('.imgEffect_bottom_top-one-quarter').css('visibility','hidden');
+        
+        $(window).scroll(function(){
+            var windowHeight = $(window).height(),
+            topWindow = $(window).scrollTop();
+            
+            $('.imgEffect_fadeIn').each(function(){
+                var objectPosition = $(this).offset().top,
+                objectHeight = $(this).outerHeight(),
+                objectIgnition = objectPosition + objectHeight / 2;
+                if(topWindow > objectIgnition - windowHeight + 0){
+                    $(this).addClass("is-active");
+                    $(this).css('visibility', 'visible');
+                }
+            });
+            $('.imgEffect_bottom_top').each(function(){
+                var objectPosition = $(this).offset().top,
+                objectHeight = $(this).outerHeight(),
+                objectIgnition = objectPosition + objectHeight / 2;
+                if(topWindow > objectIgnition - windowHeight + 0){
+                    $(this).addClass("is-active");
+                    $(this).css('visibility', 'visible');
+                }
+            });
+            $('.imgEffect_bottom_top-one-quarter').each(function(){
+                var objectPosition = $(this).offset().top,
+                objectHeight = $(this).outerHeight(),
+                objectIgnition = objectPosition + objectHeight / 4;
+                if(topWindow > objectIgnition - windowHeight + 0){
+                    $(this).addClass("is-active");
+                    $(this).css('visibility', 'visible');
+                }
+            });
         });
-    }, options);
-
-    targets.forEach(target => {
-        target.style.visibility = 'hidden';
-        observer.observe(target);
-    });
+    } else {
+        $('.imgEffect_fadeIn').css('visibility','hidden');
+        $('.imgEffect_bottom_top').css('visibility','hidden');
+        $('.imgEffect_bottom_top-one-quarter').css('visibility','hidden');
+        
+        $(window).scroll(function(){
+            var windowHeight = $(window).height(),
+            topWindow = $(window).scrollTop();
+            
+            $('.imgEffect_fadeIn').each(function(){
+                var objectPosition = $(this).offset().top,
+                objectHeight = $(this).outerHeight(),
+                objectIgnition = objectPosition + objectHeight / 3;
+                if(topWindow > objectIgnition - windowHeight + 0){
+                    $(this).addClass("is-active");
+                    $(this).css('visibility', 'visible');
+                }
+            });
+            $('.imgEffect_bottom_top').each(function(){
+                var objectPosition = $(this).offset().top,
+                objectHeight = $(this).outerHeight(),
+                objectIgnition = objectPosition + objectHeight / 3;
+                if(topWindow > objectIgnition - windowHeight + 0){
+                    $(this).addClass("is-active");
+                    $(this).css('visibility', 'visible');
+                }
+            });
+            $('.imgEffect_bottom_top-one-quarter').each(function(){
+                var objectPosition = $(this).offset().top,
+                objectHeight = $(this).outerHeight(),
+                objectIgnition = objectPosition + objectHeight / 4;
+                if(topWindow > objectIgnition - windowHeight + 0){
+                    $(this).addClass("is-active");
+                    $(this).css('visibility', 'visible');
+                }
+            });
+        });
+    }
 });
