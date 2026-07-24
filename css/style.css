@@ -506,6 +506,7 @@ dd, dt, ol, p, span, ul {
     font-size: 29px;
     letter-spacing: .11em;
     line-height: 31px;
+    font: inherit;
 }
 
 #events h3 span {
