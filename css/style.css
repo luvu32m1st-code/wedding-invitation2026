@@ -59,7 +59,7 @@ dd, dt, ol, p, span, ul {
 
 /* --- ローディング画面スタイル --- */
 #loader-bg {
-    background: url(/img/countdown_bg.jpg);
+    background: url(/img/invitation/yui/countdown_bg.jpg);
     background-repeat: repeat;
     height: 100vh;
     left: 0;
@@ -68,12 +68,11 @@ dd, dt, ol, p, span, ul {
     top: 0;
     width: 100%;
     z-index: 9999;
-    display: block; /* 確実に最初は表示させる */
 }
 
 #loader-bg .loader-img {
     animation: load3 5s linear infinite;
-    background: url(/img/flower.png);
+    background: url(/img/invitation/yui/pc/gold/flower.png);
     background-repeat: no-repeat;
     background-size: contain;
     display: block;
@@ -100,7 +99,6 @@ dd, dt, ol, p, span, ul {
         transform: rotate(1turn);
     }
 }
-
 
 
 
@@ -170,7 +168,7 @@ dd, dt, ol, p, span, ul {
     color: #fff;
     display: block;
     font-family: 'Cormorant Garamond', 'Noto Serif JP', serif;
-    font-size: 50px;
+    font-size: 52px;
     font-weight: 700;
     letter-spacing: .1em;
     line-height: 1.2;
@@ -189,15 +187,22 @@ dd, dt, ol, p, span, ul {
 }
 
 .keyvisual-fadeIn {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 1.5s ease, transform 1.5s ease;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-name: fadeInAnime;
+    opacity: 0; /* アニメーション前は非表示 */
 }
 
-.keyvisual-fadeIn.is-active {
-    opacity: 1;
-    transform: translateY(0);
+.keyvisual-fadeIn.main-ttl-anim { /* クラス名は適宜調整してください */
+    animation-delay: .5s;
 }
+
+#main h1 span.keyvisual-fadeIn,
+#main h1 span img.keyvisual-fadeIn {
+    animation-delay: 2s !important;
+}
+
+
 
 /* --- ナビゲーション（初期：ファーストビュー中腹右寄り / スクロール時：画面右側に固定追従・背景なし・縦書き・右から左へ並べ替え） --- */
 .temp-nav {
@@ -233,7 +238,7 @@ dd, dt, ol, p, span, ul {
 }
 
 .temp-nav-list li a:hover {
-    color: #e0b0b3;
+    color: #ff3b18;
 }
 
 /* --- ハンバーガーメニューボタン（初期非表示） --- */
@@ -556,9 +561,9 @@ dd, dt, ol, p, span, ul {
     content: "";
     display: block;
     height: 65px;
-    left: -58px;
+    left: 234px;
     position: absolute;
-    top: 2px;
+    top: 17px;
     width: 1px;
 }
 
@@ -737,7 +742,7 @@ iframe {
 .imgEffect_fadeIn, .imgEffect_bottom_top {
     opacity: 0;
     transform: translateY(20px);
-    transition: all 1.0s ease;
+    transition: all 2.0s ease;
 }
 
 .imgEffect_fadeIn.is-active, .imgEffect_bottom_top.is-active {
@@ -812,44 +817,3 @@ iframe {
 
 
 
-#loader-bg {
-    background: url(/img/invitation/yui/countdown_bg.jpg);
-    background-repeat: repeat;
-    height: 100vh;
-    left: 0;
-    opacity: 1;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 9999;
-}
-
-#loader-bg .loader-img {
-    animation: load3 5s linear infinite;
-    background: url(/img/invitation/yui/pc/gold/flower.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    display: block;
-    height: 100px;
-    left: calc(50% - 45px);
-    position: absolute;
-    top: calc(50% - 67.5px);
-    width: 100px;
-    z-index: 10000;
-}
-
-@media screen and (max-width: 1160px) {
-    #loader-bg .loader-img {
-        height: 71px;
-        width: 71px;
-    }
-}
-
-@keyframes load3 {
-    0% {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(1turn);
-    }
-}
