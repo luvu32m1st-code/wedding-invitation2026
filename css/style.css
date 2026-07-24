@@ -439,14 +439,12 @@ dd, dt, ol, p, span, ul {
 
 /* イベント */
 #events {
-    width: 82.2916666667%;
+    width: 62.291667%;
     position: relative;
     z-index: 2;
     background-color: #fff;
     text-align: center;
 }
-
-
 
 .event_content {
     margin-bottom: 40px;
@@ -462,7 +460,6 @@ dd, dt, ol, p, span, ul {
     background-color: #fff;
     max-width: 1580px;
     padding: 120px 0 92px;
-    width: 82.2916666667%;
 }
 
 #events h2 {
@@ -529,7 +526,7 @@ dd, dt, ol, p, span, ul {
 #events .events_daytime .event_day {
     left: 50%;
     position: absolute;
-    top: 68%;
+    top: 61%;
     transform: translateX(-50%);
     width: 100%;
 }
@@ -545,13 +542,24 @@ dd, dt, ol, p, span, ul {
     justify-content: center;
     left: 50%;
     position: absolute;
-    top: 80.9%;
+    top: 77%;
     transform: translateX(-50%);
     width: 100%;
 }
 
 #events .events_daytime .event_time_box li {
     margin: 0 58px;
+}
+
+#events .events_daytime .event_time_box li:nth-of-type(2):before {
+    background-color: #000;
+    content: "";
+    display: block;
+    height: 65px;
+    left: -58px;
+    position: absolute;
+    top: 2px;
+    width: 1px;
 }
 
 #events .events_daytime .event_time_box p {
