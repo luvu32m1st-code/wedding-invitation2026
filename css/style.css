@@ -171,7 +171,7 @@ dd, dt, ol, p, span, ul {
     position: relative;
 }
 
-#main .cover_ttl_center h1:before {
+#main h1 span:before {
     background-image:url(/img/keyvisual-hanko.svg) no-repeat 50%;
     background-size: contain;
     content: "";
