@@ -144,14 +144,23 @@ dd, dt, ol, p, span, ul {
 }
 
 /* --- 中央のタイトル＆ロゴ（小さめSVG ＆ 横並び大きめh1） --- */
-.cover_ttl_center {
-    position: absolute;
-    top: 50%;
+#main h1 {
+    background-size: cover;
+    height: 200px;
     left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
+    position: absolute;
+    top: 47%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 670px;
+    z-index: 1;
+    margin: 0 auto;
     text-align: center;
-    width: 90%;
+}
+
+.cover_svg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .cover_svg img {
@@ -242,7 +251,7 @@ dd, dt, ol, p, span, ul {
     transition: all 0.3s ease;
 }
 
-/* --- 下層セクション --- */
+/* コンテンツエリア */
 #introduction, #countdown, #events, #rsvp {
     position: relative;
     z-index: 2;
@@ -269,7 +278,7 @@ dd, dt, ol, p, span, ul {
     margin: 0 auto;
 }
 
-#message #introduction h2 {
+#introduction #message h2 {
     background-image: url(/img/message_title.svg);
     background-repeat: no-repeat;
     background-size: 100%;
