@@ -187,21 +187,24 @@ dd, dt, ol, p, span, ul {
 }
 
 .keyvisual-fadeIn {
+    opacity: 0;
+    visibility: hidden;
     animation-duration: 2s;
     animation-fill-mode: forwards;
     animation-name: fadeInAnime;
-    opacity: 0; /* アニメーション前は非表示 */
 }
 
-.keyvisual-fadeIn.main-ttl-anim { /* クラス名は適宜調整してください */
+.keyvisual-fadeIn.is-active {
+    visibility: visible;
+}
+
+.cover_svg.keyvisual-fadeIn.is-active {
     animation-delay: .5s;
 }
 
-#main h1 span.keyvisual-fadeIn,
-#main h1 span img.keyvisual-fadeIn {
+h1.cover_ttl_center > span.keyvisual-fadeIn.is-active {
     animation-delay: 2s !important;
 }
-
 
 
 /* --- ナビゲーション（初期：ファーストビュー中腹右寄り / スクロール時：画面右側に固定追従・背景なし・縦書き・右から左へ並べ替え） --- */
