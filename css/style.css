@@ -215,6 +215,11 @@ dd, dt, ol, p, span, ul {
     align-items: flex-start;
 }
 
+.temp-nav-list li {
+    float: right;
+    margin-right: 18px;
+}
+
 .temp-nav-list li a {
     font-size: 0.75rem;
     font-weight: 400;
@@ -330,7 +335,6 @@ dd, dt, ol, p, span, ul {
     z-index: 2;
     background-color: #fff;
     text-align: center;
-    padding: 40px 0;
 }
 
 #countdown .countdown_inner {
@@ -423,6 +427,7 @@ dd, dt, ol, p, span, ul {
     font-size: 23px;
     letter-spacing: .05em;
     margin-right: 0;
+    margin-bottom: 100px;
 }
 
 #countdown .count_number li:last-of-type {
@@ -439,7 +444,6 @@ dd, dt, ol, p, span, ul {
     z-index: 2;
     background-color: #fff;
     text-align: center;
-    padding: 40px 0;
 }
 
 
