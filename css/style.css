@@ -359,8 +359,8 @@ dd, dt, ol, p, span, ul {
     width: max-content;
 }
 
+#countdown .goal_time:after, 
 #countdown .goal_time:before {
-    left: -67px;
     background-color: #000;
     content: "";
     display: block;
@@ -369,6 +369,14 @@ dd, dt, ol, p, span, ul {
     top: 50%;
     transform: translateY(-50%);
     width: 2px;
+}
+
+#countdown .goal_time:after {
+    right: -57px;
+}
+
+.index #countdown .goal_time:before {
+    left: -67px;
 }
 
 .index #countdown .goal_time:after {
@@ -387,13 +395,16 @@ dd, dt, ol, p, span, ul {
     display: flex;
     height: 290px;
     justify-content: space-between;
+    align-items: center; /* 縦方向の中央に配置する設定 */
     max-width: 900px;
+    margin: 0 auto;
     position: relative;
 }
 
 #countdown .count_number li {
-    padding-top: 48px;
     width: 166px;
+    padding-top: 0; /* 上部の余分なパディングをリセット */
+    text-align: center;
 }
 
 .cf {
@@ -408,11 +419,6 @@ dd, dt, ol, p, span, ul {
 
 .cf:after {
     clear: both;
-}
-
-#countdown .count_number li {
-    padding-top: 48px;
-    width: 166px;
 }
 
 #countdown .count_number .n-number {
