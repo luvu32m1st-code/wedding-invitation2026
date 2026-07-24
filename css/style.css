@@ -44,9 +44,7 @@ a:hover {
 
 .container {
     width: 90%;
-    max-width: 960px;
     margin: 0 auto;
-    /* padding: 60px 0; */
 }
 
 #events .font_ttl, #message .font_ttl, #profile .font_ttl, #rsvp .font_ttl {
@@ -326,7 +324,7 @@ dd, dt, ol, p, span, ul {
 #countdown {
     background: url(/img/countdown_bg.jpg) repeat;
     background-attachment: fixed;
-    padding: 130px 0 63px;
+    padding: 130px 0 100px;
     margin-bottom: 150px;
     padding: 0;
 }
@@ -353,7 +351,7 @@ dd, dt, ol, p, span, ul {
     font-family: Ovo, serif;
     font-size: 55px;
     letter-spacing: .2em;
-    margin: 0 auto 8px;
+    margin: 0 auto;
     position: relative;
     width: -moz-max-content;
     width: max-content;
@@ -375,20 +373,8 @@ dd, dt, ol, p, span, ul {
     right: -57px;
 }
 
-.index #countdown .goal_time:before {
+#countdown .goal_time:before {
     left: -67px;
-}
-
-.index #countdown .goal_time:after {
-    right: -57px;
-    background-color: #000;
-    content: "";
-    display: block;
-    height: 68px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 2px;
 }
 
 #countdown .count_number {
@@ -582,7 +568,7 @@ dd, dt, ol, p, span, ul {
 
 
 /* 会場案内 */
-#layout3 .index #events .events_place {
+#events .events_place {
     padding: 0 5%;
 }
 
@@ -590,7 +576,7 @@ dd, dt, ol, p, span, ul {
     width: 100%;
 }
 
-.index #events .events_place .place_name p {
+#events .events_place .place_name p {
     font-size: 24px;
     font-weight: 500;
     letter-spacing: .1em;
@@ -688,7 +674,8 @@ a:link {
     width: 203px;
 }
 
-.index #rsvp .rsvp_content .rsvp_deadline, .index #rsvp .rsvp_content .rsvp_text {
+#rsvp .rsvp_content .rsvp_deadline,
+#rsvp .rsvp_content .rsvp_text {
     font-family: "Noto Serif JP", sans-serif;
     font-size: 18px;
     letter-spacing: .1em;
