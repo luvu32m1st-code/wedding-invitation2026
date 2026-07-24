@@ -809,7 +809,7 @@ iframe {
     letter-spacing: .1em;
     line-height: 2.0;
     color: #333;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 /* トップへ戻るボタン */
@@ -820,8 +820,8 @@ iframe {
     letter-spacing: 0.2em;
     color: #333;
     text-decoration: none;
-    margin-bottom: 40px;
-    padding: 10px 20px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
     position: relative;
     transition: opacity 0.3s ease;
 }
