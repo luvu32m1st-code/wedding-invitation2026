@@ -46,7 +46,7 @@ a:hover {
     width: 90%;
     max-width: 960px;
     margin: 0 auto;
-    padding: 60px 0;
+    /* padding: 60px 0; */
 }
 
 #events .font_ttl, #message .font_ttl, #profile .font_ttl, #rsvp .font_ttl {
@@ -171,12 +171,12 @@ dd, dt, ol, p, span, ul {
  #main h1 span {
     color: #fff;
     display: block;
-    font-family: Cormorant Garamond, sans-serif;
+    font-family: 'Cormorant Garamond', 'Noto Serif JP', serif;
     font-size: 50px;
     font-weight: 700;
     letter-spacing: .1em;
     line-height: 1.2;
-    margin-top: 5px;
+    margin-top: 10px;
     position: relative;
 }
 
@@ -260,6 +260,10 @@ dd, dt, ol, p, span, ul {
     padding: 40px 0;
 }
 
+#introduction {
+    padding: 0;
+}
+
 #introduction a, #countdown a, #events a, #rsvp a {
     color: #333; /* 下層セクションでは通常の文字色に戻す */
 }
@@ -287,6 +291,15 @@ dd, dt, ol, p, span, ul {
     width: 58px;
 }
 
+#introduction #message p {
+    color: inherit;
+    font-family: "Noto Serif JP", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: .1em;
+    line-height: 2.0909090909;
+}
+
 
 
 /* プロフィール */
@@ -311,14 +324,14 @@ dd, dt, ol, p, span, ul {
 
 /* カウントダウン */
 #countdown {
+    background: url(/img/countdown_bg.jpg) repeat;
+    background-attachment: fixed;
+    padding: 130px 0 63px;
     margin-bottom: 150px;
     padding: 0;
 }
 
 #countdown .countdown_inner {
-    background: url(/img/countdown_bg.jpg) repeat;
-    background-attachment: fixed;
-    padding: 130px 0 63px;
     width: 100%;
     margin: 0 auto;
 }
@@ -376,6 +389,11 @@ dd, dt, ol, p, span, ul {
     justify-content: space-between;
     max-width: 900px;
     position: relative;
+}
+
+#countdown .count_number li {
+    padding-top: 48px;
+    width: 166px;
 }
 
 .cf {
