@@ -784,3 +784,67 @@ iframe {
         transform: translateY(-10px) rotate(-45deg);
     }
 }
+
+
+/* --- フッター全体 --- */
+#footer {
+    position: relative;
+    z-index: 2;
+    background-color: #fff; /* または背景のパターン・色に合わせる */
+    text-align: center;
+    padding: 80px 0 40px;
+    border-top: 1px solid #eaeaea;
+}
+
+.footer_inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 結びのメッセージ */
+.footer_message {
+    font-family: "Noto Serif JP", sans-serif;
+    font-size: 16px;
+    letter-spacing: .1em;
+    line-height: 2.0;
+    color: #333;
+    margin-bottom: 50px;
+}
+
+/* トップへ戻るボタン */
+.back-to-top {
+    display: inline-block;
+    font-family: 'Cormorant Garamond', 'Noto Serif JP', serif;
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    color: #333;
+    text-decoration: none;
+    margin-bottom: 40px;
+    padding: 10px 20px;
+    position: relative;
+    transition: opacity 0.3s ease;
+}
+
+.back-to-top:hover {
+    opacity: 0.6;
+}
+
+/* ボタンの上下にある装飾線（お好みで） */
+.back-to-top::before {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 1px;
+    background-color: #333;
+    margin: 0 auto 10px;
+}
+
+/* コピーライト */
+.copyright {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    color: #777;
+}

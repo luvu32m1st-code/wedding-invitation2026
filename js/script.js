@@ -117,4 +117,19 @@ document.addEventListener("DOMContentLoaded", function() {
         target.style.visibility = 'hidden';
         observer.observe(target);
     });
+
+
+    // トップへ戻るボタンのスムーズスクロール
+    const backToTopBtn = document.querySelector('.back-to-top');
+    if (backToTopBtn) {
+        backToTopBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+
 });
