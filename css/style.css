@@ -59,6 +59,53 @@ dd, dt, ol, p, span, ul {
 
 
 
+/* --- ローディング画面スタイル --- */
+#loader-bg {
+    background: url(/img/countdown_bg.jpg);
+    background-repeat: repeat;
+    height: 100vh;
+    left: 0;
+    opacity: 1;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    display: block; /* 確実に最初は表示させる */
+}
+
+#loader-bg .loader-img {
+    animation: load3 5s linear infinite;
+    background: url(/img/flower.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: block;
+    height: 100px;
+    left: calc(50% - 45px);
+    position: absolute;
+    top: calc(50% - 67.5px);
+    width: 100px;
+    z-index: 10000;
+}
+
+@media screen and (max-width: 1160px) {
+    #loader-bg .loader-img {
+        height: 71px;
+        width: 71px;
+    }
+}
+
+@keyframes load3 {
+    0% {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+
+
+
 /* --- ファーストビュー・スライドショー設定 --- */
 .first-view {
     position: relative;
@@ -124,7 +171,7 @@ dd, dt, ol, p, span, ul {
     position: relative;
 }
 
-.cover_ttl_center h1::before {
+#main .cover_ttl_center h1:before {
     background-image:url(/img/keyvisual-hanko.svg) no-repeat 50%;
     background-size: contain;
     content: "";
@@ -225,7 +272,7 @@ dd, dt, ol, p, span, ul {
     margin: 0 auto;
 }
 
-#introduction h2 {
+#message #introduction h2 {
     background-image: url(/img/message_title.svg);
     background-repeat: no-repeat;
     background-size: 100%;
@@ -259,12 +306,15 @@ dd, dt, ol, p, span, ul {
 /* カウントダウン */
 #countdown {
     margin-bottom: 150px;
+    padding: 0;
 }
 
 #countdown .countdown_inner {
     background: url(/img/countdown_bg.jpg) repeat;
     background-attachment: fixed;
     padding: 130px 0 63px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 #countdown h2 {
@@ -363,6 +413,10 @@ dd, dt, ol, p, span, ul {
 
 
 /* イベント */
+#events {
+    width: 82.2916666667%;
+}
+
 .event_content {
     margin-bottom: 40px;
     width: 48.125%;
@@ -396,6 +450,10 @@ dd, dt, ol, p, span, ul {
     float: left;
 }
 
+#events .events_daytime_1 {
+    background-image: url(/img/events_daytime_1.jpg);
+}
+
 #events .events_daytime {
     margin-bottom: 0;
     background-repeat: no-repeat;
@@ -403,10 +461,6 @@ dd, dt, ol, p, span, ul {
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .16);
     padding-top: 146.5367965368%;
     position: relative;
-}
-
-.index #events .events_daytime_1 {
-    background-image: url(/img/events_daytime_1.jpg);
 }
 
 #events .events_daytime .event_title {

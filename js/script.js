@@ -1,14 +1,11 @@
 window.addEventListener('load', function() {
     const loaderBg = document.getElementById('loader-bg');
     if (loaderBg) {
-        // ふわっと消すためのスタイルを追加
         loaderBg.style.transition = 'opacity 0.8s ease';
         loaderBg.style.opacity = '0';
-        
-        // 完全に非表示にする
         setTimeout(() => {
             loaderBg.style.display = 'none';
-        }, 800); // 0.8秒後にdisplay: none;にする
+        }, 800);
     }
 });
 
@@ -33,14 +30,13 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }, 500);
 
-    // 3. ナビゲーションのスクロール追従制御（右側に常駐させる場合）
+    // 3. ナビゲーションのスクロール追従制御
     const nav = document.getElementById('sticky-nav');
     const firstView = document.querySelector('.first-view');
 
     if (nav && firstView) {
         window.addEventListener('scroll', function() {
             const firstViewHeight = firstView.offsetHeight;
-            // ファーストビューを過ぎても右側に固定追従させ続ける場合
             if (window.scrollY > firstViewHeight - 100) {
                 nav.classList.add('fixed');
             } else {
@@ -68,7 +64,39 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // 5. 各セクションのフェードイン監視
+    // 5. 挙式日（2026年8月23日 日本時間）までの自動カウントダウン
+    function updateCountdown() {
+        const targetDate = new Date('2026-08-23T00:00:00+09:00').getTime();
+        const now = new Date().getTime();
+        const diff = targetDate - now;
+
+        const daysEl = document.getElementById('countdown_days');
+        const hoursEl = document.getElementById('countdown_hours');
+        const minutesEl = document.getElementById('countdown_minutes');
+        const secondsEl = document.getElementById('countdown_seconds');
+
+        if (diff > 0) {
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            if (daysEl) daysEl.textContent = days;
+            if (hoursEl) hoursEl.textContent = hours;
+            if (minutesEl) minutesEl.textContent = minutes;
+            if (secondsEl) secondsEl.textContent = seconds;
+        } else {
+            if (daysEl) daysEl.textContent = '0';
+            if (hoursEl) hoursEl.textContent = '0';
+            if (minutesEl) minutesEl.textContent = '0';
+            if (secondsEl) secondsEl.textContent = '0';
+        }
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // 6. 各セクションのフェードイン監視
     const targets = document.querySelectorAll('.imgEffect_fadeIn, .imgEffect_bottom_top');
     const options = {
         root: null,
