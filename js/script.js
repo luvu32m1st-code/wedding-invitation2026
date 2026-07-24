@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
         keyvisualElements.forEach(el => {
             el.classList.add('is-active');
         });
-    }, 500);
+    }, 800);
 
     // 3. ナビゲーションのスクロール追従制御
     const nav = document.getElementById('sticky-nav');
