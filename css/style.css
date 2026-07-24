@@ -324,76 +324,90 @@ dd, dt, ol, p, span, ul {
 
 /* カウントダウン */
 #countdown {
-    background: url(/img/countdown_bg.jpg) repeat;
-    background-attachment: fixed;
-    padding: 130px 0 63px;
     margin-bottom: 150px;
-    padding: 0;
 }
 
 #countdown .countdown_inner {
-    width: 100%;
-    margin: 0 auto;
+    background: url(/img/countdown_bg.jpg) repeat;
+    background-attachment: fixed;
+    padding: 130px 0 63px;
 }
 
+/* 見出し部分（COUNTDOWN） */
 #countdown h2 {
-    background-image: url(/img/countdown_title.png);
     background-size: cover;
     height: 344px;
     margin: 0 auto 70px;
     width: 99px;
-    font-size: 4.375rem;
+    text-align: center;
 }
 
 #countdown h2 span {
     display: none;
 }
 
+/* 目標日付（2030.11.23 など）と両脇の線 */
 #countdown .goal_time {
-    font-family: Ovo, serif;
+    font-family: 'Cormorant Garamond', serif, Ovo;
     font-size: 55px;
     letter-spacing: .2em;
     margin: 0 auto 8px;
     position: relative;
-    width: -moz-max-content;
     width: max-content;
+}
+
+#countdown .goal_time:after,
+#countdown .goal_time:before {
+    background-color: #000;
+    content: "";
+    display: block;
+    height: 68px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2px;
 }
 
 #countdown .goal_time:before {
     left: -67px;
-    background-color: #000;
-    content: "";
-    display: block;
-    height: 68px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 2px;
 }
 
-.index #countdown .goal_time:after {
+#countdown .goal_time:after {
     right: -57px;
-    background-color: #000;
-    content: "";
-    display: block;
-    height: 68px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 2px;
 }
 
+/* 数字と単位のレイアウト（DAYS, HOURS, MINUTES, SECONDS） */
 #countdown .count_number {
     display: flex;
     height: 290px;
     justify-content: space-between;
     max-width: 900px;
+    margin: 0 auto;
     position: relative;
 }
 
 #countdown .count_number li {
     padding-top: 48px;
     width: 166px;
+    text-align: center;
+}
+
+#countdown .count_number li:last-of-type {
+    margin-right: 0;
+}
+
+#countdown .count_number .n-number {
+    font-family: 'Cormorant Garamond', serif, Ovo;
+    font-size: 100px;
+    margin-bottom: -24px;
+    margin-left: 0;
+}
+
+#countdown .count_number .dhms {
+    font-family: 'Cormorant Garamond', serif, Ovo;
+    font-size: 23px;
+    letter-spacing: .05em;
+    margin-right: 0;
 }
 
 .cf {
