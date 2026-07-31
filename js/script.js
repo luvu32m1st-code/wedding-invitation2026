@@ -50,14 +50,18 @@ document.addEventListener("DOMContentLoaded", function() {
                 setTimeout(() => {
                     loaderBg.style.display = 'none';
                     
-                    // ★ローディングが完全に消えたこのタイミングでアニメーションを発火
+                    // ★ローディングが完全に消えたタイミングで中央アニメーションを発火
                     startFirstViewAnimation();
+
+                    // ★同時にスライドショーの待機タイマーもスタート
+                    initSlider();
 
                 }, 1000); // フェードアウトの時間（1秒）
 
             }, 1000); // ローディング表示時間（1秒）
         } else {
             startFirstViewAnimation();
+            initSlider();
         }
     }
 
@@ -104,16 +108,22 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // 4. ファーストビューの画像スライドショー
-    const slides = document.querySelectorAll('.main_img_slider .slide');
-    let currentSlide = 0;
+    // 4. ファーストビューの画像スライドショー（中央アニメーション終了後に連動開始）
+    function initSlider() {
+        const slides = document.querySelectorAll('.main_img_slider .slide');
+        let currentSlide = 0;
 
-    if (slides.length > 0) {
-        setInterval(() => {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }, 4000);
+        if (slides.length > 0) {
+            // 中央のロゴ＆文字のフェードイン（ロゴ1.5秒 ＋ 遅延0.8秒 ＋ 文字1.5秒 ＝ 約3秒）が
+            // すべて完了したあとに、最初の切り替え（4秒後）をスタートさせる
+            setTimeout(() => {
+                setInterval(() => {
+                    slides[currentSlide].classList.remove('active');
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    slides[currentSlide].classList.add('active');
+                }, 4000);
+            }, 3000); // 3000ミリ秒（3秒）後にスライドショーのタイマーを起動
+        }
     }
 
     // 5. ナビゲーションのスクロール追従制御
