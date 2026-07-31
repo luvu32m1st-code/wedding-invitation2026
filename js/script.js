@@ -19,23 +19,24 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // 2. ファーストビューのフェードインアニメーションを開始する関数（時間差制御）
     function startFirstViewAnimation() {
-        // ロゴ（SVG）を先にフェードイン
         const svgEl = document.querySelector('.cover_svg.keyvisual-fadeIn');
+        const textEl = document.querySelector('#main h1 span.keyvisual-fadeIn');
+
+        // 1. ロゴ（SVG）を先にフェードイン
         if (svgEl) {
             svgEl.style.transition = 'opacity 1.5s ease, visibility 1.5s ease';
             svgEl.style.opacity = '1';
             svgEl.style.visibility = 'visible';
         }
 
-        // 文字部分を少し遅れて（例：0.8秒後）フェードイン
+        // 2. 文字部分を少し遅れて（0.8秒後）フェードイン
         setTimeout(() => {
-            const textEl = document.querySelector('#main h1 span.keyvisual-fadeIn');
             if (textEl) {
                 textEl.style.transition = 'opacity 1.5s ease, visibility 1.5s ease';
                 textEl.style.opacity = '1';
                 textEl.style.visibility = 'visible';
             }
-        }, 800); // ロゴから文字が出るまでの時間差（ミリ秒。お好みで調整可能）
+        }, 800); // ロゴから文字が出るまでの時間差（ミリ秒）
     }
 
 

@@ -293,36 +293,6 @@ dd, dt, ol, p, span, ul {
     visibility: hidden;
 }
 
-/* クラスが付与されたときのアニメーション定義 */
-.keyvisual-fadeIn.is-active {
-    animation-name: fadeInAnime;
-    animation-duration: 2s;
-    animation-timing-function: ease;
-    opacity: 1 !important;
-    visibility: visible !important;
-}
-
-/* SVGロゴの個別遅延 */
-.cover_svg.keyvisual-fadeIn.is-active {
-    animation-delay: 0.2s;
-}
-
-/* 文字部分の個別遅延（ここで時間差をつける） */
-#main h1 span.keyvisual-fadeIn.is-active {
-    animation-delay: 1.2s !important;
-}
-
-@keyframes fadeInAnime {
-    0% {
-        opacity: 0;
-        visibility: hidden;
-    }
-    100% {
-        opacity: 1;
-        visibility: visible;
-    }
-}
-
 
 /* --- ナビゲーション --- */
 .temp-nav {
