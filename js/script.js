@@ -10,6 +10,40 @@ window.addEventListener('load', function() {
 });
 
 document.addEventListener("DOMContentLoaded", function() {
+
+    // --- パスワード認証の処理 ---
+    const modal = document.getElementById('password-modal');
+    const form = document.getElementById('password-form');
+    const passwordInput = document.getElementById('access-password');
+    const errorMessage = document.getElementById('password-error');
+
+    // ※ここに設定したいパスワード（合言葉）を指定してください
+    const correctPassword = "20260823"; 
+
+    // すでに認証済みの場合は最初から非表示にする（ブラウザのセッション保持）
+    if (sessionStorage.getItem('wedding_authenticated') === 'true') {
+        if (modal) modal.classList.add('is-hidden');
+    }
+
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (passwordInput.value === correctPassword) {
+                // 認証成功
+                sessionStorage.setItem('wedding_authenticated', 'true');
+                if (modal) {
+                    modal.classList.add('is-hidden');
+                }
+            } else {
+                // 認証失敗
+                if (errorMessage) {
+                    errorMessage.style.display = 'block';
+                }
+                passwordInput.value = '';
+            }
+        });
+    }
+
     // 1. ファーストビューの画像スライドショー
     const slides = document.querySelectorAll('.main_img_slider .slide');
     let currentSlide = 0;

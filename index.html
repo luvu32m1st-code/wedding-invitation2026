@@ -14,6 +14,19 @@
 </head>
 <body id="main">
 
+    <!-- パスワード入力画面（オーバーレイ） -->
+    <div id="password-modal" class="auth-modal">
+        <div class="auth-modal-content">
+            <h2>WEDDING INVITATION</h2>
+            <p>招待状をご覧いただくための<br>パスワードを入力してください</p>
+            <form id="password-form">
+                <input type="password" id="access-password" placeholder="合言葉を入力" required autocomplete="current-password">
+                <button type="submit">送信</button>
+                <p id="password-error" class="error-message" style="display: none;">パスワードが違います</p>
+            </form>
+        </div>
+    </div>
+
     <!-- ローディング画面 -->
     <div id="loader-bg">
         <div class="loader-progress-bar"></div>

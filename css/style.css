@@ -69,6 +69,96 @@ dd, dt, ol, p, span, ul {
 }
 
 
+
+/* --- パスワード認証モーダル --- */
+.auth-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url(/img/pattern_weed.jpg) repeat, #f9f8f6;
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.auth-modal.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.auth-modal-content {
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+}
+
+.auth-modal-content h2 {
+    font-family: 'Cormorant Garamond', 'Noto Serif JP', serif;
+    font-size: 24px;
+    letter-spacing: 0.15em;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.auth-modal-content p {
+    font-family: "Noto Serif JP", sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.auth-modal-content input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    margin-bottom: 15px;
+    outline: none;
+}
+
+.auth-modal-content input[type="password"]:focus {
+    border-color: #333;
+}
+
+.auth-modal-content button {
+    width: 100%;
+    padding: 12px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.auth-modal-content button:hover {
+    opacity: 0.8;
+}
+
+.error-message {
+    color: #d9534f;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+
+
+
 /* --- ローディング画面スタイル --- */
 #loader-bg {
     background: url(/img/invitation/yui/countdown_bg.jpg);
@@ -654,7 +744,7 @@ a:link {
 #rsvp .rsvp_bg {
     background-color: #fff;
     max-width: 900px;
-    padding-bottom: 97px;
+    padding-bottom: 50px;
     width: 72.5%;
 }
 
@@ -792,7 +882,7 @@ iframe {
     z-index: 2;
     background-color: #fff; /* または背景のパターン・色に合わせる */
     text-align: center;
-    padding: 80px 0 40px;
+    padding: 50px 0 20px;
     border-top: 1px solid #eaeaea;
 }
 
@@ -809,7 +899,6 @@ iframe {
     letter-spacing: .1em;
     line-height: 2.0;
     color: #333;
-    margin-bottom: 30px;
 }
 
 /* トップへ戻るボタン */
@@ -820,7 +909,6 @@ iframe {
     letter-spacing: 0.2em;
     color: #333;
     text-decoration: none;
-    margin-bottom: 30px;
     padding-bottom: 20px;
     position: relative;
     transition: opacity 0.3s ease;
