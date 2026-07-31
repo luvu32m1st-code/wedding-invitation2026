@@ -16,24 +16,41 @@ document.addEventListener("DOMContentLoaded", function() {
     const form = document.getElementById('password-form');
     const passwordInput = document.getElementById('access-password');
     const errorMessage = document.getElementById('password-error');
+    const loaderBg = document.getElementById('loader-bg');
 
     // ※ここに設定したいパスワード（合言葉）を指定してください
     const correctPassword = "20260823"; 
 
-    // すでに認証済みの場合は最初から非表示にする（ブラウザのセッション保持）
+    // ローディング画面を非表示にする共通関数
+    function hideLoader() {
+        if (loaderBg) {
+            loaderBg.style.transition = 'opacity 0.8s ease';
+            loaderBg.style.opacity = '0';
+            setTimeout(() => {
+                loaderBg.style.display = 'none';
+            }, 800);
+        }
+    }
+
+    // すでに認証済みの場合は最初からパスワードモーダルを隠す
     if (sessionStorage.getItem('wedding_authenticated') === 'true') {
         if (modal) modal.classList.add('is-hidden');
+        // 認証済みならページ読み込み完了時にローディングを消す
+        window.addEventListener('load', function() {
+            hideLoader();
+        });
     }
 
     if (form) {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
             if (passwordInput.value === correctPassword) {
-                // 認証成功
+                // 認証成功：セッション保持 ＆ モーダルを隠す ＆ ローディングを消す
                 sessionStorage.setItem('wedding_authenticated', 'true');
                 if (modal) {
                     modal.classList.add('is-hidden');
                 }
+                hideLoader(); // パスワード送信完了と同時にローディング開始
             } else {
                 // 認証失敗
                 if (errorMessage) {
@@ -43,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
-
+    
     // 1. ファーストビューの画像スライドショー
     const slides = document.querySelectorAll('.main_img_slider .slide');
     let currentSlide = 0;
