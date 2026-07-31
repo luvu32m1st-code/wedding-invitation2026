@@ -416,25 +416,95 @@ dd, dt, ol, p, span, ul {
 }
 
 
+
 /* プロフィール */
-.profile_inner ul {
-    display: inline-block;
-    width: 40%;
-    vertical-align: top;
-    margin: 20px;
+#profile {
+    padding: 120px 0;
+    background-color: #fff;
+    position: relative;
+    z-index: 2;
+    text-align: center;
 }
 
-.profile_inner .photo img {
-    width: 150px;
-    height: 150px;
+#profile h2 {
+    margin-bottom: 70px;
+}
+
+#profile h2 .font_ttl {
+    display: block;
+    font-family: 'Cormorant Garamond', 'Noto Serif JP', serif;
+    font-size: 2.2rem;
+    letter-spacing: 0.2em;
+    color: #333;
+}
+
+/* 各プロフィールブロック */
+.profile_item {
+    max-width: 700px;
+    margin: 0 auto 60px;
+    padding: 0 20px;
+}
+
+.profile_item:last-child {
+    margin-bottom: 0;
+}
+
+/* 写真（丸型・上品なシャドウ） */
+.profile_photo {
+    margin-bottom: 30px;
+}
+
+.profile_photo img {
+    width: 160px;
+    height: 160px;
     border-radius: 50%;
     object-fit: cover;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
-.and {
-    margin: 20px 0;
-    font-weight: bold;
+/* 名前エリア */
+.profile_name {
+    font-family: "Noto Serif JP", serif;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: #333;
+    margin-bottom: 20px;
+    line-height: 1.4;
 }
+
+.profile_name span {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    letter-spacing: 0.15em;
+    color: #777;
+    margin-top: 5px;
+}
+
+/* 紹介文 */
+.profile_text {
+    font-family: "Noto Serif JP", sans-serif;
+    font-size: 15px;
+    line-height: 2.2;
+    letter-spacing: 0.08em;
+    color: #555;
+    text-align: center;
+}
+
+/* 間のおしゃれな「AND」 */
+.profile_divider {
+    margin: 50px 0;
+}
+
+.profile_divider .font_ttl {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    letter-spacing: 0.3em;
+    color: #999;
+}
+
+
 
 
 /* カウントダウン */

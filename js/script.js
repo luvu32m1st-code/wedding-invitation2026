@@ -2,14 +2,14 @@ window.addEventListener('load', function() {
     const loaderBg = document.getElementById('loader-bg');
     if (loaderBg) {
         // パスワード認証を既にクリアしている場合、または認証後に動く処理
-        // 最低3秒（3000ミリ秒）待ってからフェードアウトを開始する
+        // 最低4秒（4000ミリ秒）待ってからフェードアウトを開始する
         setTimeout(() => {
-            loaderBg.style.transition = 'opacity 1.5s ease'; // 1.5秒かけてゆっくり消す
+            loaderBg.style.transition = 'opacity 2s ease'; // 2秒かけてゆっくり消す
             loaderBg.style.opacity = '0';
             setTimeout(() => {
                 loaderBg.style.display = 'none';
             }, 1500); // トラジッション時間と合わせる
-        }, 3000); // 3秒間表示し続ける
+        }, 4000); // 3秒間表示し続ける
     }
 });
 
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // ※ここに設定したいパスワード（合言葉）を指定してください
     const correctPassword = "20260823"; 
 
-    // ローディング画面を3秒表示したあとに消す共通関数
+    // ローディング画面を4秒表示したあとに消す共通関数
     function hideLoaderWithDelay() {
         if (loaderBg) {
             setTimeout(() => {
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 setTimeout(() => {
                     loaderBg.style.display = 'none';
                 }, 1500);
-            }, 3000); // 3秒ホールド
+            }, 4000); // 4秒ホールド
         }
     }
 
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (modal) {
                     modal.classList.add('is-hidden');
                 }
-                // パスワード入力完了後もここから3秒間ローディングを表示・演出する
+                // パスワード入力完了後もここから4秒間ローディングを表示・演出する
                 hideLoaderWithDelay();
             } else {
                 // 認証失敗
@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
-        
+
     // 1. ファーストビューの画像スライドショー
     const slides = document.querySelectorAll('.main_img_slider .slide');
     let currentSlide = 0;
