@@ -289,7 +289,7 @@ dd, dt, ol, p, span, ul {
     opacity: 0;
     visibility: hidden;
     animation-delay: .5s;
-    animation-duration: 2s;
+    animation-duration: 3.5s;
     animation-fill-mode: forwards;
     animation-name: fadeInAnime;
 }
