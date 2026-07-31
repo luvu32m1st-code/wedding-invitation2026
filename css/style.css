@@ -291,22 +291,25 @@ dd, dt, ol, p, span, ul {
 .keyvisual-fadeIn {
     opacity: 0;
     visibility: hidden;
-    animation-delay: .5s;
-    animation-duration: 2s;
     animation-fill-mode: forwards;
     animation-name: fadeInAnime;
 }
 
+/* クラスが付与されたときだけアニメーションを走らせる */
 .keyvisual-fadeIn.is-active {
+    animation-duration: 2s;
+    animation-timing-function: ease;
     visibility: visible !important;
 }
 
-/* .cover_svg.keyvisual-fadeIn.is-active {
-    animation-delay: .5s;
-} */
+/* SVGロゴの個別遅延 */
+.cover_svg.keyvisual-fadeIn.is-active {
+    animation-delay: 0.2s;
+}
 
+/* 文字部分の個別遅延（2秒後にスタートするなどお好みで調整） */
 #main h1 span.keyvisual-fadeIn.is-active {
-    animation-delay: 2s !important;
+    animation-delay: 2.0s !important;
 }
 
 @keyframes fadeInAnime {
