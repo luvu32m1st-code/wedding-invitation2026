@@ -288,7 +288,8 @@ dd, dt, ol, p, span, ul {
 .keyvisual-fadeIn {
     opacity: 0;
     visibility: hidden;
-    animation-duration: 4s;
+    animation-delay: .5s;
+    animation-duration: 2s;
     animation-fill-mode: forwards;
     animation-name: fadeInAnime;
 }
