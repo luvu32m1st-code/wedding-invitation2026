@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const correctPassword = "20260823"; // 設定したいパスワード
 
-    // 【修正点①】ファーストビューのフェードインアニメーションを開始する関数
+    // ファーストビューのフェードインアニメーションを開始する関数
     function startFirstViewAnimation() {
         const keyvisualElements = document.querySelectorAll('.keyvisual-fadeIn');
         keyvisualElements.forEach(el => {
@@ -17,9 +17,10 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // 【修正点②】ローディングを一定時間表示し、消え切ったあとにアニメーションを発火させる共通関数
+    // ローディングを一定時間表示し、消え切ったあとにアニメーションを発火させる共通関数
     function playLoaderWithDelay() {
         if (loaderBg) {
+            // すでに非表示中でなければタイマーを動かす
             setTimeout(() => {
                 loaderBg.style.transition = 'opacity 2s ease'; // 2秒かけてゆっくり消す
                 loaderBg.style.opacity = '0';
@@ -28,21 +29,35 @@ document.addEventListener("DOMContentLoaded", function() {
                     // ローディングが完全に消えた瞬間にファーストビューのアニメーションを開始
                     startFirstViewAnimation();
                 }, 2000); // フェードアウト時間（2秒）と合わせる
-            }, 4000); // 4秒間しっかり表示
+            }, 2000); // 2秒間しっかり表示
         } else {
-            // ローディング要素がない場合はすぐにアニメーション開始
             startFirstViewAnimation();
         }
     }
 
-    // 【修正点③】すでに認証済みの場合は最初からパスワードモーダルを隠してローディングへ
+    // すでに認証済みの場合は最初からパスワードモーダルを隠す
     if (sessionStorage.getItem('wedding_authenticated') === 'true') {
-        if (modal) modal.classList.add('is-hidden');
-        window.addEventListener('load', function() {
-            playLoaderWithDelay();
-        });
+        if (modal) {
+            modal.classList.add('is-hidden');
+        }
     }
 
+    // ページ読み込み完了時の処理
+    window.addEventListener('load', function() {
+        if (sessionStorage.getItem('wedding_authenticated') === 'true') {
+            // 認証済みならそのままローディング演出へ
+            playLoaderWithDelay();
+        } else {
+            // 未認証の場合はローディングを表示しつつ、裏でパスワード入力を待つ
+            // （※ローディングを消したくない場合はここで playLoaderWithDelay を呼ばず、認証成功時のみ回す）
+            if (loaderBg) {
+                loaderBg.style.opacity = '1';
+                loaderBg.style.display = 'block';
+            }
+        }
+    });
+
+    // パスワード送信時の処理
     if (form) {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -52,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (modal) {
                     modal.classList.add('is-hidden');
                 }
-                // パスワード入力完了後もここからローディングを表示・演出し、終了後にアニメーション
+                // パスワード突破後にローディング演出を開始し、終了後にアニメーション
                 playLoaderWithDelay();
             } else {
                 // 認証失敗
@@ -63,13 +78,6 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
-
-    // 【修正点④】一番上にあった単体の window.load は重複するため削除し、未認証時の通常ロード用に統合
-    window.addEventListener('load', function() {
-        if (sessionStorage.getItem('wedding_authenticated') !== 'true') {
-            playLoaderWithDelay();
-        }
-    });
 
     // 1. ファーストビューの画像スライドショー
     const slides = document.querySelectorAll('.main_img_slider .slide');
@@ -82,8 +90,6 @@ document.addEventListener("DOMContentLoaded", function() {
             slides[currentSlide].classList.add('active');
         }, 4000);
     }
-
-    // （※以前ここにあった「2. 中央のタイトル＆ロゴのsetTimeout」は、ローディング連動の `startFirstViewAnimation` に移行したため削除しました）
 
     // 3. ナビゲーションのスクロール追従制御
     const nav = document.getElementById('sticky-nav');
@@ -119,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // 5. 挙式日（2026年8月23日 日本時間）までの自動カウントダウン
+    // 5. 挙式日までの自動カウントダウン
     function updateCountdown() {
         const targetDate = new Date('2026-08-23T00:00:00+09:00').getTime();
         const now = new Date().getTime();
