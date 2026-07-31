@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const correctPassword = "20260823"; // 設定したいパスワード
 
+    // 1. ページ読み込み時にファーストビューのロゴと文字を完全に隠す
     const keyvisualElements = document.querySelectorAll('.keyvisual-fadeIn');
     keyvisualElements.forEach(el => {
         el.style.opacity = '0';
@@ -16,15 +17,29 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 
-    // ファーストビューのフェードインアニメーションを開始する関数
+    // 2. ファーストビューのフェードインアニメーションを開始する関数（時間差制御）
     function startFirstViewAnimation() {
-        const keyvisualElements = document.querySelectorAll('.keyvisual-fadeIn');
-        keyvisualElements.forEach(el => {
-            el.classList.add('is-active');
-        });
+        // ロゴ（SVG）を先にフェードイン
+        const svgEl = document.querySelector('.cover_svg.keyvisual-fadeIn');
+        if (svgEl) {
+            svgEl.style.transition = 'opacity 1.5s ease, visibility 1.5s ease';
+            svgEl.style.opacity = '1';
+            svgEl.style.visibility = 'visible';
+        }
+
+        // 文字部分を少し遅れて（例：0.8秒後）フェードイン
+        setTimeout(() => {
+            const textEl = document.querySelector('#main h1 span.keyvisual-fadeIn');
+            if (textEl) {
+                textEl.style.transition = 'opacity 1.5s ease, visibility 1.5s ease';
+                textEl.style.opacity = '1';
+                textEl.style.visibility = 'visible';
+            }
+        }, 800); // ロゴから文字が出るまでの時間差（ミリ秒。お好みで調整可能）
     }
 
-   // ローディングを一定時間表示し、消え切ったあとにアニメーションを発火させる関数
+
+    // 3. ローディングを一定時間表示し、消え切ったあとにアニメーションを発火させる関数
     function playLoaderWithDelay() {
         if (loaderBg) {
             setTimeout(() => {
@@ -59,7 +74,6 @@ document.addEventListener("DOMContentLoaded", function() {
             playLoaderWithDelay();
         } else {
             // 未認証の場合はローディングを表示しつつ、裏でパスワード入力を待つ
-            // （※ローディングを消したくない場合はここで playLoaderWithDelay を呼ばず、認証成功時のみ回す）
             if (loaderBg) {
                 loaderBg.style.opacity = '1';
                 loaderBg.style.display = 'block';
@@ -89,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // 1. ファーストビューの画像スライドショー
+    // 4. ファーストビューの画像スライドショー
     const slides = document.querySelectorAll('.main_img_slider .slide');
     let currentSlide = 0;
 
@@ -101,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 4000);
     }
 
-    // 3. ナビゲーションのスクロール追従制御
+    // 5. ナビゲーションのスクロール追従制御
     const nav = document.getElementById('sticky-nav');
     const firstView = document.querySelector('.first-view');
 
@@ -116,7 +130,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // 4. ハンバーガーメニューの開閉制御（スマホ用）
+    // 6. ハンバーガーメニューの開閉制御（スマホ用）
     const menuToggle = document.getElementById('menu-toggle');
     const navList = document.getElementById('nav-list');
 
@@ -135,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // 5. 挙式日までの自動カウントダウン
+    // 7. 挙式日までの自動カウントダウン
     function updateCountdown() {
         const targetDate = new Date('2026-08-23T00:00:00+09:00').getTime();
         const now = new Date().getTime();
@@ -158,7 +172,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (secondsEl) secondsEl.textContent = seconds;
         } else {
             if (daysEl) daysEl.textContent = '0';
-            if (hoursEl) hoursEl.textContent = '0';
+            if (hoursEl) daysEl.textContent = '0';
             if (minutesEl) minutesEl.textContent = '0';
             if (secondsEl) secondsEl.textContent = '0';
         }
@@ -167,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function() {
     updateCountdown();
     setInterval(updateCountdown, 1000);
 
-    // 6. 各セクションのフェードイン監視（スクロールするたびに発火）
+    // 8. 各セクションのフェードイン監視（スクロールするたびに発火）
     const targets = document.querySelectorAll('.imgEffect_fadeIn, .imgEffect_bottom_top');
     const options = {
         root: null,

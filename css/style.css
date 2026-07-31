@@ -289,9 +289,8 @@ dd, dt, ol, p, span, ul {
 
 /* ファーストビューアニメーション（初期状態を確実に透明にする） */
 .keyvisual-fadeIn {
-    opacity: 0 !important;
-    visibility: hidden !important;
-    animation-fill-mode: forwards;
+    opacity: 0;
+    visibility: hidden;
 }
 
 /* クラスが付与されたときのアニメーション定義 */
