@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     currentSlide = (currentSlide + 1) % slides.length;
                     slides[currentSlide].classList.add('active');
                 }, 4000);
-            }, 2000); // 2000ミリ秒（2秒）後にスライドショーのタイマーを起動
+            }, 1000); // 1000ミリ秒（1秒）後にスライドショーのタイマーを起動
         }
     }
 
