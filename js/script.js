@@ -17,24 +17,22 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // ローディングを一定時間表示し、消え切ったあとにアニメーションを発火させる関数
+   // ローディングを一定時間表示し、消え切ったあとにアニメーションを発火させる関数
     function playLoaderWithDelay() {
         if (loaderBg) {
-            // 少しローディングを見せる時間（例: 1秒）
             setTimeout(() => {
-                loaderBg.style.transition = 'opacity 1s ease'; // 1秒かけてゆっくり消す
+                loaderBg.style.transition = 'opacity 1s ease';
                 loaderBg.style.opacity = '0';
                 
-                // フェードアウト（1秒）が完全に終わって非表示にした瞬間にアニメーション開始
                 setTimeout(() => {
                     loaderBg.style.display = 'none';
                     
                     // ★ローディングが完全に消えたこのタイミングでアニメーションを発火
                     startFirstViewAnimation();
 
-                }, 1000); // フェードアウトの時間（1秒）と合わせる
+                }, 1000); // フェードアウトの時間（1秒）
 
-            }, 1000); // ローディングを表示しておく時間（1秒）
+            }, 1000); // ローディング表示時間（1秒）
         } else {
             startFirstViewAnimation();
         }
