@@ -438,70 +438,79 @@ dd, dt, ol, p, span, ul {
     color: #333;
 }
 
+
+
 /* 各プロフィールブロック */
-.profile_item {
-    max-width: 700px;
-    margin: 0 auto 60px;
-    padding: 0 20px;
+#profile {
+    padding: 150px 0;
+    background-color: #fff;
+    position: relative;
+    z-index: 2;
+    text-align: center;
 }
 
-.profile_item:last-child {
-    margin-bottom: 0;
+#profile h2 {
+    margin-bottom: 80px;
 }
 
-/* 写真（丸型・上品なシャドウ） */
-.profile_photo {
-    margin-bottom: 30px;
+.profile_flex_wrap {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 80px;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
-.profile_photo img {
+.profile_box {
+    flex: 1;
+    max-width: 400px;
+}
+
+.profile_box .photo img {
     width: 160px;
     height: 160px;
     border-radius: 50%;
     object-fit: cover;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    margin-bottom: 25px;
 }
 
-/* 名前エリア */
-.profile_name {
+.profile_box .name {
+    margin-bottom: 25px;
+}
+
+.profile_box .name h3 {
     font-family: "Noto Serif JP", serif;
-    font-size: 22px;
-    font-weight: 500;
+    font-size: 20px;
     letter-spacing: 0.1em;
-    color: #333;
-    margin-bottom: 20px;
-    line-height: 1.4;
+    margin-bottom: 5px;
 }
 
-.profile_name span {
+.profile_box .name span {
     display: block;
     font-family: 'Cormorant Garamond', serif;
-    font-size: 15px;
+    font-size: 14px;
     letter-spacing: 0.15em;
     color: #777;
-    margin-top: 5px;
 }
 
-/* 紹介文 */
-.profile_text {
+.profile_box .text p {
     font-family: "Noto Serif JP", sans-serif;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 2.2;
     letter-spacing: 0.08em;
     color: #555;
     text-align: center;
 }
 
-/* 間のおしゃれな「AND」 */
-.profile_divider {
-    margin: 50px 0;
-}
-
-.profile_divider .font_ttl {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem;
-    letter-spacing: 0.3em;
-    color: #999;
+/* スマホ対応（横並びから縦並びに切り替え） */
+@media screen and (max-width: 768px) {
+    .profile_flex_wrap {
+        flex-direction: column;
+        gap: 60px;
+        align-items: center;
+    }
 }
 
 

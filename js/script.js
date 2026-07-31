@@ -1,49 +1,45 @@
-window.addEventListener('load', function() {
-    const loaderBg = document.getElementById('loader-bg');
-    if (loaderBg) {
-        // パスワード認証を既にクリアしている場合、または認証後に動く処理
-        // 最低4秒（4000ミリ秒）待ってからフェードアウトを開始する
-        setTimeout(() => {
-            loaderBg.style.transition = 'opacity 2s ease'; // 2秒かけてゆっくり消す
-            loaderBg.style.opacity = '0';
-            setTimeout(() => {
-                loaderBg.style.display = 'none';
-            }, 1500); // トラジッション時間と合わせる
-        }, 4000); // 3秒間表示し続ける
-    }
-});
-
 document.addEventListener("DOMContentLoaded", function() {
 
-    // --- パスワード認証の処理 ---
+    // --- パスワード認証とローディングの連動制御 ---
     const modal = document.getElementById('password-modal');
     const form = document.getElementById('password-form');
     const passwordInput = document.getElementById('access-password');
     const errorMessage = document.getElementById('password-error');
     const loaderBg = document.getElementById('loader-bg');
 
-    // ※ここに設定したいパスワード（合言葉）を指定してください
-    const correctPassword = "20260823"; 
+    const correctPassword = "20260823"; // 設定したいパスワード
 
-    // ローディング画面を4秒表示したあとに消す共通関数
-    function hideLoaderWithDelay() {
+    // 【修正点①】ファーストビューのフェードインアニメーションを開始する関数
+    function startFirstViewAnimation() {
+        const keyvisualElements = document.querySelectorAll('.keyvisual-fadeIn');
+        keyvisualElements.forEach(el => {
+            el.classList.add('is-active');
+        });
+    }
+
+    // 【修正点②】ローディングを一定時間表示し、消え切ったあとにアニメーションを発火させる共通関数
+    function playLoaderWithDelay() {
         if (loaderBg) {
             setTimeout(() => {
-                loaderBg.style.transition = 'opacity 1.5s ease';
+                loaderBg.style.transition = 'opacity 2s ease'; // 2秒かけてゆっくり消す
                 loaderBg.style.opacity = '0';
                 setTimeout(() => {
                     loaderBg.style.display = 'none';
-                }, 1500);
-            }, 4000); // 4秒ホールド
+                    // ローディングが完全に消えた瞬間にファーストビューのアニメーションを開始
+                    startFirstViewAnimation();
+                }, 2000); // フェードアウト時間（2秒）と合わせる
+            }, 4000); // 4秒間しっかり表示
+        } else {
+            // ローディング要素がない場合はすぐにアニメーション開始
+            startFirstViewAnimation();
         }
     }
 
-    // すでに認証済みの場合は最初からパスワードモーダルを隠す
+    // 【修正点③】すでに認証済みの場合は最初からパスワードモーダルを隠してローディングへ
     if (sessionStorage.getItem('wedding_authenticated') === 'true') {
         if (modal) modal.classList.add('is-hidden');
-        // 認証済みならページ読み込み完了後に3秒ローディングを表示
         window.addEventListener('load', function() {
-            hideLoaderWithDelay();
+            playLoaderWithDelay();
         });
     }
 
@@ -56,8 +52,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (modal) {
                     modal.classList.add('is-hidden');
                 }
-                // パスワード入力完了後もここから4秒間ローディングを表示・演出する
-                hideLoaderWithDelay();
+                // パスワード入力完了後もここからローディングを表示・演出し、終了後にアニメーション
+                playLoaderWithDelay();
             } else {
                 // 認証失敗
                 if (errorMessage) {
@@ -67,6 +63,13 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
+
+    // 【修正点④】一番上にあった単体の window.load は重複するため削除し、未認証時の通常ロード用に統合
+    window.addEventListener('load', function() {
+        if (sessionStorage.getItem('wedding_authenticated') !== 'true') {
+            playLoaderWithDelay();
+        }
+    });
 
     // 1. ファーストビューの画像スライドショー
     const slides = document.querySelectorAll('.main_img_slider .slide');
@@ -80,13 +83,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 4000);
     }
 
-    // 2. 中央のタイトル＆ロゴ（ふんわり表示）
-    setTimeout(() => {
-        const keyvisualElements = document.querySelectorAll('.keyvisual-fadeIn');
-        keyvisualElements.forEach(el => {
-            el.classList.add('is-active');
-        });
-    }, 800);
+    // （※以前ここにあった「2. 中央のタイトル＆ロゴのsetTimeout」は、ローディング連動の `startFirstViewAnimation` に移行したため削除しました）
 
     // 3. ナビゲーションのスクロール追従制御
     const nav = document.getElementById('sticky-nav');
@@ -176,7 +173,6 @@ document.addEventListener("DOMContentLoaded", function() {
         observer.observe(target);
     });
 
-
     // トップへ戻るボタンのスムーズスクロール
     const backToTopBtn = document.querySelector('.back-to-top');
     if (backToTopBtn) {
@@ -188,6 +184,5 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
     }
-
 
 });
