@@ -9,6 +9,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const correctPassword = "20260823"; // 設定したいパスワード
 
+    const keyvisualElements = document.querySelectorAll('.keyvisual-fadeIn');
+    keyvisualElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.visibility = 'hidden';
+    });
+
+
     // ファーストビューのフェードインアニメーションを開始する関数
     function startFirstViewAnimation() {
         const keyvisualElements = document.querySelectorAll('.keyvisual-fadeIn');
