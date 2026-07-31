@@ -298,9 +298,9 @@ dd, dt, ol, p, span, ul {
     visibility: visible !important;
 }
 
-.cover_svg.keyvisual-fadeIn.is-active {
+/* .cover_svg.keyvisual-fadeIn.is-active {
     animation-delay: .5s;
-}
+} */
 
 #main h1 span.keyvisual-fadeIn.is-active {
     animation-delay: 2s !important;
