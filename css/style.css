@@ -10,7 +10,7 @@ div, ul {
 }
 
 body {
-    background-image: url(img/pattern_weed.jpg);
+    background-image: url(/img/pattern_weed.jpg);
     background-repeat: repeat;
 }
 
@@ -77,7 +77,7 @@ dd, dt, ol, p, span, ul {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: url(img/pattern_weed.jpg) repeat, #f9f8f6;
+    background: url(/img/pattern_weed.jpg) repeat, #f9f8f6;
     z-index: 99999;
     display: flex;
     justify-content: center;
@@ -161,7 +161,7 @@ dd, dt, ol, p, span, ul {
 
 /* --- ローディング画面スタイル --- */
 #loader-bg {
-    background: url(img/countdown_bg.jpg);
+    background: url(/img/countdown_bg.jpg);
     background-repeat: repeat;
     height: 100vh;
     left: 0;
@@ -174,7 +174,7 @@ dd, dt, ol, p, span, ul {
 
 #loader-bg .loader-img {
     animation: load3 5s linear infinite;
-    background: url(img/flower.png);
+    background: url(/img/flower.png);
     background-repeat: no-repeat;
     background-size: contain;
     display: block;
@@ -398,7 +398,7 @@ dd, dt, ol, p, span, ul {
 }
 
 #introduction #message h2 {
-    background-image: url(img/message_title.svg);
+    background-image: url(/img/message_title.svg);
     background-repeat: no-repeat;
     background-size: 100%;
     height: 319px;
@@ -518,7 +518,7 @@ dd, dt, ol, p, span, ul {
 
 /* カウントダウン */
 #countdown {
-    background: url(img/countdown_bg.jpg) repeat;
+    background: url(/img/countdown_bg.jpg) repeat;
     background-attachment: fixed;
     padding: 130px 0 100px;
     margin-bottom: 150px;
@@ -534,7 +534,7 @@ dd, dt, ol, p, span, ul {
 }
 
 #countdown h2 {
-    background-image: url(img/countdown_title.png);
+    background-image: url(/img/countdown_title.png);
     background-size: cover;
     height: 344px;
     margin: 0 auto 70px;
@@ -632,7 +632,7 @@ dd, dt, ol, p, span, ul {
 }
 
 #events h2 {
-    background-image: url(img/events_title.png);
+    background-image: url(/img/events_title.png);
     background-size: cover;
     height: 27px;
     margin: 0 auto 103px;
@@ -646,8 +646,8 @@ dd, dt, ol, p, span, ul {
 #events .event01 { float: left; }
 #events .event02 { float: right; }
 
-#events .events_daytime_1 { background-image: url(img/events_daytime_1.jpg); }
-#events .events_daytime_2 { background-image: url(img/events_daytime_2.jpg); }
+#events .events_daytime_1 { background-image: url(/img/events_daytime_1.jpg); }
+#events .events_daytime_2 { background-image: url(/img/events_daytime_2.jpg); }
 
 #events .events_daytime {
     margin-bottom: 0;
@@ -834,7 +834,7 @@ a:link {
 }
 
 #rsvp .rsvp_content h2 {
-    background-image: url(img/rsvp_title.png);
+    background-image: url(/img/rsvp_title.png);
     background-size: cover;
     height: 137px;
     left: 50%;
