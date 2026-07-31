@@ -157,19 +157,23 @@ document.addEventListener("DOMContentLoaded", function() {
     updateCountdown();
     setInterval(updateCountdown, 1000);
 
-    // 6. 各セクションのフェードイン監視
+    // 6. 各セクションのフェードイン監視（スクロールするたびに発火）
     const targets = document.querySelectorAll('.imgEffect_fadeIn, .imgEffect_bottom_top');
     const options = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.2
+        threshold: 0.1
     };
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                // 画面内に入ったら表示
                 entry.target.classList.add('is-active');
                 entry.target.style.visibility = 'visible';
+            } else {
+                // 画面外に出たらクラスを外し、再度スクロールした時に再アニメーションさせる場合
+                entry.target.classList.remove('is-active');
             }
         });
     }, options);
