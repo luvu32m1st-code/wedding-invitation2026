@@ -1,11 +1,15 @@
 window.addEventListener('load', function() {
     const loaderBg = document.getElementById('loader-bg');
     if (loaderBg) {
-        loaderBg.style.transition = 'opacity 0.8s ease';
-        loaderBg.style.opacity = '0';
+        // パスワード認証を既にクリアしている場合、または認証後に動く処理
+        // 最低3秒（3000ミリ秒）待ってからフェードアウトを開始する
         setTimeout(() => {
-            loaderBg.style.display = 'none';
-        }, 800);
+            loaderBg.style.transition = 'opacity 1.5s ease'; // 1.5秒かけてゆっくり消す
+            loaderBg.style.opacity = '0';
+            setTimeout(() => {
+                loaderBg.style.display = 'none';
+            }, 1500); // トラジッション時間と合わせる
+        }, 3000); // 3秒間表示し続ける
     }
 });
 
@@ -21,23 +25,25 @@ document.addEventListener("DOMContentLoaded", function() {
     // ※ここに設定したいパスワード（合言葉）を指定してください
     const correctPassword = "20260823"; 
 
-    // ローディング画面を非表示にする共通関数
-    function hideLoader() {
+    // ローディング画面を3秒表示したあとに消す共通関数
+    function hideLoaderWithDelay() {
         if (loaderBg) {
-            loaderBg.style.transition = 'opacity 0.8s ease';
-            loaderBg.style.opacity = '0';
             setTimeout(() => {
-                loaderBg.style.display = 'none';
-            }, 800);
+                loaderBg.style.transition = 'opacity 1.5s ease';
+                loaderBg.style.opacity = '0';
+                setTimeout(() => {
+                    loaderBg.style.display = 'none';
+                }, 1500);
+            }, 3000); // 3秒ホールド
         }
     }
 
     // すでに認証済みの場合は最初からパスワードモーダルを隠す
     if (sessionStorage.getItem('wedding_authenticated') === 'true') {
         if (modal) modal.classList.add('is-hidden');
-        // 認証済みならページ読み込み完了時にローディングを消す
+        // 認証済みならページ読み込み完了後に3秒ローディングを表示
         window.addEventListener('load', function() {
-            hideLoader();
+            hideLoaderWithDelay();
         });
     }
 
@@ -45,12 +51,13 @@ document.addEventListener("DOMContentLoaded", function() {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
             if (passwordInput.value === correctPassword) {
-                // 認証成功：セッション保持 ＆ モーダルを隠す ＆ ローディングを消す
+                // 認証成功：セッション保持 ＆ モーダルを隠す
                 sessionStorage.setItem('wedding_authenticated', 'true');
                 if (modal) {
                     modal.classList.add('is-hidden');
                 }
-                hideLoader(); // パスワード送信完了と同時にローディング開始
+                // パスワード入力完了後もここから3秒間ローディングを表示・演出する
+                hideLoaderWithDelay();
             } else {
                 // 認証失敗
                 if (errorMessage) {
@@ -60,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
-    
+        
     // 1. ファーストビューの画像スライドショー
     const slides = document.querySelectorAll('.main_img_slider .slide');
     let currentSlide = 0;
