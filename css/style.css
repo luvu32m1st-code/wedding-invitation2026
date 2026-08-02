@@ -12,7 +12,7 @@ div, ul {
 body {
     background-image: url(/img/pattern_weed.jpg);
     background-repeat: repeat;
-    background-color: #f9f8f6;
+    background-color: #f9f8f6; /* 画像読み込みまでの予備背景色 */
 }
 
 html, body {
@@ -67,6 +67,8 @@ dd, dt, ol, p, span, ul {
 .cf:after {
     clear: both;
 }
+
+
 
 /* --- パスワード認証モーダル --- */
 .auth-modal {
@@ -155,6 +157,9 @@ dd, dt, ol, p, span, ul {
     margin-top: 10px;
 }
 
+
+
+
 /* --- ローディング画面スタイル --- */
 #loader-bg {
     background: url(/img/countdown_bg.jpg);
@@ -194,6 +199,7 @@ dd, dt, ol, p, span, ul {
     to { transform: rotate(1turn); }
 }
 
+
 /* --- ファーストビュー・スライドショー設定 --- */
 .first-view {
     position: relative;
@@ -210,7 +216,7 @@ dd, dt, ol, p, span, ul {
     width: 100%;
     height: 100%;
     z-index: 1;
-    background-color: #f9f8f6;
+    background-color: #f9f8f6; /* スライドの下敷きとして背景色を確保 */
 }
 
 .main_img_slider .slide {
@@ -225,7 +231,7 @@ dd, dt, ol, p, span, ul {
     opacity: 0;
     visibility: hidden;
     transition: opacity 4s ease-in-out, visibility 4s ease-in-out;
-    background-color: #f9f8f6;
+    background-color: #f9f8f6; /* 画像が切り替わる瞬間に背景が透けるのを防止 */
 }
 
 .main_img_slider .slide.active {
@@ -233,18 +239,17 @@ dd, dt, ol, p, span, ul {
     visibility: visible;
 }
 
-/* --- 中央のタイトル＆ロゴ（スマホでもはみ出さないようレスポンシブ化） --- */
+
+/* --- 中央のタイトル＆ロゴ --- */
 #main h1 {
     background-size: cover;
-    height: auto;
-    min-height: 200px;
+    height: 200px;
     left: 50%;
     position: absolute;
-    top: 48%;
+    top: 47%;
     transform: translateX(-50%) translateY(-50%);
-    width: 90%;
-    max-width: 670px;
-    z-index: 10;
+    width: 670px;
+    z-index: 1;
     margin: 0 auto;
     text-align: center;
 }
@@ -282,15 +287,17 @@ dd, dt, ol, p, span, ul {
     z-index: 10;
 }
 
+/* ファーストビューアニメーション（初期状態を確実に透明にする） */
 .keyvisual-fadeIn {
     opacity: 0;
     visibility: hidden;
 }
 
-/* --- ナビゲーション（PC：縦書き / スマホ：ハンバーガー） --- */
+
+/* --- ナビゲーション --- */
 .temp-nav {
     position: fixed;
-    right: 40px;
+    right: 62px;
     top: 50%;
     transform: translateY(-50%);
     z-index: 999;
@@ -304,6 +311,7 @@ dd, dt, ol, p, span, ul {
 }
 
 .temp-nav-list li {
+    float: right;
     margin-right: 18px;
 }
 
@@ -336,11 +344,12 @@ dd, dt, ol, p, span, ul {
     display: block;
     width: 100%;
     height: 2px;
-    background-color: #333;
+    background-color: #fff;
     transition: all 0.3s ease;
 }
 
-/* --- メッセージセクション --- */
+
+/* --- コンテンツ共通・各セクション --- */
 #introduction {
     position: relative;
     z-index: 2;
@@ -361,7 +370,7 @@ dd, dt, ol, p, span, ul {
 }
 
 #message {
-    padding: 120px 20px 100px;
+    padding: 150px 0 113px;
     position: relative;
     margin: 0 auto;
     background-color: #fff;
@@ -370,25 +379,26 @@ dd, dt, ol, p, span, ul {
 #introduction #message h2 {
     background-image: url(/img/message_title.svg);
     background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    height: 120px;
-    margin: 0 auto 50px;
+    background-size: 100%;
+    height: 319px;
+    margin: 0 auto 80px;
     width: 58px;
 }
 
 #introduction #message p {
     color: inherit;
     font-family: "Noto Serif JP", sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 400;
     letter-spacing: .1em;
-    line-height: 2.2;
+    line-height: 2.0909090909;
 }
 
-/* --- プロフィールセクション --- */
+
+
+/* プロフィール */
 #profile {
-    padding: 120px 20px;
+    padding: 120px 0;
     background-color: #fff;
     position: relative;
     z-index: 2;
@@ -396,7 +406,7 @@ dd, dt, ol, p, span, ul {
 }
 
 #profile h2 {
-    margin-bottom: 60px;
+    margin-bottom: 70px;
 }
 
 #profile h2 .font_ttl {
@@ -407,12 +417,27 @@ dd, dt, ol, p, span, ul {
     color: #333;
 }
 
+
+
+/* 各プロフィールブロック */
+#profile {
+    padding: 150px 0;
+    background-color: #fff;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+#profile h2 {
+    margin-bottom: 80px;
+}
+
 .profile_flex_wrap {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    gap: 60px;
-    max-width: 900px;
+    gap: 80px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
@@ -458,12 +483,24 @@ dd, dt, ol, p, span, ul {
     text-align: center;
 }
 
-/* --- カウントダウンセクション --- */
+/* スマホ対応（横並びから縦並びに切り替え） */
+@media screen and (max-width: 768px) {
+    .profile_flex_wrap {
+        flex-direction: column;
+        gap: 60px;
+        align-items: center;
+    }
+}
+
+
+
+
+/* カウントダウン */
 #countdown {
     background: url(/img/countdown_bg.jpg) repeat;
     background-attachment: fixed;
-    padding: 100px 20px;
-    margin-bottom: 100px;
+    padding: 130px 0 100px;
+    margin-bottom: 150px;
     position: relative;
     z-index: 2;
     background-color: #fff;
@@ -472,18 +509,16 @@ dd, dt, ol, p, span, ul {
 
 #countdown .countdown_inner {
     width: 100%;
-    max-width: 900px;
     margin: 0 auto;
 }
 
 #countdown h2 {
     background-image: url(/img/countdown_title.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 100px;
-    margin: 0 auto 40px;
-    width: 100px;
+    background-size: cover;
+    height: 344px;
+    margin: 0 auto 70px;
+    width: 99px;
+    font-size: 4.375rem;
 }
 
 #countdown h2 span {
@@ -492,9 +527,9 @@ dd, dt, ol, p, span, ul {
 
 #countdown .goal_time {
     font-family: Ovo, serif;
-    font-size: 45px;
+    font-size: 55px;
     letter-spacing: .2em;
-    margin: 0 auto 40px;
+    margin: 0 auto;
     position: relative;
     width: max-content;
 }
@@ -504,287 +539,312 @@ dd, dt, ol, p, span, ul {
     background-color: #000;
     content: "";
     display: block;
-    height: 45px;
+    height: 68px;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     width: 2px;
 }
 
-#countdown .goal_time:after { right: -40px; }
-#countdown .goal_time:before { left: -45px; }
+#countdown .goal_time:after { right: -57px; }
+#countdown .goal_time:before { left: -67px; }
 
 #countdown .count_number {
     display: flex;
-    justify-content: center;
+    height: 290px;
+    justify-content: space-between;
     align-items: center;
-    gap: 30px;
-    max-width: 700px;
+    max-width: 900px;
     margin: 0 auto;
+    position: relative;
 }
 
 #countdown .count_number li {
+    width: 166px;
+    padding-top: 0;
     text-align: center;
 }
 
 #countdown .count_number .n-number {
     font-family: Ovo, sans-serif;
-    font-size: 70px;
-    margin-bottom: 0;
-    display: block;
+    font-size: 100px;
+    margin-bottom: -24px;
+    margin-left: 0;
 }
 
 #countdown .count_number .dhms {
     font-family: Ovo, sans-serif;
-    font-size: 16px;
+    font-size: 23px;
     letter-spacing: .05em;
-    display: block;
-    color: #666;
+    margin-right: 0;
+    margin-bottom: 100px;
 }
 
-/* --- イベントセクション --- */
+#countdown .count_number li:last-of-type {
+    margin-right: 0;
+}
+
+
+/* イベント */
 #events {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+    width: 62.291667%;
     position: relative;
     z-index: 2;
     background-color: #fff;
     text-align: center;
 }
 
+.event_content {
+    margin-bottom: 40px;
+    width: 48.125%;
+}
+
+.event_time_box {
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
 #events .events_inner {
     background-color: #fff;
-    padding: 100px 20px;
+    max-width: 1580px;
+    padding: 120px 0 92px;
 }
 
 #events h2 {
     background-image: url(/img/events_title.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 40px;
-    margin: 0 auto 60px;
+    background-size: cover;
+    height: 27px;
+    margin: 0 auto 103px;
     width: 200px;    
 }
 
 #events .event_content_wrap {
-    display: flex;
-    justify-content: space-between;
-    gap: 40px;
     max-width: 960px;
-    margin: 0 auto 80px;
 }
 
-.event_content {
-    flex: 1;
-    margin-bottom: 0;
-}
-
-#events .events_daytime {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .16);
-    padding-top: 140%;
-    position: relative;
-    margin-bottom: 20px;
-}
+#events .event01 { float: left; }
+#events .event02 { float: right; }
 
 #events .events_daytime_1 { background-image: url(/img/events_daytime_1.jpg); }
 #events .events_daytime_2 { background-image: url(/img/events_daytime_2.jpg); }
 
+#events .events_daytime {
+    margin-bottom: 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .16);
+    padding-top: 146.5367965368%;
+    position: relative;
+}
+
 #events .events_daytime .event_title {
     left: 50%;
     position: absolute;
-    top: 8%;
+    top: 9%;
     transform: translateX(-50%);
 }
 
 #events h3 {
-    font-family: Garamond, serif;
-    font-size: 24px;
+    font: inherit;
+    font-family: Garamond;
+    font-size: 29px;
     letter-spacing: .11em;
+    line-height: 31px;
 }
 
 #events h3 span {
+    box-sizing: border-box;
     display: block;
     font-family: "Noto Serif JP" !important;
-    font-size: 28px;
+    font-size: 50px;
+    height: 231.5px;
     letter-spacing: .15em;
-    margin: 5px auto 0;
+    margin: 0 auto;
+    text-align: left;
     text-orientation: upright;
     writing-mode: vertical-rl;
+}
+
+#events .event01 h3 span {
+    padding-top: 30px;
 }
 
 #events .events_daytime .event_day {
     left: 50%;
     position: absolute;
-    top: 58%;
+    top: 61%;
     transform: translateX(-50%);
     width: 100%;
 }
 
 #events .events_daytime .event_day p {
-    font-family: Ovo, serif !important;
-    font-size: 32px;
+    font-family: Ovo !important;
+    font-size: 45px;
     letter-spacing: .05em;
 }
 
 #events .events_daytime .event_time_box {
     display: flex;
     justify-content: center;
-    gap: 30px;
     left: 50%;
     position: absolute;
-    top: 75%;
+    top: 77%;
     transform: translateX(-50%);
     width: 100%;
 }
 
 #events .events_daytime .event_time_box li {
-    position: relative;
+    margin: 0 58px;
 }
 
 #events .events_daytime .event_time_box li:nth-of-type(2):before {
     background-color: #000;
     content: "";
     display: block;
-    height: 40px;
-    left: -15px;
+    height: 65px;
+    left: 234px;
     position: absolute;
-    top: 5px;
+    top: 17px;
     width: 1px;
 }
 
 #events .events_daytime .event_time_box p {
     font-family: "Noto Serif JP", sans-serif;
-    font-size: 14px;
+    font-size: 17px;
     letter-spacing: .1em;
 }
 
 #events .events_daytime .event_time_box p span {
     display: block;
     font-family: Ovo, sans-serif;
-    font-size: 22px;
+    font-size: 30px;
     letter-spacing: .05em;
-    margin-top: 2px;
+    margin-top: -2px;
 }
+
+#events .event_party {
+    padding-top: calc(70.52083% + 58px);
+    width: 100%;
+}
+
 
 /* 会場案内 */
 #events .events_place {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 20px;
-    text-align: left;
+    padding: 0 5%;
 }
 
 #events .events_place li {
     width: 100%;
-    margin-bottom: 50px;
 }
 
 #events .events_place .place_name p {
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 500;
     letter-spacing: .1em;
-    margin-bottom: 12px;
+    margin-bottom: 18px;
 }
 
 #events .events_place p,
 #events .events_place .cloak p {
-    font-family: "Noto Serif JP", sans-serif;
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 1.8;
+    font-family: "Noto Serif JP", 游ゴシック, YuGothic, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
     margin-bottom: 10px;
+    text-align: left;
+}
+
+#events .events_place li a,
+a:link {
+    color: #333;
+    text-decoration: none;
+    word-break: break-all;
 }
 
 #events .events_place .place_googlemap {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    text-align: right;
 }
 
 #events .events_place .place_googlemap .googlemap_img {
     background-color: #ccc;
-    height: 220px;
+    height: 247px;
+    margin-bottom: 2px;
 }
 
 #events .events_place .cloak {
-    border-top: 1px solid #ddd;
-    padding-top: 15px;
-    margin-top: 20px;
+    border-top: 1px solid #999;
+    padding-bottom: 7px;
 }
 
 #events .events_place .cloak h4 {
-    font-family: "Noto Serif JP", sans-serif;
-    font-size: 14px;
+    font-family: "Noto Serif JP", 游ゴシック, YuGothic, sans-serif;
+    font-size: 15px;
     font-weight: 500;
     letter-spacing: .1em;
-    margin-bottom: 8px;
+    margin: 18px 0 10px;
+    text-align: left;
 }
 
 #events .events_place .cloak h4:before {
-    content: "■ ";
+    content: "■";
 }
 
-/* --- RSVPセクション --- */
+
+/* RSVP */
 #rsvp {
-    padding: 120px 20px;
+    padding: 200px 0 100px;
     position: relative;
     z-index: 2;
     text-align: center;
-    background-color: #fff;
 }
 
 #rsvp .rsvp_bg {
-    background-color: #fcfbf9;
-    border: 1px solid #eee;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 80px 20px 50px;
-    width: 100%;
+    background-color: #fff;
+    max-width: 900px;
+    padding-bottom: 50px;
+    width: 72.5%;
 }
 
 #rsvp .rsvp_content {
+    padding-top: 174px;
     position: relative;
-    max-width: 600px;
-    margin: 0 auto;
+    width: 71.8888888889%;
 }
 
 #rsvp .rsvp_content h2 {
     background-image: url(/img/rsvp_title.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 80px;
-    margin: 0 auto 40px;
-    width: 180px;
+    background-size: cover;
+    height: 137px;
+    left: 50%;
+    position: absolute;
+    top: -21px;
+    transform: translateX(-50%);
+    width: 203px;
 }
 
 #rsvp .rsvp_content .rsvp_deadline,
 #rsvp .rsvp_content .rsvp_text {
     font-family: "Noto Serif JP", sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     letter-spacing: .1em;
-    line-height: 2.2;
+    line-height: 30px;
 }
 
 #rsvp .rsvp_content .rsvp_text {
-    margin-bottom: 30px;
+    margin-bottom: 49px;
 }
 
 #rsvp .rsvp_content .rsvp_deadline {
     font-weight: 500;
-    margin-bottom: 40px;
+    margin-bottom: 72px;
 }
 
 #rsvp .rsvp_content .rsvp_deadline .deadline_day {
-    font-size: 26px;
+    font-size: 33px;
     font-weight: 700;
     letter-spacing: .1em;
-    line-height: 1.4;
-    display: block;
-    margin-top: 5px;
+    line-height: 1;
 }
 
 iframe {
@@ -793,11 +853,12 @@ iframe {
     max-width: 100%;
 }
 
+
 /* --- スクロールフェードインアニメーション --- */
 .imgEffect_fadeIn, .imgEffect_bottom_top, .imgEffect_bottom_top-one-quarter {
     opacity: 0;
     transform: translateY(20px);
-    transition: all 1.5s ease;
+    transition: all 2.0s ease;
 }
 
 .imgEffect_fadeIn.is-active, 
@@ -807,45 +868,27 @@ iframe {
     transform: translateY(0);
 }
 
-/* --- レスポンシブ対応（スマホ・タブレット 768px以下） --- */
+
+/* --- レスポンシブ対応（768px以下） --- */
 @media screen and (max-width: 768px) {
-    /* 中央ロゴの文字サイズ調整 */
-    #main h1 span {
-        font-size: 34px;
+    .profile_inner ul {
+        width: 100%;
+        margin: 20px 0;
+    }
+    
+    .count_number {
+        gap: 10px;
+    }
+    
+    .count_number li {
+        min-width: 50px;
+        padding: 10px;
     }
 
-    /* プロフィールを縦並びに */
-    .profile_flex_wrap {
-        flex-direction: column;
-        gap: 50px;
-        align-items: center;
+    .cover_ttl_center h1 {
+        font-size: 1.2rem;
     }
 
-    /* カウントダウンのサイズ調整 */
-    #countdown .goal_time {
-        font-size: 32px;
-    }
-    #countdown .goal_time:after, 
-    #countdown .goal_time:before {
-        display: none; /* スマホでは縦線を非表示にしてスッキリさせる */
-    }
-    #countdown .count_number {
-        gap: 15px;
-    }
-    #countdown .count_number .n-number {
-        font-size: 45px;
-    }
-    #countdown .count_number .dhms {
-        font-size: 13px;
-    }
-
-    /* イベント（式と披露宴）のカードを縦並びに */
-    #events .event_content_wrap {
-        flex-direction: column;
-        gap: 40px;
-    }
-
-    /* ハンバーガーメニューの有効化 */
     .temp-nav {
         top: 20px !important;
         right: 20px !important;
@@ -862,7 +905,7 @@ iframe {
         position: absolute;
         top: 40px;
         right: 0;
-        background: rgba(255, 255, 255, 0.98);
+        background: rgba(255, 255, 255, 0.95);
         width: 180px;
         padding: 20px;
         box-shadow: 0 4px 15px rgba(0,0,0,0.1);
@@ -870,15 +913,9 @@ iframe {
         writing-mode: horizontal-tb;
     }
 
-    .temp-nav-list li {
-        margin-right: 0;
-        margin-bottom: 12px;
-    }
-
     .temp-nav-list li a {
         writing-mode: horizontal-tb;
         color: #333;
-        font-size: 14px;
     }
 
     .temp-nav-list.is-open {
@@ -896,13 +933,14 @@ iframe {
     }
 }
 
+
 /* --- フッター全体 --- */
 #footer {
     position: relative;
     z-index: 2;
-    background-color: #fff;
+    background-color: #fff; /* または背景のパターン・色に合わせる */
     text-align: center;
-    padding: 50px 0 30px;
+    padding: 50px 0 20px;
     border-top: 1px solid #eaeaea;
 }
 
@@ -912,15 +950,16 @@ iframe {
     padding: 0 20px;
 }
 
+/* 結びのメッセージ */
 .footer_message {
     font-family: "Noto Serif JP", sans-serif;
-    font-size: 15px;
+    font-size: 16px;
     letter-spacing: .1em;
-    line-height: 2.2;
+    line-height: 2.0;
     color: #333;
-    margin-bottom: 30px;
 }
 
+/* トップへ戻るボタン */
 .back-to-top {
     display: inline-block;
     font-family: 'Cormorant Garamond', 'Noto Serif JP', serif;
@@ -928,7 +967,7 @@ iframe {
     letter-spacing: 0.2em;
     color: #333;
     text-decoration: none;
-    padding-bottom: 15px;
+    padding-bottom: 20px;
     position: relative;
     transition: opacity 0.3s ease;
 }
@@ -937,6 +976,7 @@ iframe {
     opacity: 0.6;
 }
 
+/* ボタンの上下にある装飾線（お好みで） */
 .back-to-top::before {
     content: "";
     display: block;
@@ -946,11 +986,11 @@ iframe {
     margin: 0 auto 10px;
 }
 
+/* コピーライト */
 .copyright {
     display: block;
     font-family: 'Cormorant Garamond', serif;
     font-size: 13px;
     letter-spacing: 0.1em;
     color: #777;
-    margin-top: 20px;
 }
