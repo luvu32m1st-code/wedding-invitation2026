@@ -428,68 +428,148 @@ dd, dt, ol, p, span, ul {
     text-align: center;
 }
 
+#profile .profile_inner {
+    font-family: "Noto Serif JP",sans-serif;
+    max-width: 946px
+}
+
 #profile h2 {
-    margin-bottom: 80px;
+    background-image: url(/img/profile_title.png);
+    background-size: cover;
+    height: 26px;
+    margin: 0 auto 97px;
+    width: 223px
 }
 
-.profile_flex_wrap {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 80px;
-    max-width: 1000px;
-    margin: 0 auto;
+#profile .bride, #profile .broom {
+    max-width: 432px;
+    position: relative;
+    width: 45.665961945%
 }
 
-.profile_box {
-    flex: 1;
-    max-width: 400px;
-}
-
-.profile_box .photo img {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    margin-bottom: 25px;
-}
-
-.profile_box .name {
-    margin-bottom: 25px;
-}
-
-.profile_box .name h3 {
-    font-family: "Noto Serif JP", serif;
-    font-size: 20px;
-    letter-spacing: 0.1em;
-    margin-bottom: 5px;
-}
-
-.profile_box .name span {
+#profile .bride:before, #profile .broom:before {
+    background-size: cover;
+    content: "";
     display: block;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 14px;
-    letter-spacing: 0.15em;
-    color: #777;
+    height: 99px;
+    position: absolute;
+    top: -30px;
+    width: 26px
 }
 
-.profile_box .text p {
-    font-family: "Noto Serif JP", sans-serif;
-    font-size: 14px;
-    line-height: 2.2;
-    letter-spacing: 0.08em;
-    color: #555;
-    text-align: center;
+#profile .bride .photo, #profile .broom .photo {
+    position: relative;
 }
 
-/* スマホ対応（横並びから縦並びに切り替え） */
-@media screen and (max-width: 768px) {
-    .profile_flex_wrap {
-        flex-direction: column;
-        gap: 60px;
-        align-items: center;
-    }
+#profile .bride .photo:before, #profile .broom .photo:before {
+    background-repeat: no-repeat;
+    background-size: contain;
+    content: "";
+    display: block;
+    height: 293px;
+    position: absolute;
+    top: 8px;
+    width: 100%;
+    z-index: 2
+}
+
+#profile .bride img, #profile .broom img {
+    display: block;
+    height: 322px;
+    margin: 0 auto;
+    -o-object-fit: cover;
+    object-fit: cover;
+    position: relative;
+    width: 378px;
+    z-index: 1
+}
+
+#profile .bride span, #profile .broom span {
+    display: block;
+    font-family: serif;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    padding-bottom: 56px;
+    text-align: center
+}
+
+#profile .bride p, #profile .broom p {
+    font-family: "Noto Serif JP",sans-serif;
+    font-size: 16px;
+    line-height: 1.875;
+    text-align: left
+}
+
+#profile .bride .birthday, #profile .bride .name, #profile .bride .text, #profile .broom .birthday, #profile .broom .name, #profile .broom .text {
+    position: relative
+}
+
+#profile .bride .name, #profile .broom .name {
+    padding-top: 30px;
+    z-index: 0
+}
+
+#profile .bride .name h3, #profile .broom .name h3 {
+    font-size: 30px!important;
+    letter-spacing: .1em
+}
+
+#profile .bride .name span, #profile .broom .name span {
+    font-family: Cormorant Infant,"Noto Serif JP",sans-serif;
+    font-size: 18px;
+    letter-spacing: .1em;
+    padding: 8px 0 0
+}
+
+#profile .bride .text, #profile .broom .text {
+    padding-top: 31px
+}
+
+#profile .bride .profile_text, #profile .broom .profile_text {
+    background-color: #fff;
+    height: 432px;
+    padding: 80px 10% 0;
+    position: relative;
+    top: -40px;
+    z-index: 0
+}
+
+#profile .broom {
+    float: left;
+}
+
+#profile .broom:before {
+    background: url(/img/broom_ttl.png) 50%/cover;
+    left: 0
+}
+
+#profile .broom .photo:before {
+    background-image: url(/img/broom_deco.png)
+}
+
+#profile .broom img {
+    border-radius: 43% 57% 56% 44%/52% 53% 47% 47%
+}
+
+#profile .bride {
+    float: right
+}
+
+#profile .bride:before {
+    background: url(/img/bride_ttl.png) 50%/cover;
+    right: 0
+}
+
+#profile .bride .photo:before {
+    background-image: url(/img/bride_deco.png);
+    height: 301px;
+    right: 0;
+    width: 88.4259259259%
+}
+
+#profile .bride img {
+    border-radius: 57% 43% 35% 65%/51% 53% 47% 49%
 }
 
 
@@ -948,15 +1028,6 @@ iframe {
     max-width: 900px;
     margin: 0 auto;
     padding: 0 20px;
-}
-
-/* 結びのメッセージ */
-.footer_message {
-    font-family: "Noto Serif JP", sans-serif;
-    font-size: 16px;
-    letter-spacing: .1em;
-    line-height: 2.0;
-    color: #333;
 }
 
 /* トップへ戻るボタン */
