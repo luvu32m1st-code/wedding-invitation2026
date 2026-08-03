@@ -1,109 +1,105 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-    // --- 要素の取得 ---
+    // --- パスワード認証とローディングの連動制御 ---
     const modal = document.getElementById('password-modal');
     const form = document.getElementById('password-form');
     const passwordInput = document.getElementById('access-password');
     const errorMessage = document.getElementById('password-error');
     const loaderBg = document.getElementById('loader-bg');
-    const passCheck = document.getElementById('passcheck');
 
     const correctPassword = "20260823"; // 設定したいパスワード
 
-    // 1. パスワードのマスク表示・非表示切り替え
-    if (passCheck && passwordInput) {
-        passCheck.addEventListener('change', function() {
-            passwordInput.type = this.checked ? 'text' : 'password';
-        });
-    }
-
-    // 2. ページ読み込み時にファーストビューの要素を完全に隠す
+    // 1. ページ読み込み時にファーストビューのロゴと文字を完全に隠す
     const keyvisualElements = document.querySelectorAll('.keyvisual-fadeIn');
     keyvisualElements.forEach(el => {
         el.style.opacity = '0';
         el.style.visibility = 'hidden';
     });
 
-    // 3. ファーストビューのロゴと文字を時間差でアニメーションさせる関数
-    function startFirstViewAnimation() {
-        const logoEl = document.querySelector('.cover_ttl img.keyvisual-fadeIn');
-        const textEl = document.querySelector('.cover_ttl span.keyvisual-fadeIn');
 
-        // 1. まずロゴをフェードイン
-        if (logoEl) {
-            logoEl.style.transition = 'opacity 1.2s ease, visibility 1.2s ease';
-            logoEl.style.opacity = '1';
-            logoEl.style.visibility = 'visible';
+    // 2. ファーストビューのフェードインアニメーションを開始する関数（時間差制御）
+    function startFirstViewAnimation() {
+        const svgEl = document.querySelector('.cover_svg.keyvisual-fadeIn');
+        const textEl = document.querySelector('#main h1 span.keyvisual-fadeIn');
+
+        // 1. ロゴ（SVG）を先にフェードイン
+        if (svgEl) {
+            svgEl.style.transition = 'opacity 1.5s ease, visibility 1.5s ease';
+            svgEl.style.opacity = '1';
+            svgEl.style.visibility = 'visible';
         }
 
-        // 2. 少し遅れて（例: 600ms後）テキストをフェードイン
+        // 2. 文字部分を少し遅れて（0.8秒後）フェードイン
         setTimeout(() => {
             if (textEl) {
-                textEl.style.transition = 'opacity 1.2s ease, visibility 1.2s ease';
+                textEl.style.transition = 'opacity 1.5s ease, visibility 1.5s ease';
                 textEl.style.opacity = '1';
                 textEl.style.visibility = 'visible';
             }
-        }, 600);
-
-        // 3. アニメーションが一通り始まった後にスライドショーを開始
-        setTimeout(() => {
-            initSlider();
-        }, 1500);
+        }, 800); // ロゴから文字が出るまでの時間差（ミリ秒）
     }
 
-    // 4. ローディング演出とアニメーションの連動
+
+    // 3. ローディングを一定時間表示し、消え切ったあとにアニメーションを発火させる関数
     function playLoaderWithDelay() {
         if (loaderBg) {
-            loaderBg.style.display = 'block';
-            loaderBg.style.opacity = '1';
-
-            // ローディングを表示しておく時間（例: 1.2秒）
             setTimeout(() => {
                 loaderBg.style.transition = 'opacity 1s ease';
                 loaderBg.style.opacity = '0';
                 
                 setTimeout(() => {
                     loaderBg.style.display = 'none';
-                    // ローディングが消えたらファーストビューのアニメーション開始
+                    
+                    // ★ローディングが完全に消えたタイミングで中央アニメーションを発火
                     startFirstViewAnimation();
-                }, 1000);
 
-            }, 1200);
+                    // ★同時にスライドショーの待機タイマーもスタート
+                    initSlider();
+
+                }, 1000); // フェードアウトの時間（1秒）
+
+            }, 1000); // ローディング表示時間（1秒）
         } else {
             startFirstViewAnimation();
+            initSlider();
         }
     }
 
-    // 【修正後】初期状態のモーダルと認証状態の判定
+    // すでに認証済みの場合は最初からパスワードモーダルを隠す
     if (sessionStorage.getItem('wedding_authenticated') === 'true') {
-        if (modal) modal.classList.add('is_hidden');
-        
-        // すでに認証済みの場合は、ページ読み込み時にローディングとアニメーションを実行する
-        window.addEventListener('load', function() {
-            playLoaderWithDelay();
-        });
-    } else {
-        // 未認証の場合はモーダルを表示し、ファーストビューの文字を隠しておく
-        if (modal) modal.classList.remove('is_hidden');
-        const keyvisualElements = document.querySelectorAll('.keyvisual-fadeIn');
-        keyvisualElements.forEach(el => {
-            el.style.opacity = '0';
-            el.style.visibility = 'hidden';
-        });
+        if (modal) {
+            modal.classList.add('is-hidden');
+        }
     }
 
-    // 【修正後】パスワード送信時の処理
+    // ページ読み込み完了時の処理
+    window.addEventListener('load', function() {
+        if (sessionStorage.getItem('wedding_authenticated') === 'true') {
+            // 認証済みならそのままローディング演出へ
+            playLoaderWithDelay();
+        } else {
+            // 未認証の場合はローディングを表示しつつ、裏でパスワード入力を待つ
+            if (loaderBg) {
+                loaderBg.style.opacity = '1';
+                loaderBg.style.display = 'block';
+            }
+        }
+    });
+
+    // パスワード送信時の処理
     if (form) {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
             if (passwordInput.value === correctPassword) {
+                // 認証成功：セッション保持 ＆ モーダルを隠す
                 sessionStorage.setItem('wedding_authenticated', 'true');
                 if (modal) {
-                    modal.classList.add('is_hidden');
+                    modal.classList.add('is-hidden');
                 }
-                // パスワードが正解した時もローディングとアニメーションを実行する
+                // パスワード突破後にローディング演出を開始し、終了後にアニメーション
                 playLoaderWithDelay();
             } else {
+                // 認証失敗
                 if (errorMessage) {
                     errorMessage.style.display = 'block';
                 }
@@ -112,29 +108,40 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // 5. 画像スライドショー制御
+    // 4. ファーストビューの画像スライドショー（中央アニメーション終了後に連動開始）
     function initSlider() {
-        const pcSlides = document.querySelectorAll('.main_img_pc .slide');
-        const spSlides = document.querySelectorAll('.main_img_sp .img');
-        
+        const slides = document.querySelectorAll('.main_img_slider .slide');
         let currentSlide = 0;
-        const slidesLength = Math.max(pcSlides.length, spSlides.length);
 
-        if (slidesLength > 0) {
-            // 初期状態として1枚目に activeクラスが付いている前提でインターバルを開始
-            setInterval(() => {
-                if (pcSlides[currentSlide]) pcSlides[currentSlide].classList.remove('active');
-                if (spSlides[currentSlide]) spSlides[currentSlide].classList.remove('active');
-
-                currentSlide = (currentSlide + 1) % slidesLength;
-
-                if (pcSlides[currentSlide]) pcSlides[currentSlide].classList.add('active');
-                if (spSlides[currentSlide]) spSlides[currentSlide].classList.add('active');
-            }, 4000);
+        if (slides.length > 0) {
+            // 中央のロゴ＆文字のフェードイン（ロゴ1.5秒 ＋ 遅延0.8秒 ＋ 文字1.5秒 ＝ 約3秒）が
+            // すべて完了したあとに、最初の切り替え（4秒後）をスタートさせる
+            setTimeout(() => {
+                setInterval(() => {
+                    slides[currentSlide].classList.remove('active');
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    slides[currentSlide].classList.add('active');
+                }, 4000);
+            }, 1000); // 1000ミリ秒（1秒）後にスライドショーのタイマーを起動
         }
     }
 
-    // --- 以下、既存のハンバーガー・カウントダウン等の処理 ---
+    // 5. ナビゲーションのスクロール追従制御
+    const nav = document.getElementById('sticky-nav');
+    const firstView = document.querySelector('.first-view');
+
+    if (nav && firstView) {
+        window.addEventListener('scroll', function() {
+            const firstViewHeight = firstView.offsetHeight;
+            if (window.scrollY > firstViewHeight - 100) {
+                nav.classList.add('fixed');
+            } else {
+                nav.classList.remove('fixed');
+            }
+        });
+    }
+
+    // 6. ハンバーガーメニューの開閉制御（スマホ用）
     const navToggle = document.getElementById('nav-toggle');
     const mobileHead = document.getElementById('mobile-head');
 
@@ -151,6 +158,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    // 7. 挙式日までの自動カウントダウン
     function updateCountdown() {
         const targetDate = new Date('2026-08-23T00:00:00+09:00').getTime();
         const now = new Date().getTime();
@@ -171,21 +179,34 @@ document.addEventListener("DOMContentLoaded", function() {
             if (hoursEl) hoursEl.textContent = hours;
             if (minutesEl) minutesEl.textContent = minutes;
             if (secondsEl) secondsEl.textContent = seconds;
+        } else {
+            if (daysEl) daysEl.textContent = '0';
+            if (hoursEl) daysEl.textContent = '0';
+            if (minutesEl) minutesEl.textContent = '0';
+            if (secondsEl) secondsEl.textContent = '0';
         }
     }
 
     updateCountdown();
     setInterval(updateCountdown, 1000);
 
-    // 各セクションのフェードイン監視
+    // 8. 各セクションのフェードイン監視（スクロールするたびに発火）
     const targets = document.querySelectorAll('.imgEffect_fadeIn, .imgEffect_bottom_top');
-    const options = { root: null, rootMargin: '0px', threshold: 0.1 };
+    const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                // 画面内に入ったら表示
                 entry.target.classList.add('is-active');
                 entry.target.style.visibility = 'visible';
+            } else {
+                // 画面外に出たらクラスを外し、再度スクロールした時に再アニメーションさせる場合
+                entry.target.classList.remove('is-active');
             }
         });
     }, options);
@@ -195,11 +216,15 @@ document.addEventListener("DOMContentLoaded", function() {
         observer.observe(target);
     });
 
+    // トップへ戻るボタンのスムーズスクロール
     const backToTopBtn = document.querySelector('.back-to-top');
     if (backToTopBtn) {
         backToTopBtn.addEventListener('click', function(e) {
             e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
     }
 
