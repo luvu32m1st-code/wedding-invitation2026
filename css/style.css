@@ -1036,8 +1036,12 @@ iframe {
     max-width: 900px;
     margin: 0 auto;
     padding: 0 20px;
-    background-image: url(/img/footer-img.png);
+}
 
+.footer_inner::before{
+    content: '';
+    background-image: url(/img/footer-img.png);
+    position: relative;
 }
 
 /* 結びのメッセージ */
