@@ -13,80 +13,49 @@
     <title>Wedding Invitation</title>
 </head>
 
-<body id="main">
-
-    <!-- パスワード入力画面（オーバーレイ） -->
-    <div id="password-modal" class="auth-modal">
-        <div class="auth-modal-content">
-            <h2>WEDDING INVITATION</h2>
-            <p>招待状をご覧いただくための<br>パスワードを入力してください</p>
-            <form id="password-form">
-                <input type="password" id="access-password" placeholder="合言葉を入力" required autocomplete="current-password">
-                <button type="submit">送信</button>
-                <p id="password-error" class="error-message" style="display: none;">パスワードが違います</p>
-            </form>
-        </div>
-    </div>
-
-    <!-- ローディング画面 -->
-    <div id="loader-bg">
-        <div class="loader-img"></div>
-    </div>
-
-    <!-- ファーストビュー（全画面スライドショー ＆ 中央ロゴ） -->
-    <div class="first-view">
-        <div class="main_img_slider">
-            <div class="slide active" style="background-image: url('img/Img-WDcover1.jpg');"></div>
-            <div class="slide" style="background-image: url('img/Img-cover1.jpg');"></div>
-            <div class="slide" style="background-image: url('img/Img-WDcover2.jpg');"></div>
-            <div class="slide" style="background-image: url('img/Img-cover2.jpg');"></div>
-        </div>
-        
-        <!-- 画像の中央にふんわり出すタイトル・ロゴ -->
-        <h1 class="cover_ttl_center">
-            <div class="cover_svg keyvisual-fadeIn">
-                <img src="img/main-ttl.svg" alt="Main Title">
+<body>
+    <div class="index">
+        <!-- パスワード入力画面（オーバーレイ） -->
+        <div id="password-modal" class="auth-modal">
+            <div class="auth-modal-content">
+                <h2>WEDDING INVITATION</h2>
+                <p>招待状をご覧いただくための<br>パスワードを入力してください</p>
+                <form id="password-form">
+                    <input type="password" id="access-password" placeholder="合言葉を入力" required autocomplete="current-password">
+                    <button type="submit">送信</button>
+                    <p id="password-error" class="error-message" style="display: none;">パスワードが違います</p>
+                </form>
             </div>
-            <span class="keyvisual-fadeIn">
-                <img src="img/keyvisual-hanko.svg">
-                WEDDING INVITATION
-            </span>
-        </h1>
+        </div>
 
-        <!-- ナビゲーション（右寄せ / スクロール時：追従 / スマホ：ハンバーガー） -->
-        <nav class="temp-nav">
-            <ul class="temp-nav-list">
-                <li class="nav-top nav-active">
-                    <a href="#main">TOP</a>
-                </li>
-                <li class="nav-message">
-                    <a href="#message">MESSAGE</a>
-                </li>
-                <li class="nav-profile">
-                    <a href="#profile">PROFILE</a>
-                </li>
-                <li class="nav-countdown">
-                    <a href="#countdown">COUNTDOWN</a>
-                </li>
-                <li class="nav-events">
-                    <a href="#events">EVENTS</a>
-                </li>
-                <li class="nav-rsvp">
-                    <a href="#rsvp">RSVP</a>
-                </li>
-            </ul>
-        </nav>
+        <!-- ローディング画面 -->
+        <div id="loader-bg">
+            <div class="loader-img"></div>
+        </div>
 
-        <nav id="mobile-head" class="">
-            <div id="nav-toggle">
-                <div>
-                    <span></span>
-                    <span></span>
-                    <span></span>
+        <!-- ファーストビュー（全画面スライドショー ＆ 中央ロゴ） -->
+        <div class="first-view">
+            <div class="main_img_slider">
+                <div class="slide active" style="background-image: url('img/Img-WDcover1.jpg');"></div>
+                <div class="slide" style="background-image: url('img/Img-cover1.jpg');"></div>
+                <div class="slide" style="background-image: url('img/Img-WDcover2.jpg');"></div>
+                <div class="slide" style="background-image: url('img/Img-cover2.jpg');"></div>
+            </div>
+            
+            <!-- 画像の中央にふんわり出すタイトル・ロゴ -->
+            <h1 class="cover_ttl_center">
+                <div class="cover_svg keyvisual-fadeIn">
+                    <img src="img/main-ttl.svg" alt="Main Title">
                 </div>
-            </div>
-            <div class="nav cl" id="global-nav">
-                <ul>
+                <span class="keyvisual-fadeIn">
+                    <img src="img/keyvisual-hanko.svg">
+                    WEDDING INVITATION
+                </span>
+            </h1>
+
+            <!-- ナビゲーション（右寄せ / スクロール時：追従 / スマホ：ハンバーガー） -->
+            <nav class="temp-nav">
+                <ul class="temp-nav-list">
                     <li class="nav-top nav-active">
                         <a href="#main">TOP</a>
                     </li>
@@ -106,211 +75,242 @@
                         <a href="#rsvp">RSVP</a>
                     </li>
                 </ul>
-            </div>
-        </nav>
+            </nav>
 
-
-    </div>
-
-    <!-- コンテンツエリア -->
-    <div id="introduction">
-        <div class="introduction_inner container">
-            <div id="message">
-                <div class="message_inner">
-                    <h2 class="imgEffect_fadeIn"></h2>
-                    <p class="imgEffect_fadeIn">
-                        皆様いかがお過ごしでしょうか<br>
-                        このたび 結婚式を<br>
-                        執り行うこととなりました<br><br>
-                        日頃お世話になっております皆さまと<br>
-                        心穏やかな時間をともにし<br>
-                        これまでの感謝を伝えながら<br>
-                        新たな門出を見守っていただければと存じます<br>
-                        当日は宿泊を兼ねて おくつろぎいただきながら<br>
-                        家族のかけがえのない思い出を共有できる<br>
-                        温かな小宴にできれば幸いです<br><br>
-                        ご多用中 誠に恐縮ではございますが<br>
-                        ぜひご出席いただきたく<br>
-                        ご案内申し上げます
-                    </p>
+            <nav id="mobile-head" class="">
+                <div id="nav-toggle">
+                    <div>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="profile">
-        <div class="profile_inner">
-            <h2 class="imgEffect_fadeIn">
-                <span class="font_ttl">PROFILE</span>
-            </h2>                  
-            <!-- 新郎プロフィール -->
-            <ul class="broom imgEffect_fadeIn">
-                <li class="photo">
-                    <img src="./img/Img-bride.jpg" alt="新郎_写真">
-                </li>
-                <li class="name">
-                    <h3>本村&nbsp;将悟</h3>
-                    <span>Motomura&nbsp;Shogo</span>
-                </li>
-                <li class="text">
-                    <p>1995年9月13日 小松市生まれ A型 看護師<br>野球好きで 学生時代から今も続けています<br><br>マラソンも好なので一年中色黒です</p>
-                </li>
-            </ul>
-
-            <!-- 新婦プロフィール -->
-            <ul class="bride imgEffect_fadeIn">
-                <li class="photo">
-                    <img src="./img/Img-groom.jpg" alt="新婦_写真">
-                </li>
-                <li class="name">
-                    <h3>髙畠&nbsp;美穂</h3>
-                    <span>Takabatake&nbsp;Miho</span>
-                </li>
-                <li class="text">
-                    <p>1990年4月25日 松任市生まれ O型 事務職<br>興味があることを試行錯誤したり追及することが好きです<br>最近は英会話習得をがんばっています</p>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-    <div id="countdown">
-        <div class="countdown_inner container">
-            <div class="countdown_content">
-                <div class="imgEffect_fadeIn">
-                    <h2>
-                        <span class="font_ttl">COUNTDOWN</span>
-                    </h2>
-                    <p class="goal_time" id="countdown_date" data-datetime="1921637700">2026.8.23</p>
-                    <ul class="count_number cf">
-                        <li class="days">
-                            <p class="n-number" id="countdown_days">1629</p>
-                            <p class="dhms">DAYS</p>
+                <div class="nav cl" id="global-nav">
+                    <ul>
+                        <li class="nav-top nav-active">
+                            <a href="#main">TOP</a>
                         </li>
-                        <li class="hours">
-                            <p class="n-number" id="countdown_hours">2</p>
-                            <p class="dhms">HOURS</p>
+                        <li class="nav-message">
+                            <a href="#message">MESSAGE</a>
                         </li>
-                        <li class="minutes">
-                            <p class="n-number" id="countdown_minutes">22</p>
-                            <p class="dhms">MINUTES</p>
+                        <li class="nav-profile">
+                            <a href="#profile">PROFILE</a>
                         </li>
-                        <li class="seconds">
-                            <p class="n-number" id="countdown_seconds">12</p>
-                            <p class="dhms">SECONDS</p>
+                        <li class="nav-countdown">
+                            <a href="#countdown">COUNTDOWN</a>
+                        </li>
+                        <li class="nav-events">
+                            <a href="#events">EVENTS</a>
+                        </li>
+                        <li class="nav-rsvp">
+                            <a href="#rsvp">RSVP</a>
                         </li>
                     </ul>
                 </div>
+            </nav>
+
+
+        </div>
+
+        <!-- コンテンツエリア -->
+        <div id="introduction">
+            <div class="introduction_inner container">
+                <div id="message">
+                    <div class="message_inner">
+                        <h2 class="imgEffect_fadeIn"></h2>
+                        <p class="imgEffect_fadeIn">
+                            皆様いかがお過ごしでしょうか<br>
+                            このたび 結婚式を<br>
+                            執り行うこととなりました<br><br>
+                            日頃お世話になっております皆さまと<br>
+                            心穏やかな時間をともにし<br>
+                            これまでの感謝を伝えながら<br>
+                            新たな門出を見守っていただければと存じます<br>
+                            当日は宿泊を兼ねて おくつろぎいただきながら<br>
+                            家族のかけがえのない思い出を共有できる<br>
+                            温かな小宴にできれば幸いです<br><br>
+                            ご多用中 誠に恐縮ではございますが<br>
+                            ぜひご出席いただきたく<br>
+                            ご案内申し上げます
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div id="events">
-        <div class="events_inner container cf">
-            <h2 class="imgEffect_bottom_top">
-                <span class="font_ttl">EVENTS</span>
-            </h2>
-            <div class="event_content_wrap">
-                <div class="event_content event01 imgEffect_bottom_top">
-                    <ul class="events_daytime events_daytime_1">
-                        <li class="event_title">
-                            <h3><span>挙式</span>WEDDING<br>CEREMONY</h3>
-                        </li>
-                        <li class="event_day">
-                            <p>2026.8.23 Sun</p>
-                        </li>
-                        <div class="event_time_box">
-                            <li class="event_time">
-                                <p>開始時間 <span class="Didot">13:15</span></p>
+        <div id="profile">
+            <div class="profile_inner">
+                <h2 class="imgEffect_fadeIn">
+                    <span class="font_ttl">PROFILE</span>
+                </h2>                  
+                <!-- 新郎プロフィール -->
+                <ul class="broom imgEffect_fadeIn">
+                    <li class="photo">
+                        <img src="./img/Img-bride.jpg" alt="新郎_写真">
+                    </li>
+                    <li class="name">
+                        <h3>本村&nbsp;将悟</h3>
+                        <span>Motomura&nbsp;Shogo</span>
+                    </li>
+                    <li class="text">
+                        <p>1995年9月13日 小松市生まれ A型 看護師<br>野球好きで 学生時代から今も続けています<br><br>マラソンも好なので一年中色黒です</p>
+                    </li>
+                </ul>
+
+                <!-- 新婦プロフィール -->
+                <ul class="bride imgEffect_fadeIn">
+                    <li class="photo">
+                        <img src="./img/Img-groom.jpg" alt="新婦_写真">
+                    </li>
+                    <li class="name">
+                        <h3>髙畠&nbsp;美穂</h3>
+                        <span>Takabatake&nbsp;Miho</span>
+                    </li>
+                    <li class="text">
+                        <p>1990年4月25日 松任市生まれ O型 事務職<br>興味があることを試行錯誤したり追及することが好きです<br>最近は英会話習得をがんばっています</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="countdown">
+            <div class="countdown_inner container">
+                <div class="countdown_content">
+                    <div class="imgEffect_fadeIn">
+                        <h2>
+                            <span class="font_ttl">COUNTDOWN</span>
+                        </h2>
+                        <p class="goal_time" id="countdown_date" data-datetime="1921637700">2026.8.23</p>
+                        <ul class="count_number cf">
+                            <li class="days">
+                                <p class="n-number" id="countdown_days">1629</p>
+                                <p class="dhms">DAYS</p>
                             </li>
-                            <li class="event_receptiontime">
-                                <p>受付時間 <span class="Didot">13:00</span></p>
+                            <li class="hours">
+                                <p class="n-number" id="countdown_hours">2</p>
+                                <p class="dhms">HOURS</p>
                             </li>
-                        </div>
-                    </ul>
+                            <li class="minutes">
+                                <p class="n-number" id="countdown_minutes">22</p>
+                                <p class="dhms">MINUTES</p>
+                            </li>
+                            <li class="seconds">
+                                <p class="n-number" id="countdown_seconds">12</p>
+                                <p class="dhms">SECONDS</p>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
+            </div>
+        </div>
 
-                <div class="event_content event02 imgEffect_bottom_top">
-                    <ul class="events_daytime events_daytime_2">
-                        <li class="event_title">
-                            <h3><span>披露宴</span>WEDDING<br>RECEPTION</h3>
-                        </li>
-                        <li class="event_day">
-                            <p>2026.8.23 Sun</p>
-                        </li>
-                        <div class="event_time_box">
-                            <li class="event_time">
-                                <p>開始時間 <span class="Didot">14:00</span></p>
+        <div id="events">
+            <div class="events_inner container cf">
+                <h2 class="imgEffect_bottom_top">
+                    <span class="font_ttl">EVENTS</span>
+                </h2>
+                <div class="event_content_wrap">
+                    <div class="event_content event01 imgEffect_bottom_top">
+                        <ul class="events_daytime events_daytime_1">
+                            <li class="event_title">
+                                <h3><span>挙式</span>WEDDING<br>CEREMONY</h3>
                             </li>
-                            <li class="event_receptiontime">
-                                <p>受付時間 <span class="Didot">13:30</span></p>
+                            <li class="event_day">
+                                <p>2026.8.23 Sun</p>
                             </li>
-                        </div>
-                    </ul>
-                </div>
-
-                <div class="event_content event_party cf imgEffect_bottom_top">
-                    <ul class="events_place">
-                        <li class="place_name"><p>旅亭懐石　のとや</p></li>
-                        <li class="place_address"><p>〒923-0326 石川県小松市粟津町ワ８５</p></li>
-                        <li class="place_tel"><p>TEL 0761-65-1711</p></li>
-                        <li class="place_url"><a href="https://www.notoya.co.jp/" target="_blank"><p>HP https://www.notoya.co.jp/</p></a></li>
-                        <li class="place_googlemap">
-                            <div class="googlemap_img" id="map_wedding">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3214.2632014878004!2d136.4470204!3d36.3301704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff8585351754041%3A0x708d237cdd4d14f0!2z5peF5Lqt5oeQ55-z44Gu44Go44KE!5e0!3m2!1sja!2sjp!4v1784789656428!5m2!1sja!2sjp" width="100%" height="100%" style="border:0" frameborder="0" allowfullscreen></iframe>
+                            <div class="event_time_box">
+                                <li class="event_time">
+                                    <p>開始時間 <span class="Didot">13:15</span></p>
+                                </li>
+                                <li class="event_receptiontime">
+                                    <p>受付時間 <span class="Didot">13:00</span></p>
+                                </li>
                             </div>
-                        </li>
-                        <li class="cloak">
-                            <h4>アクセス</h4>
-                            <p>金沢駅より車で約50分<br>
-                                <br>
-                                野々市駅より車で約30分<br>
-                                <br>
-                                粟津駅より車で約10分<br>
-                                <br>
-                                無料駐車場がございます。
-                            </p>
-                        </li>
-                        <li class="cloak">
-                            <h4>挙式・披露宴会場について</h4>
-                            <p>当日は 挙式をのとやロビーにて、披露宴を合掌造の間で行います。<br>
-                                披露宴会場は履物を脱いでのご参加となります。<br>
-                            </p>
-                        </li>
-                    </ul>
+                        </ul>
+                    </div>
+
+                    <div class="event_content event02 imgEffect_bottom_top">
+                        <ul class="events_daytime events_daytime_2">
+                            <li class="event_title">
+                                <h3><span>披露宴</span>WEDDING<br>RECEPTION</h3>
+                            </li>
+                            <li class="event_day">
+                                <p>2026.8.23 Sun</p>
+                            </li>
+                            <div class="event_time_box">
+                                <li class="event_time">
+                                    <p>開始時間 <span class="Didot">14:00</span></p>
+                                </li>
+                                <li class="event_receptiontime">
+                                    <p>受付時間 <span class="Didot">13:30</span></p>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+
+                    <div class="event_content event_party cf imgEffect_bottom_top">
+                        <ul class="events_place">
+                            <li class="place_name"><p>旅亭懐石　のとや</p></li>
+                            <li class="place_address"><p>〒923-0326 石川県小松市粟津町ワ８５</p></li>
+                            <li class="place_tel"><p>TEL 0761-65-1711</p></li>
+                            <li class="place_url"><a href="https://www.notoya.co.jp/" target="_blank"><p>HP https://www.notoya.co.jp/</p></a></li>
+                            <li class="place_googlemap">
+                                <div class="googlemap_img" id="map_wedding">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3214.2632014878004!2d136.4470204!3d36.3301704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff8585351754041%3A0x708d237cdd4d14f0!2z5peF5Lqt5oeQ55-z44Gu44Go44KE!5e0!3m2!1sja!2sjp!4v1784789656428!5m2!1sja!2sjp" width="100%" height="100%" style="border:0" frameborder="0" allowfullscreen></iframe>
+                                </div>
+                            </li>
+                            <li class="cloak">
+                                <h4>アクセス</h4>
+                                <p>金沢駅より車で約50分<br>
+                                    <br>
+                                    野々市駅より車で約30分<br>
+                                    <br>
+                                    粟津駅より車で約10分<br>
+                                    <br>
+                                    無料駐車場がございます。
+                                </p>
+                            </li>
+                            <li class="cloak">
+                                <h4>挙式・披露宴会場について</h4>
+                                <p>当日は 挙式をのとやロビーにて、披露宴を合掌造の間で行います。<br>
+                                    披露宴会場は履物を脱いでのご参加となります。<br>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div id="rsvp">
-        <span class="rsvp_bg_cover imgEffect_bg_cover"></span>
-        <div class="rsvp_inner container">
-            <div class="rsvp_bg imgEffect_bottom_top">
-                <div class="rsvp_content imgEffect_bottom_one-quarter">
-                    <h2><span class="font_ttl">RSVP</span></h2>
-                    <div class="rsvp_form_input">
-                        <p class="rsvp_text">
-                            郵送でのご案内状に代わり 当招待状をお送りしております<br>
-                            お手数ではございますが 出席情報のご登録をお願い申し上げます<br>
-                            <br>
-                            また当日のお食事のご用意にあたり<br>
-                            アレルギー等がある方はアレルギー欄に<br>
-                            ご記入くださいますようお願い申し上げます
-                        </p>
-                        <p class="rsvp_deadline">
-                            <span class="deadline_day">2026.8.17</span>までに<br>
-                            ご一報賜りますようお願い申し上げます
-                        </p>
+        <div id="rsvp">
+            <span class="rsvp_bg_cover imgEffect_bg_cover"></span>
+            <div class="rsvp_inner container">
+                <div class="rsvp_bg imgEffect_bottom_top">
+                    <div class="rsvp_content imgEffect_bottom_one-quarter">
+                        <h2><span class="font_ttl">RSVP</span></h2>
+                        <div class="rsvp_form_input">
+                            <p class="rsvp_text">
+                                郵送でのご案内状に代わり 当招待状をお送りしております<br>
+                                お手数ではございますが 出席情報のご登録をお願い申し上げます<br>
+                                <br>
+                                また当日のお食事のご用意にあたり<br>
+                                アレルギー等がある方はアレルギー欄に<br>
+                                ご記入くださいますようお願い申し上げます
+                            </p>
+                            <p class="rsvp_deadline">
+                                <span class="deadline_day">2026.8.17</span>までに<br>
+                                ご一報賜りますようお願い申し上げます
+                            </p>
 
-                        <!-- Googleフォーム -->
-                        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfJ_2OZBfz6GpuZ2bBaylg-uLZPT-nnme4ZNeKmVmINsmQigQ/viewform?embedded=true" width="100%" height="750" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
-                        
+                            <!-- Googleフォーム -->
+                            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfJ_2OZBfz6GpuZ2bBaylg-uLZPT-nnme4ZNeKmVmINsmQigQ/viewform?embedded=true" width="100%" height="750" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+                            
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
     <!-- フッターセクション -->
     <footer id="footer">
         <div class="footer_inner">
@@ -326,7 +326,7 @@
 
             <!-- コピーライト -->
             <small class="copyright">&copy; 2026 Shogo & Miho</small>
-            
+
         </div>
     </footer>
     
