@@ -1038,12 +1038,10 @@ iframe {
     padding: 0 20px;
 }
 
-.footer_message img:before{
-    content: '';
+.footer_message img {
     display: block;
     width: fit-content;
     height: fit-content;
-    position: relative;
 }
 
 /* 結びのメッセージ */
