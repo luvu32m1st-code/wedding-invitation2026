@@ -443,7 +443,7 @@ dd, dt, ol, p, span, ul {
     clear: both;
 }
 
-#profile .font_ttl {
+#profile .profile_inner h2 .font_ttl {
     display: none;
     text-align: center
 }
