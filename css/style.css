@@ -1036,6 +1036,8 @@ iframe {
     max-width: 900px;
     margin: 0 auto;
     padding: 0 20px;
+    background-image: url(/img/footer-img.png);
+
 }
 
 /* 結びのメッセージ */
@@ -1046,7 +1048,6 @@ iframe {
     line-height: 2.0;
     color: #333;
     margin-bottom: 50px;
-    background-image: url(/img/footer-img.png);
 }
 
 /* トップへ戻るボタン */
