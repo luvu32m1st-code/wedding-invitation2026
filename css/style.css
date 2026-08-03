@@ -1038,8 +1038,9 @@ iframe {
     padding: 0 20px;
 }
 
-.footer_inner::before{
+.footer_inner:before{
     content: '';
+    display: block;
     background-image: url(/img/footer-img.png);
     position: relative;
 }
