@@ -433,6 +433,21 @@ dd, dt, ol, p, span, ul {
     max-width: 946px
 }
 
+#profile .profile_inner:before {
+    content: "";
+    display: block;
+    overflow: hidden
+}
+
+#profile .profile_inner:after {
+    clear: both;
+}
+
+#profile .font_ttl {
+    display: none;
+    text-align: center
+}
+
 #profile h2 {
     background-image: url(/img/profile_title.png);
     background-size: cover;
