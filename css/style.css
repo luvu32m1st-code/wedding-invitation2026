@@ -2542,6 +2542,10 @@ footer.foorer_free .footer_inner .footer_link_list li a {
     }
 }
 
+
+
+
+
 .start_svg .st0 {
     fill: none;
     stroke: #fff;
@@ -2666,4 +2670,64 @@ footer.foorer_free .footer_inner .footer_link_list li a {
 
 .slick-next:after,.slick-prev:after {
     display: none
+}
+
+
+/* 基本フェードイン用 */
+.keyvisual-fadeIn.fadeIn-start {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+/* モーダル表示用クラス */
+.modal-window {
+  display: none;
+}
+.modal-window.modal-window-active {
+  display: block;
+}
+
+/* 隠しクラス */
+.is_hidden {
+  display: none !important;
+}
+
+/* スライダー用レイアウト */
+#main {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.main_inner {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+.main_img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.main_img .img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+.main_img_sp {
+  display: none;
+}
+@media screen and (max-width: 767px) {
+  .main_img_pc { display: none; }
+  .main_img_sp { display: block; }
+}
+.cover_ttl {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
 }

@@ -36,13 +36,17 @@ document.addEventListener("DOMContentLoaded", function() {
                 textEl.style.opacity = '1';
                 textEl.style.visibility = 'visible';
             }
-        }, 800); // ロゴから文字が出るまでの時間差（ミリ秒）
+        }, 800);
     }
 
 
     // 3. ローディングを一定時間表示し、消え切ったあとにアニメーションを発火させる関数
     function playLoaderWithDelay() {
         if (loaderBg) {
+            // パスワード通過直後にローディングを表示状態にする
+            loaderBg.style.display = 'block';
+            loaderBg.style.opacity = '1';
+
             setTimeout(() => {
                 loaderBg.style.transition = 'opacity 1s ease';
                 loaderBg.style.opacity = '0';
@@ -54,21 +58,35 @@ document.addEventListener("DOMContentLoaded", function() {
                     startFirstViewAnimation();
 
                     // ★同時にスライドショーの待機タイマーもスタート
-                    initSlider();
+                    if (typeof initSlider === 'function') {
+                        initSlider();
+                    }
 
                 }, 1000); // フェードアウトの時間（1秒）
 
             }, 1000); // ローディング表示時間（1秒）
         } else {
             startFirstViewAnimation();
-            initSlider();
+            if (typeof initSlider === 'function') {
+                initSlider();
+            }
         }
     }
 
-    // すでに認証済みの場合は最初からパスワードモーダルを隠す
+    // 初期状態：ローディングは一旦非表示にしておく
+    if (loaderBg) {
+        loaderBg.style.display = 'none';
+    }
+
+    // すでに認証済みの場合は最初からパスワードモーダルを隠し、ローディング演出へ
     if (sessionStorage.getItem('wedding_authenticated') === 'true') {
         if (modal) {
             modal.classList.add('is-hidden');
+        }
+    } else {
+        // 未認証の場合はモーダルを表示（is-hiddenを外す）
+        if (modal) {
+            modal.classList.remove('is-hidden');
         }
     }
 
@@ -77,12 +95,6 @@ document.addEventListener("DOMContentLoaded", function() {
         if (sessionStorage.getItem('wedding_authenticated') === 'true') {
             // 認証済みならそのままローディング演出へ
             playLoaderWithDelay();
-        } else {
-            // 未認証の場合はローディングを表示しつつ、裏でパスワード入力を待つ
-            if (loaderBg) {
-                loaderBg.style.opacity = '1';
-                loaderBg.style.display = 'block';
-            }
         }
     });
 
@@ -96,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (modal) {
                     modal.classList.add('is-hidden');
                 }
-                // パスワード突破後にローディング演出を開始し、終了後にアニメーション
+                // パスワード突破後にローディング演出を開始
                 playLoaderWithDelay();
             } else {
                 // 認証失敗
@@ -107,6 +119,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
+});
 
     // 4. ファーストビューの画像スライドショー（中央アニメーション終了後に連動開始）
     function initSlider() {
