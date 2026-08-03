@@ -397,17 +397,6 @@ dd, dt, ol, p, span, ul {
 
 
 /* プロフィール */
-#profile {
-    background-color: #fff;
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    background-position: 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding-top: 142px 0;
-}
-
 #profile h2 {
     margin-bottom: 70px;
 }
@@ -422,7 +411,16 @@ dd, dt, ol, p, span, ul {
 
 #profile .profile_inner {
     font-family: "Noto Serif JP",sans-serif;
-    max-width: 946px
+    max-width: 946px;
+    background-color: #fff;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 142px 0;
+
 }
 
 #profile .profile_inner:before {
