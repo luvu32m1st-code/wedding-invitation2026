@@ -405,6 +405,7 @@ dd, dt, ol, p, span, ul {
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: cover;
+    padding-bottom: 800px;
 }
 
 #profile h2 {
@@ -421,7 +422,8 @@ dd, dt, ol, p, span, ul {
 
 #profile .profile_inner {
     font-family: "Noto Serif JP",sans-serif;
-    max-width: 946px
+    max-width: 946px;
+    padding-top: 120px;
 }
 
 #profile .profile_inner:before {
@@ -1034,6 +1036,16 @@ iframe {
     max-width: 900px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+/* 結びのメッセージ */
+.footer_message {
+    font-family: "Noto Serif JP", sans-serif;
+    font-size: 16px;
+    letter-spacing: .1em;
+    line-height: 2.0;
+    color: #333;
+    margin-bottom: 50px;
 }
 
 /* トップへ戻るボタン */
