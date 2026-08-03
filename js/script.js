@@ -241,4 +241,63 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+
+
+    // パスワードのマスク表示・非表示を切り替える処理
+$(function() {
+    $("#passcheck").change(function() {
+        $(this).prop("checked") ? $("#access-password").attr("type", "text") : $("#access-password").attr("type", "password");
+    });
+});
+
+// ログインフォームの送信処理（AJAX）
+$('#password-form').submit(function(e) {
+    e.preventDefault();
+    login();
+});
+
+function login() {
+    $.ajax({
+        type: "POST",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        url: '/api/g/' + 39826 + '/invitation/login',
+        dataType: 'json',
+        data: {
+            invitation_id: 39826,
+            password: $('#access-password').val(),
+        }
+    }).done(function (data) {
+        if (data.valid === true) {
+            $("#password-modal").removeClass('login_error');
+            $("body").addClass('is_scroll');
+            $("#password-modal").addClass('is_hidden');
+            $("#password-modal").trigger('unlockLogin', arguments);
+        } else {
+            $("#password-modal").addClass('login_error');
+            $("#password-error").text("パスワードが違います").show();
+            return;
+        }
+    }).fail(function (data) {
+        $("#password-error").text("通信エラーが発生しました").show();
+        return false;
+    });
+}
+
+
+$(function() {
+    var e = $(window).height(),
+        t = $(window).width();
+    $("#loader-bg_ ,#loading_").width(t).height(e).css("display", "block");
+});
+
+$(window).on("load", function() {
+    $("#loader-bg_").delay(2e3).fadeOut(800);
+    $("#loading_").delay(1800).fadeOut(300);
+    setTimeout(function() {
+        $("#login_").trigger("unlockLogin", arguments);
+    }, 2e3);
+});
+
 });

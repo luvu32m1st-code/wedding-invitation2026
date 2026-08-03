@@ -2731,3 +2731,75 @@ footer.foorer_free .footer_inner .footer_link_list li a {
   text-align: center;
   z-index: 10;
 }
+
+
+.is_hidden {
+    display: none;
+}
+
+.is_show {
+    display: block;
+}
+
+/* チェックボックス周りのスタイル調整例 */
+.input_form {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.input_form input[type="password"],
+.input_form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.input_form label {
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+
+#loader-bg {
+    background: url(/img/invitation/yui/countdown_bg.jpg);
+    background-repeat: repeat;
+    height: 100vh;
+    left: 0;
+    opacity: 1;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+#loader-bg .loader-img {
+    animation: load3 5s linear infinite;
+    background: url(/img/invitation/yui/pc/gold/flower.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: block;
+    height: 100px;
+    left: calc(50% - 45px);
+    position: absolute;
+    top: calc(50% - 67.5px);
+    width: 100px;
+    z-index: 10000;
+}
+
+@media screen and (max-width: 1160px) {
+    #loader-img .loader-img {
+        height: 71px;
+        width: 71px;
+    }
+}
+
+@keyframes load3 {
+    0% {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(1turn);
+    }
+}

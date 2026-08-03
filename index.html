@@ -22,20 +22,29 @@
             <h2>WEDDING INVITATION</h2>
             <p>招待状をご覧いただくための<br>パスワードを入力してください</p>
             <form id="password-form">
-                <input type="password" id="access-password" placeholder="合言葉を入力" required autocomplete="current-password">
-                <button type="submit">送信</button>
+                <div class="input_form">
+                    <input type="password" id="access-password" placeholder="合言葉を入力" required autocomplete="current-password" name="password">
+                    <input id="passcheck" type="checkbox" name="passcheck">
+                    <label for="passcheck">パスワードを表示</label>
+                </div>
+                <button type="submit" id="login_submit_btn">送信</button>
                 <p id="password-error" class="error-message" style="display: none;">パスワードが違います</p>
             </form>
         </div>
     </div>
 
-        <!-- ローディング画面 -->
-    <div id="loader-bg">
-        <div class="loader-img"></div>
-    </div>
 
     <!-- メインコンテンツ -->
     <div class="index">
+        
+        <!-- ローディング画面 -->
+        <div id="loader-bg" style="display: none; width: 1729px; height: 1271px;">
+            <div class="loader-progress-bar"></div>
+            <div id="loader" style="width: 1729px; height: 1271px; display: none;">
+                <div class="loader-img"></div>
+            </div>
+        </div>
+
 
         <div id="main">
             <div class="main_inner container">
