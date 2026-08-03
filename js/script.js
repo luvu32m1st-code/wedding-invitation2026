@@ -17,53 +17,60 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // 2. ページ読み込み時にファーストビューのロゴと文字を完全に隠す
+    // 2. ページ読み込み時にファーストビューの要素を完全に隠す
     const keyvisualElements = document.querySelectorAll('.keyvisual-fadeIn');
     keyvisualElements.forEach(el => {
         el.style.opacity = '0';
         el.style.visibility = 'hidden';
     });
 
-    // 3. ファーストビューのフェードインアニメーション開始関数
+    // 3. ファーストビューのロゴと文字を時間差でアニメーションさせる関数
     function startFirstViewAnimation() {
-        const svgEl = document.querySelector('.cover_svg.keyvisual-fadeIn');
-        const textEl = document.querySelector('#main h1 span.keyvisual-fadeIn');
+        const logoEl = document.querySelector('.cover_ttl img.keyvisual-fadeIn');
+        const textEl = document.querySelector('.cover_ttl span.keyvisual-fadeIn');
 
-        if (svgEl) {
-            svgEl.style.transition = 'opacity 1.5s ease, visibility 1.5s ease';
-            svgEl.style.opacity = '1';
-            svgEl.style.visibility = 'visible';
+        // 1. まずロゴをフェードイン
+        if (logoEl) {
+            logoEl.style.transition = 'opacity 1.2s ease, visibility 1.2s ease';
+            logoEl.style.opacity = '1';
+            logoEl.style.visibility = 'visible';
         }
 
+        // 2. 少し遅れて（例: 600ms後）テキストをフェードイン
         setTimeout(() => {
             if (textEl) {
-                textEl.style.transition = 'opacity 1.5s ease, visibility 1.5s ease';
+                textEl.style.transition = 'opacity 1.2s ease, visibility 1.2s ease';
                 textEl.style.opacity = '1';
                 textEl.style.visibility = 'visible';
             }
-        }, 800);
+        }, 600);
+
+        // 3. アニメーションが一通り始まった後にスライドショーを開始
+        setTimeout(() => {
+            initSlider();
+        }, 1500);
     }
 
-    // 4. ローディング演出とアニメーション・スライドショーの連動
+    // 4. ローディング演出とアニメーションの連動
     function playLoaderWithDelay() {
         if (loaderBg) {
             loaderBg.style.display = 'block';
             loaderBg.style.opacity = '1';
 
+            // ローディングを表示しておく時間（例: 1.2秒）
             setTimeout(() => {
                 loaderBg.style.transition = 'opacity 1s ease';
                 loaderBg.style.opacity = '0';
                 
                 setTimeout(() => {
                     loaderBg.style.display = 'none';
+                    // ローディングが消えたらファーストビューのアニメーション開始
                     startFirstViewAnimation();
-                    initSlider();
                 }, 1000);
 
-            }, 1000);
+            }, 1200);
         } else {
             startFirstViewAnimation();
-            initSlider();
         }
     }
 
@@ -74,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (modal) modal.classList.remove('is_hidden');
     }
 
-    // ページ読み込み完了時の処理
+    // 認証済みならロード時にローディングから再生
     window.addEventListener('load', function() {
         if (sessionStorage.getItem('wedding_authenticated') === 'true') {
             playLoaderWithDelay();
@@ -102,22 +109,27 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // 5. 画像スライドショー制御
     function initSlider() {
-        // ※ HTML側のクラスに合わせて調整 (.slide または .main_img_pc .slide 等)
-        const slides = document.querySelectorAll('.main_img_pc .slide, .main_img_sp .img');
+        const pcSlides = document.querySelectorAll('.main_img_pc .slide');
+        const spSlides = document.querySelectorAll('.main_img_sp .img');
+        
         let currentSlide = 0;
+        const slidesLength = Math.max(pcSlides.length, spSlides.length);
 
-        if (slides.length > 0) {
-            setTimeout(() => {
-                setInterval(() => {
-                    slides[currentSlide].classList.remove('active');
-                    currentSlide = (currentSlide + 1) % slides.length;
-                    slides[currentSlide].classList.add('active');
-                }, 4000);
-            }, 1000);
+        if (slidesLength > 0) {
+            // 初期状態として1枚目に activeクラスが付いている前提でインターバルを開始
+            setInterval(() => {
+                if (pcSlides[currentSlide]) pcSlides[currentSlide].classList.remove('active');
+                if (spSlides[currentSlide]) spSlides[currentSlide].classList.remove('active');
+
+                currentSlide = (currentSlide + 1) % slidesLength;
+
+                if (pcSlides[currentSlide]) pcSlides[currentSlide].classList.add('active');
+                if (spSlides[currentSlide]) spSlides[currentSlide].classList.add('active');
+            }, 4000);
         }
     }
 
-    // 6. ハンバーガーメニューの開閉制御（スマホ用）
+    // --- 以下、既存のハンバーガー・カウントダウン等の処理 ---
     const navToggle = document.getElementById('nav-toggle');
     const mobileHead = document.getElementById('mobile-head');
 
@@ -134,7 +146,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // 7. 挙式日までの自動カウントダウン
     function updateCountdown() {
         const targetDate = new Date('2026-08-23T00:00:00+09:00').getTime();
         const now = new Date().getTime();
@@ -161,7 +172,7 @@ document.addEventListener("DOMContentLoaded", function() {
     updateCountdown();
     setInterval(updateCountdown, 1000);
 
-    // 8. 各セクションのフェードイン監視
+    // 各セクションのフェードイン監視
     const targets = document.querySelectorAll('.imgEffect_fadeIn, .imgEffect_bottom_top');
     const options = { root: null, rootMargin: '0px', threshold: 0.1 };
 
@@ -179,7 +190,6 @@ document.addEventListener("DOMContentLoaded", function() {
         observer.observe(target);
     });
 
-    // トップへ戻るボタンのスムーズスクロール
     const backToTopBtn = document.querySelector('.back-to-top');
     if (backToTopBtn) {
         backToTopBtn.addEventListener('click', function(e) {

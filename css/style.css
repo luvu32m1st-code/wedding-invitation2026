@@ -2803,3 +2803,43 @@ footer.foorer_free .footer_inner .footer_link_list li a {
         transform: rotate(1turn);
     }
 }
+
+
+
+/* PC用スライドの基本設定 */
+.main_img_pc .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+}
+.main_img_pc .slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+}
+
+/* スマホ用スライドの基本設定 */
+.main_img_sp .img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+}
+.main_img_sp .img.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+}
