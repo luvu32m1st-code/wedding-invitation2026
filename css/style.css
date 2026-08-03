@@ -395,20 +395,29 @@ dd, dt, ol, p, span, ul {
 }
 
 
-/* 各プロフィールブロック */
-/* #profile {
-    padding: 150px 0;
+
+/* プロフィール */
+#profile {
     background-color: #fff;
     position: relative;
     z-index: 2;
     text-align: center;
-} */
-
-#profile {
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: cover;
-    padding-top: 142px;
+    padding-top: 142px 0;
+}
+
+#profile h2 {
+    margin-bottom: 70px;
+}
+
+#profile h2 .font_ttl {
+    display: block;
+    font-family: 'Cormorant Garamond', 'Noto Serif JP', serif;
+    font-size: 2.2rem;
+    letter-spacing: 0.2em;
+    color: #333;
 }
 
 #profile .profile_inner {
