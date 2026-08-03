@@ -142,20 +142,18 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // 6. ハンバーガーメニューの開閉制御（スマホ用）
-    const menuToggle = document.getElementById('menu-toggle');
-    const navList = document.getElementById('nav-list');
+    const navToggle = document.getElementById('nav-toggle');
+    const mobileHead = document.getElementById('mobile-head');
 
-    if (menuToggle && navList) {
-        menuToggle.addEventListener('click', function() {
-            menuToggle.classList.toggle('is-active');
-            navList.classList.toggle('is-open');
+    if (navToggle && mobileHead) {
+        navToggle.addEventListener('click', function() {
+            mobileHead.classList.toggle('open');
         });
 
-        const navLinks = navList.querySelectorAll('a');
+        const navLinks = document.querySelectorAll('#global-nav a');
         navLinks.forEach(link => {
             link.addEventListener('click', function() {
-                menuToggle.classList.remove('is-active');
-                navList.classList.remove('is-open');
+                mobileHead.classList.remove('open');
             });
         });
     }

@@ -1026,7 +1026,7 @@ iframe {
 #footer {
     position: relative;
     z-index: 2;
-    background-color: #fff; /* または背景のパターン・色に合わせる */
+    background-color: #fff;
     text-align: center;
     padding: 50px 0 20px;
     border-top: 1px solid #eaeaea;
@@ -1036,7 +1036,10 @@ iframe {
     max-width: 900px;
     margin: 0 auto;
     padding: 0 20px;
-    background: url(/img/footer-img.png) 30% / cover;
+    background: url(/img/footer-img.png);
+    background-size: 20%;
+    background-repeat: no-repeat;
+    background-position: right;
     display: block;
 }
 
@@ -1085,4 +1088,283 @@ iframe {
     font-size: 13px;
     letter-spacing: 0.1em;
     color: #777;
+}
+
+
+
+
+
+
+
+
+/* レスポンシブ対応 */
+@media screen and (max-width: 1160px) {
+    .temp-nav-list {
+        display:none
+    }
+
+    #mobile-head {
+        display: block
+    }
+
+    #nav-toggle {
+        background-color: #b9915a;
+        box-sizing: border-box;
+        cursor: pointer;
+        display: none;
+        height: 60px;
+        padding: 19px 0 0 14px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 60px;
+        z-index: 1000
+    }
+
+    #nav-toggle div {
+        position: relative
+    }
+
+    #nav-toggle span {
+        background: #fff;
+        display: block;
+        height: 1px;
+        left: 0;
+        position: absolute;
+        transition: .35s ease-in-out;
+        width: 32px
+    }
+
+    #nav-toggle span:first-child {
+        top: 0
+    }
+
+    #nav-toggle span:nth-child(2) {
+        top: 10px
+    }
+
+    #nav-toggle span:nth-child(3) {
+        top: 20px
+    }
+
+    #mobile-head {
+        height: 60px;
+        z-index: 1
+    }
+
+    #global-nav,#mobile-head {
+        position: fixed;
+        top: 0;
+        width: 100%
+    }
+
+    #global-nav {
+        background: url(/img/invitation/yui/countdown_bg.jpg) repeat;
+        height: 100%;
+        opacity: 0;
+        right: 0;
+        text-align: center;
+        transition: .5s ease-in-out;
+        visibility: hidden
+    }
+
+    #global-nav ul {
+        display: flex;
+        flex-direction: row-reverse;
+        left: 50%;
+        list-style: none;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%,-50%)
+    }
+
+    #global-nav ul li {
+        margin-right: 23px
+    }
+
+    #global-nav ul li:first-of-type {
+        margin-right: 0
+    }
+
+    #global-nav ul li a {
+        animation-duration: .25s;
+        animation-fill-mode: both;
+        font-family: Cormorant Infant,游ゴシック,YuGothic,sans-serif;
+        font-size: 16px;
+        padding: .5em 0;
+        text-orientation: upright;
+        writing-mode: vertical-rl
+    }
+
+    #global-nav ul .menu-logo {
+        margin: 0 auto 48px;
+        width: 140px
+    }
+
+    #nav-toggle {
+        display: block
+    }
+
+    :root #global-nav ul li,_::-webkit-full-page-media,_:future {
+        margin-right: 46px
+    }
+
+    #mobile-head.open {
+        position: fixed;
+        top: 0
+    }
+
+    .open #nav-toggle span:first-child {
+        top: 11px;
+        transform: rotate(315deg)
+    }
+
+    .open #nav-toggle span:nth-child(2) {
+        left: 50%;
+        width: 0
+    }
+
+    .open #nav-toggle span:nth-child(3) {
+        top: 11px;
+        transform: rotate(-315deg)
+    }
+
+    .open #global-nav {
+        opacity: 1;
+        visibility: visible
+    }
+
+    .bg-fixed {
+        bottom: 0;
+        left: 0;
+        position: fixed;
+        right: 0;
+        top: 0
+    }
+}
+
+.start_svg .st0 {
+    fill: none;
+    stroke: #fff;
+    stroke-miterlimit: 10;
+    stroke-dasharray: 1500;
+    stroke-dashoffset: 1500;
+    stroke-width: 14;
+    stroke-linecap: round;
+    stroke-linejoin: round
+}
+
+.start_svg .st2 {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 8;
+    stroke-linecap: round;
+    stroke-miterlimit: 10;
+    stroke-dasharray: 1500;
+    stroke-dashoffset: 1500
+}
+
+.start_svg .st3 {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 7;
+    stroke-linecap: round;
+    stroke-miterlimit: 10;
+    stroke-dasharray: 1500;
+    stroke-dashoffset: 1500
+}
+
+.start_svg .st4 {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 6;
+    stroke-linecap: round;
+    stroke-miterlimit: 10;
+    stroke-dasharray: 1500;
+    stroke-dashoffset: 1500
+}
+
+.cover_svg {
+    display: none
+}
+
+.message_svg #mask {
+    fill: none;
+    stroke: #fff;
+    stroke-linecap: round;
+    stroke-miterlimit: 10;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000
+}
+
+.message_svg .st1 {
+    fill: none;
+    stroke-width: 7;
+    stroke-linecap: round
+}
+
+.message_svg_img {
+    display: none
+}
+
+.profile_svg #mask {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 9;
+    stroke-linecap: round;
+    stroke-miterlimit: 10;
+    stroke-dasharray: 1200;
+    stroke-dashoffset: 1200
+}
+
+.profile_svg #mask .profile_svg #mask .st2 {
+    stroke-width: 9
+}
+
+.profile_svg #mask .profile_svg #mask .st3 {
+    stroke-width: 3.5
+}
+
+.profile_svg #mask .profile_svg #mask .st4 {
+    stroke-width: 8
+}
+
+.profile_svg_img {
+    display: none
+}
+
+.events_svg .st0 {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 6;
+    stroke-linecap: round;
+    stroke-miterlimit: 10;
+    stroke-dasharray: 1500;
+    stroke-dashoffset: 1500
+}
+
+.cls-1 {
+    stroke-width: 5px;
+    stroke-width: 19px
+}
+
+.cls-1,.cls-2,.cls-3 {
+    fill: none;
+    stroke: #fff;
+    stroke-linecap: round;
+    stroke-linejoin: round
+}
+
+.cls-2 {
+    stroke-width: 9px;
+    stroke-width: 13px
+}
+
+.cls-3 {
+    stroke-width: 14px;
+    stroke-width: 29px
+}
+
+.slick-next:after,.slick-prev:after {
+    display: none
 }

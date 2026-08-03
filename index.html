@@ -54,7 +54,7 @@
         </h1>
 
         <!-- ナビゲーション（初期：中腹右寄せ / スクロール時：追従 / スマホ：ハンバーガー） -->
-        <nav class="temp-nav" id="sticky-nav">
+        <!-- <nav class="temp-nav" id="sticky-nav">
             <div class="menu-toggle" id="menu-toggle" aria-label="メニューを開閉する">
                 <span></span>
                 <span></span>
@@ -68,7 +68,37 @@
                 <li class="nav-events"><a href="#events">EVENTS</a></li>
                 <li class="nav-rsvp"><a href="#rsvp">RSVP</a></li>
             </ul>
+        </nav> -->
+
+        <!-- ナビゲーション -->
+        <nav class="temp-nav" id="sticky-nav">
+            <!-- スマホ用ヘッダー（ハンバーガーボタン用） -->
+            <div id="mobile-head">
+                <div id="nav-toggle" aria-label="メニューを開閉する">
+                    <div>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- グローバルナビ（PCは右側固定、スマホは全画面展開） -->
+            <div id="global-nav">
+                <ul id="nav-list">
+                    <li class="menu-logo">
+                        <img src="img/main-ttl.svg" alt="Logo">
+                    </li>
+                    <li class="nav-rsvp"><a href="#rsvp">RSVP</a></li>
+                    <li class="nav-events"><a href="#events">EVENTS</a></li>
+                    <li class="nav-countdown"><a href="#countdown">COUNTDOWN</a></li>
+                    <li class="nav-profile"><a href="#profile">PROFILE</a></li>
+                    <li class="nav-message"><a href="#message">MESSAGE</a></li>
+                    <li class="nav-top"><a href="#main">TOP</a></li>
+                </ul>
+            </div>
         </nav>
+        
     </div>
 
     <!-- コンテンツエリア -->
