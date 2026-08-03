@@ -1038,10 +1038,11 @@ iframe {
     padding: 0 20px;
 }
 
-.footer_inner:before{
+.footer_message img:before{
     content: '';
     display: block;
-    background-image: url(/img/footer-img.png);
+    width: fit-content;
+    height: fit-content;
     position: relative;
 }
 
