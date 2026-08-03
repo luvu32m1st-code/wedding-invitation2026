@@ -420,12 +420,19 @@ dd, dt, ol, p, span, ul {
 
 
 /* 各プロフィールブロック */
-#profile {
+/* #profile {
     padding: 150px 0;
     background-color: #fff;
     position: relative;
     z-index: 2;
     text-align: center;
+} */
+
+#profile {
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 142px;
 }
 
 #profile .profile_inner {
