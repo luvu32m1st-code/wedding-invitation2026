@@ -74,21 +74,25 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // 初期状態のモーダル表示判定
+    // 【修正後】初期状態のモーダルと認証状態の判定
     if (sessionStorage.getItem('wedding_authenticated') === 'true') {
         if (modal) modal.classList.add('is_hidden');
+        
+        // すでに認証済みの場合は、ページ読み込み時にローディングとアニメーションを実行する
+        window.addEventListener('load', function() {
+            playLoaderWithDelay();
+        });
     } else {
+        // 未認証の場合はモーダルを表示し、ファーストビューの文字を隠しておく
         if (modal) modal.classList.remove('is_hidden');
+        const keyvisualElements = document.querySelectorAll('.keyvisual-fadeIn');
+        keyvisualElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.visibility = 'hidden';
+        });
     }
 
-    // 認証済みならロード時にローディングから再生
-    window.addEventListener('load', function() {
-        if (sessionStorage.getItem('wedding_authenticated') === 'true') {
-            playLoaderWithDelay();
-        }
-    });
-
-    // パスワード送信時の処理
+    // 【修正後】パスワード送信時の処理
     if (form) {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -97,6 +101,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (modal) {
                     modal.classList.add('is_hidden');
                 }
+                // パスワードが正解した時もローディングとアニメーションを実行する
                 playLoaderWithDelay();
             } else {
                 if (errorMessage) {
