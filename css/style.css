@@ -1036,13 +1036,10 @@ iframe {
     max-width: 900px;
     margin: 0 auto;
     padding: 0 20px;
+    background: url(/img/footer-img.png) 30% / cover;
+    display: block;
 }
 
-.footer_message img {
-    display: block;
-    width: fit-content;
-    height: fit-content;
-}
 
 /* 結びのメッセージ */
 .footer_message {
