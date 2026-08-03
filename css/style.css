@@ -2763,7 +2763,7 @@ footer.foorer_free .footer_inner .footer_link_list li a {
 
 
 #loader-bg {
-    background: url(/img/invitation/yui/countdown_bg.jpg);
+    background: url(/img/countdown_bg.jpg);
     background-repeat: repeat;
     height: 100vh;
     left: 0;
@@ -2776,7 +2776,7 @@ footer.foorer_free .footer_inner .footer_link_list li a {
 
 #loader-bg .loader-img {
     animation: load3 5s linear infinite;
-    background: url(/img/invitation/yui/pc/gold/flower.png);
+    background: url(/img/flower.png);
     background-repeat: no-repeat;
     background-size: contain;
     display: block;
