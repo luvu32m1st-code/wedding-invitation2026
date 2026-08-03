@@ -300,12 +300,12 @@ dd, dt, ol, p, span, ul {
     right: 0;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 1
+    z-index: 1;
 }
 
 #nav li {
     float: right;
-    margin-right: 18px
+    margin-right: 18px;
 }
 
 #nav li a {
@@ -314,7 +314,7 @@ dd, dt, ol, p, span, ul {
     font-size: 14px;
     padding: .5em 0;
     text-orientation: upright;
-    writing-mode: vertical-rl
+    writing-mode: vertical-rl;
 }
 
 .temp-nav {
@@ -322,12 +322,12 @@ dd, dt, ol, p, span, ul {
     right: 62px;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 999
+    z-index: 999;
 }
 
 .temp-nav li {
     float: right;
-    margin-right: 18px
+    margin-right: 18px;
 }
 
 .temp-nav li a {
@@ -338,27 +338,27 @@ dd, dt, ol, p, span, ul {
     opacity: .5;
     padding: .5em 0;
     text-orientation: upright;
-    writing-mode: vertical-rl
+    writing-mode: vertical-rl;
 }
 
 .temp-nav li a:hover {
-    color: #ff4141
+    color: #ff4141;
 }
 
 .temp-nav li.nav-active {
-    position: relative
+    position: relative;
 }
 
 .temp-nav li.nav-active a {
-    opacity: 1
+    opacity: 1;
 }
 
 :root .temp-nav li,_::-webkit-full-page-media,_:future {
-    margin-right: 36px
+    margin-right: 36px;
 }
 
 #mobile-head {
-    display: none
+    display: none;
 }
 
 @media screen and (max-width: 1160px) {
@@ -1571,4 +1571,3 @@ iframe {
 .slick-next:after, .slick-prev:after {
     display: none;
 }
-};
