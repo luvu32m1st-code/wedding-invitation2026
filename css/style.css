@@ -1585,29 +1585,53 @@ iframe {
 }
 
 @media screen and (max-width: 768px) {
-    #events {
-        width: 100%;
-    }
-
-    #events .events_inner {
-        padding: 80px 20px 60px;
-    }
-
-    #events .event_content_wrap {
-        width: 100%;
-        padding: 0 15px;
-    }
-
-    /* 挙式・披露宴の横並び（float）を解除して縦並びに変更 */
+    /* 1. イベントカードの幅をスマホ用に調整 */
+    #events .event_content,
     #events .event01,
     #events .event02 {
         float: none;
         width: 100%;
-        max-width: 380px; /* スマホで大きくなりすぎないよう最大幅を指定 */
-        margin: 0 auto 40px; /* 中央寄せ ＋ 下部余白 */
+        max-width: 380px;
+        margin: 0 auto 40px;
     }
 
-    #events .event_party {
-        width: 100%;
+    /* 2. 縦書きタイトルのサイズと高さを調整 */
+    #events h3 span {
+        font-size: 30px;
+        height: auto;
+        padding-top: 20px !important;
+    }
+
+    /* 3. 日付のフォントサイズを調整 */
+    #events .events_daytime .event_day p {
+        font-size: 28px;
+    }
+
+    /* 4. 時間エリア全体のレイアウトと文字サイズを調整 */
+    #events .events_daytime .event_time_box {
+        gap: 40px; /* 左右の項目の間隔 */
+    }
+
+    #events .events_daytime .event_time_box li {
+        margin: 0;
+        position: relative;
+    }
+
+    #events .events_daytime .event_time_box p {
+        font-size: 13px;
+    }
+
+    #events .events_daytime .event_time_box p span {
+        font-size: 22px;
+    }
+
+    /* 5. 時間の間の縦線の位置を修正（固定pxを廃止して自然な位置に配置） */
+    #events .events_daytime .event_time_box li:nth-of-type(2):before {
+        height: 35px;
+        top: 50%;
+        left: -20px;
+        transform: translateY(-50%);
+        background-color: #000;
+        width: 1px;
     }
 }
