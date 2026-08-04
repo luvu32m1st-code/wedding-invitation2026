@@ -1583,3 +1583,31 @@ iframe {
         margin-bottom: 0;
     }
 }
+
+@media screen and (max-width: 768px) {
+    #events {
+        width: 100%;
+    }
+
+    #events .events_inner {
+        padding: 80px 20px 60px;
+    }
+
+    #events .event_content_wrap {
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    /* 挙式・披露宴の横並び（float）を解除して縦並びに変更 */
+    #events .event01,
+    #events .event02 {
+        float: none;
+        width: 100%;
+        max-width: 380px; /* スマホで大きくなりすぎないよう最大幅を指定 */
+        margin: 0 auto 40px; /* 中央寄せ ＋ 下部余白 */
+    }
+
+    #events .event_party {
+        width: 100%;
+    }
+}
