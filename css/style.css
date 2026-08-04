@@ -1499,6 +1499,53 @@ iframe {
         right: 0;
         top: 0;
     }
+
+    #events h2 {
+        height: 21px;
+        margin-bottom: 40px;
+        width: 154px;
+    }
+
+    #events h3 {
+        font-size: 23px;
+        line-height: 25px;
+    }
+
+    #events h3 span {
+        font-size: 36px;
+        height: 166.4px;
+    }
+
+    #events h3 span {
+        font-size: 36px;
+        height: 166.4px;
+    }
+
+    #events .events_daytime .event_day p {
+        font-size: 37px;
+    }
+
+    #events .events_daytime .event_time_box {
+        top: 80.5%;
+    }
+
+    #events .events_daytime .event_time_box li {
+        margin: 0 40px;
+    }
+
+    #events .events_daytime .event_time_box p {
+        font-size: 14px;
+    }
+
+    #events .events_daytime .event_time_box p span {
+        font-size: 24px;
+    }
+
+    #events .events_daytime .event_time_box li:nth-of-type(2):before {
+        height: 53px;
+        left: -44px;
+    }
+
 }
 
 @media screen and (max-width: 768px) {
@@ -1540,7 +1587,7 @@ iframe {
 @media screen and (max-width: 768px) {
     /* 1. 挙式日のフォントサイズと両脇の線をスマホ向けに調整 */
     #countdown .goal_time {
-        font-size: 26px;
+        font-size: 30px;
         letter-spacing: 0.15em;
     }
 
@@ -1565,33 +1612,43 @@ iframe {
         max-width: 280px;
         justify-content: center;
         gap: 30px 0; /* 上下ブロック間の余白 */
-        margin-top: 35px; /* 日付との間隔 */
+        height: 259px;
     }
 
     #countdown .count_number li {
         width: 50%;
+        height: 130px;
     }
 
     /* 3. スマホ画面に合わせて数値と単位のサイズを調整 */
     #countdown .count_number .n-number {
-        font-size: 52px;
-        margin-bottom: -8px;
+        font-size: 75px;
+        margin-top: 30px;
     }
 
     #countdown .count_number .dhms {
-        font-size: 13px;
+        font-size: 16px;
         margin-bottom: 0;
     }
+
+    #countdown .countdown_inner {
+        padding: 84px 0 150px;
+    }
+
+    #countdown {
+        margin-bottom: 60px;
+    }
+
 }
 
 /* スマホ表示時のイベントカード調整 */
 @media screen and (max-width: 768px) {
     #events {
-        width: 100%;
+        width: 90%;
     }
     
     #events .events_inner {
-        padding: 80px 15px 60px;
+        padding: 50px 0 40px;
     }
 
     #events .event_content,
@@ -1600,7 +1657,7 @@ iframe {
         float: none;
         width: 100%;
         max-width: 380px;
-        margin: 0 auto 40px;
+        margin: 0 auto;
     }
 
     #events h3 span {
@@ -1608,6 +1665,12 @@ iframe {
         height: auto;
         padding-top: 20px !important;
     }
+
+    #events h2 {
+    margin-bottom: 47px;
+    }
+
+
 }
 
 /* --- スマホ表示時のRSVP（Googleフォーム）のレスポンシブ対応 --- */
@@ -1657,6 +1720,129 @@ iframe {
     #rsvp iframe {
         width: 100% !important;
         max-width: 100% !important;
-        height: 1250px !important; /* コンテンツがすべて収まるように高さを調整 */
+        height: 1000px !important; /* コンテンツがすべて収まるように高さを調整 */
     }
 }
+
+/* --- ファーストビュー h1 のレスポンシブ対応 --- */
+
+/* デフォルト（PCサイズ）ではスマホ用改行を非表示にする */
+#main h1 span .sp_only {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    /* スマホ画面で h1 が画面からはみ出さないよう幅を調整 */
+    #main h1 {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 15px;
+    }
+
+    /* スマホ画面に合わせてタイトル文字サイズを縮小 */
+    #main h1 span {
+        font-size: 30px; 
+    }
+
+    /* スマホサイズになったら改行タグを表示する */
+    #main h1 span .sp_only {
+        display: inline;
+    }
+
+    /* テキスト変更に伴うハンコ画像の微調整 */
+    #main h1 span img {
+        top: -10px;
+        width: 30px;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #introduction #message .message_inner {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 1160px) {
+    .index #introduction #profile h2 {
+        height: 21px;
+        width: 186px;
+    }
+
+    #introduction #message h2 {
+        height: 216px;
+        margin-bottom: 67px;
+        width: 42px;
+    }
+
+    #introduction #message a, #introduction #message p {
+        font-size: 16px;
+        letter-spacing: 0;
+        line-height: 2;
+    }
+
+    #countdown h2 {
+        height: 209px;
+        margin-bottom: 8px;
+        width: 60px;
+    }
+
+    #countdown .count_number {
+        height: 259px;
+        max-width: 534px;
+    }
+
+    #events h2 {
+        height: 21px;
+        margin-bottom: 40px;
+        width: 154px;
+    }
+
+
+
+}
+
+@media screen and (max-width: 768px) {
+    .profile_inner {
+        width: 90%;
+    }
+
+    #introduction #profile h2 {
+        height: 19px;
+        margin-bottom: 79px;
+        width: 167px;
+    }
+
+    #introduction #profile .broom:before {
+        left: unset;
+        right: 5px;
+        height: 72px;
+        width: 19px;
+    }
+    
+    #introduction #profile .broom .photo:before {
+        background-image: url(/img/broom_deco.png);
+        top: -10px;
+    }
+
+    #profile .broom .name h3 {
+    margin: 0;
+    }
+
+    #countdown .countdown_content h2 {
+        height: 241px;
+        margin-bottom: 33px;
+        width: 69px;
+    }
+    
+    #events .event_party {
+        padding-top: 15px;
+    }
+
+    #events .events_place p {
+        margin: 5px 0 5px;
+    }
+
+
+}
+
