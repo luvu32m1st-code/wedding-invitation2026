@@ -1609,3 +1609,48 @@ iframe {
         padding-top: 20px !important;
     }
 }
+
+/* --- スマホ表示時のRSVP（Googleフォーム）のレスポンシブ対応 --- */
+@media screen and (max-width: 768px) {
+    #rsvp {
+        padding: 120px 15px 60px;
+    }
+
+    #rsvp .rsvp_bg {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 30px;
+    }
+
+    #rsvp .rsvp_content {
+        width: 100%;
+        padding-top: 100px;
+    }
+
+    #rsvp .rsvp_content h2 {
+        top: -30px;
+    }
+
+    #rsvp .rsvp_content .rsvp_text {
+        font-size: 14px;
+        line-height: 1.8;
+        margin-bottom: 30px;
+    }
+
+    #rsvp .rsvp_content .rsvp_deadline {
+        font-size: 15px;
+        margin-bottom: 40px;
+    }
+
+    #rsvp .rsvp_content .rsvp_deadline .deadline_day {
+        font-size: 26px;
+    }
+
+    /* Googleフォームのiframeをスマホ幅に最適化 */
+    #rsvp iframe {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
