@@ -1626,11 +1626,16 @@ iframe {
 
     #rsvp .rsvp_content {
         width: 100%;
-        padding-top: 100px;
+        padding-top: 30px; /* 上部の余白をスッキリさせる */
     }
 
+    /* タイトルの絶対配置を解除して、文字のかぶりを防止 */
     #rsvp .rsvp_content h2 {
-        top: -30px;
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        margin: 0 auto 30px auto;
     }
 
     #rsvp .rsvp_content .rsvp_text {
@@ -1648,9 +1653,10 @@ iframe {
         font-size: 26px;
     }
 
-    /* Googleフォームのiframeをスマホ幅に最適化 */
+    /* Googleフォームのiframeをスマホ幅に合わせ、高さを広げてスクロールバーを消す */
     #rsvp iframe {
         width: 100% !important;
         max-width: 100% !important;
+        height: 1250px !important; /* コンテンツがすべて収まるように高さを調整 */
     }
 }
