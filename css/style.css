@@ -1489,3 +1489,38 @@ iframe {
     }
 }
 
+@media screen and (max-width: 768px) {
+    #profile {
+        padding-bottom: 100px;
+    }
+
+    #profile .profile_inner {
+        padding-top: 80px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    /* 新郎・新婦の横並び（float）を解除して縦並びに変更 */
+    #profile .broom,
+    #profile .bride {
+        float: none;
+        width: 100%;
+        max-width: 380px;
+        margin: 0 auto 70px; /* 上下の余白と中央寄せ */
+    }
+
+    /* 最後の要素の下部マージンをリセット */
+    #profile .bride:last-of-type,
+    #profile .broom:last-of-type {
+        margin-bottom: 0;
+    }
+
+    /* スマホ画面で画像がはみ出さないようにレスポンシブ化 */
+    #profile .broom img,
+    #profile .bride img {
+        width: 100%;
+        max-width: 340px;
+        height: auto;
+        aspect-ratio: 378 / 322;
+    }
+}
