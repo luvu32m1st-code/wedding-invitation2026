@@ -1336,6 +1336,18 @@ iframe {
 }
 
 
+@media screen and (max-width: 768px) {
+    .footer_message {
+        font-family: "Noto Serif JP", sans-serif;
+        font-size: 12px;
+        letter-spacing: .1em;
+        line-height: 2.0;
+        color: #333;
+        margin-bottom: 50px;
+    }
+
+}
+
 
 
 
@@ -1522,5 +1534,31 @@ iframe {
         max-width: 340px;
         height: auto;
         aspect-ratio: 378 / 322;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* カウントダウンを2列×2行に折り返す設定 */
+    #countdown .count_number {
+        flex-wrap: wrap;
+        height: auto;
+        max-width: 300px;
+        justify-content: center;
+        gap: 40px 0; /* 上下ブロックの余白 */
+    }
+
+    #countdown .count_number li {
+        width: 50%;
+    }
+
+    /* スマホ画面に合わせて数値と単位のサイズ・余白を調整 */
+    #countdown .count_number .n-number {
+        font-size: 75px;
+        margin-bottom: -15px;
+    }
+
+    #countdown .count_number .dhms {
+        font-size: 18px;
+        margin-bottom: 0;
     }
 }
