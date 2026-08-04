@@ -109,23 +109,39 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // 4. ファーストビューの画像スライドショー（中央アニメーション終了後に連動開始）
-    function initSlider() {
-        const slides = document.querySelectorAll('.main_img_slider .slide');
-        let currentSlide = 0;
+        function initSlider() {
+            const pcSlides = document.querySelectorAll('.main_img_pc_slider .slide');
+            const spSlides = document.querySelectorAll('.main_img_sp_slider .slide');
+            let currentSlide = 0;
+            const maxSlides = Math.max(pcSlides.length, spSlides.length);
 
-        if (slides.length > 0) {
-            // 中央のロゴ＆文字のフェードイン（ロゴ1.5秒 ＋ 遅延0.8秒 ＋ 文字1.5秒 ＝ 約3秒）が
-            // すべて完了したあとに、最初の切り替え（4秒後）をスタートさせる
-            setTimeout(() => {
-                setInterval(() => {
-                    slides[currentSlide].classList.remove('active');
-                    currentSlide = (currentSlide + 1) % slides.length;
-                    slides[currentSlide].classList.add('active');
-                }, 4000);
-            }, 1000); // 1000ミリ秒（1秒）後にスライドショーのタイマーを起動
+            if (maxSlides > 0) {
+                // 中央のロゴ＆文字のフェードインがすべて完了したあとにスタート
+                setTimeout(() => {
+                    setInterval(() => {
+                        // 現在のスライドの active を外す
+                        if (pcSlides[currentSlide]) {
+                            pcSlides[currentSlide].classList.remove('active');
+                        }
+                        if (spSlides[currentSlide]) {
+                            spSlides[currentSlide].classList.remove('active');
+                        }
+
+                        // 次のスライドインデックスを計算
+                        currentSlide = (currentSlide + 1) % maxSlides;
+
+                        // 次のスライドに active を付与
+                        if (pcSlides[currentSlide]) {
+                            pcSlides[currentSlide].classList.add('active');
+                        }
+                        if (spSlides[currentSlide]) {
+                            spSlides[currentSlide].classList.add('active');
+                        }
+                    }, 4000);
+                }, 1000);
+            }
         }
-    }
-
+        
     // 5. ナビゲーションのスクロール追従制御
     const nav = document.getElementById('sticky-nav');
     const firstView = document.querySelector('.first-view');

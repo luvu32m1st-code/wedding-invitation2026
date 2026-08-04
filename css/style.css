@@ -209,7 +209,7 @@ dd, dt, ol, p, span, ul {
     overflow: hidden;
 }
 
-.main_img_slider {
+.main_img_pc_slider {
     position: absolute;
     top: 0;
     left: 0;
@@ -219,7 +219,7 @@ dd, dt, ol, p, span, ul {
     background-color: #f9f8f6; /* スライドの下敷きとして背景色を確保 */
 }
 
-.main_img_slider .slide {
+.main_img_pc_slider .slide {
     position: absolute;
     top: 0;
     left: 0;
@@ -234,9 +234,51 @@ dd, dt, ol, p, span, ul {
     background-color: #f9f8f6; /* 画像が切り替わる瞬間に背景が透けるのを防止 */
 }
 
-.main_img_slider .slide.active {
+.main_img_pc_slider .slide.active {
     opacity: 1;
     visibility: visible;
+}
+
+/* --- スマホ版スライダーのベーススタイル --- */
+.main_img_sp_slider {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: #f9f8f6;
+}
+
+.main_img_sp_slider .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 4s ease-in-out, visibility 4s ease-in-out;
+    background-color: #f9f8f6;
+}
+
+.main_img_sp_slider .slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* --- レスポンシブ切替（768px以下でスマホ版を表示） --- */
+@media screen and (max-width: 768px) {
+    .main_img_pc_slider {
+        display: none !important;
+    }
+    .main_img_sp_slider {
+        display: block !important;
+    }
 }
 
 
