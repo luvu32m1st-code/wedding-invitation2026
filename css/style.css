@@ -1538,27 +1538,48 @@ iframe {
 }
 
 @media screen and (max-width: 768px) {
-    /* カウントダウンを2列×2行に折り返す設定 */
+    /* 1. 挙式日のフォントサイズと両脇の線をスマホ向けに調整 */
+    #countdown .goal_time {
+        font-size: 26px;
+        letter-spacing: 0.15em;
+    }
+
+    #countdown .goal_time:before,
+    #countdown .goal_time:after {
+        height: 32px; /* スマホ画面に合わせて縦線の高さを調整 */
+        width: 1.5px;
+    }
+
+    #countdown .goal_time:before {
+        left: -25px; /* 左側の線の位置調整 */
+    }
+
+    #countdown .goal_time:after {
+        right: -22px; /* 右側の線の位置調整 */
+    }
+
+    /* 2. カウントダウンの数字を2列×2行（4ブロック）に折り返す設定 */
     #countdown .count_number {
         flex-wrap: wrap;
         height: auto;
-        max-width: 100%;
+        max-width: 280px;
         justify-content: center;
-        gap: 30px 0; /* 上下ブロックの余白 */
+        gap: 30px 0; /* 上下ブロック間の余白 */
+        margin-top: 35px; /* 日付との間隔 */
     }
 
     #countdown .count_number li {
         width: 50%;
     }
 
-    /* スマホ画面に合わせて数値と単位のサイズを調整（2桁が綺麗に収まるサイズ） */
+    /* 3. スマホ画面に合わせて数値と単位のサイズを調整 */
     #countdown .count_number .n-number {
-        font-size: 50px;
-        margin-bottom: -5px;
+        font-size: 52px;
+        margin-bottom: -8px;
     }
 
     #countdown .count_number .dhms {
-        font-size: 14px;
+        font-size: 13px;
         margin-bottom: 0;
     }
 }
