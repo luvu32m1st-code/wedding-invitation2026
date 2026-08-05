@@ -35,7 +35,7 @@ ul, ol {
 
 a {
     text-decoration: none;
-    color: #fff;
+    color: #101010;
     transition: .25s;
 }
 
@@ -666,7 +666,7 @@ dd, dt, ol, p, span, ul {
 }
 
 #profile .profile_inner {
-    font-family: "Noto Serif JP",sans-serif;
+    font-family: 游明朝;
     max-width: 946px;
     padding-top: 120px;
 }
@@ -751,7 +751,9 @@ dd, dt, ol, p, span, ul {
     font-family: "Noto Serif JP",sans-serif;
     font-size: 16px;
     line-height: 1.875;
-    text-align: left
+    text-align: left;
+    width: fit-content;
+    margin: 0 auto;
 }
 
 #profile .bride .birthday, #profile .bride .name, #profile .bride .text, #profile .broom .birthday, #profile .broom .name, #profile .broom .text {
@@ -1284,7 +1286,7 @@ iframe {
     background: url(/img/footer-img.png);
     background-size: 20%;
     background-repeat: no-repeat;
-    background-position: right;
+    background-position: 95% 0;
     display: block;
 }
 
@@ -1820,8 +1822,14 @@ iframe {
     }
     
     #introduction #profile .broom .photo:before {
-        background-image: url(/img/broom_deco.png);
+        background-image: url(/img/broom_deco_sp.png);
         top: -10px;
+    }
+
+    #introduction #profile .bride .photo:before {
+        background-image: url(/img/bride_deco_sp.png);
+        top: -5px;
+        width: 100%;
     }
 
     #profile .broom .name h3,
