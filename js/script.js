@@ -1,5 +1,11 @@
 document.addEventListener("DOMContentLoaded", function() {
 
+    // --- スマホ等でのロード時ズレを防ぐため、強制的に最上部へスクロール ---
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+
     // --- パスワード認証とローディングの連動制御 ---
     const modal = document.getElementById('password-modal');
     const form = document.getElementById('password-form');
