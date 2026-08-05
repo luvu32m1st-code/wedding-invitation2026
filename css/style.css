@@ -2056,9 +2056,10 @@ iframe {
 /* --- タイトル・日時などの文字サイズ --- */
 #events h3 {
     font-family: Garamond, serif;
-    font-size: clamp(20px, 2.2vw, 29px);
+    font-size: clamp(20px, 2.2vw, 25px);
     letter-spacing: .11em;
     line-height: 1.3;
+    margin: 20px 0 20px;
 }
 
 #events h3 span {
@@ -2068,8 +2069,7 @@ iframe {
     letter-spacing: .15em;
     writing-mode: vertical-rl;
     text-orientation: upright;
-    height: auto;
-    max-height: 200px;
+    height: 200px;
     margin: 0 auto 8px;
     padding-top: 0;
 }
@@ -2087,14 +2087,6 @@ iframe {
     gap: 24px;
     position: relative;
     width: 100%;
-}
-
-#events .events_daytime .event_time_box::after {
-    content: "";
-    display: block;
-    width: 1px;
-    height: 40px;
-    background-color: #000;
 }
 
 #events .events_daytime .event_time_box div {
@@ -2205,12 +2197,11 @@ iframe {
     position: static;
     transform: none;
     text-align: center;
-    margin-top: 2%;
 }
 
 #events .events_daytime .event_day {
     position: static;
-    transform: none;
+    transform: translateY(40px);
     text-align: center;
     margin: auto 0; /* 上下中央に自動配置 */
 }
@@ -2221,7 +2212,7 @@ iframe {
 
 #events .events_daytime .event_time_box {
     position: static;
-    transform: none;
+    transform: translateY(-15px);
     display: flex;
     justify-content: center;
     width: 100%;
@@ -2234,11 +2225,11 @@ iframe {
 }
 
 /* 中央の縦の区切り線 */
-#events .events_daytime .event_time_box li:nth-of-type(2):before {
+#events .events_daytime .event_time_box:nth-of-type(2):before {
     content: "";
     display: block;
     height: 45px;
-    left: -30px;
+    left: 50%;
     position: absolute;
     top: 4px;
     width: 1px;
