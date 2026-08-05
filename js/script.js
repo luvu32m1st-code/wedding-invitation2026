@@ -109,38 +109,38 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // 4. ファーストビューの画像スライドショー（中央アニメーション終了後に連動開始）
-        function initSlider() {
-            const pcSlides = document.querySelectorAll('.main_img_pc_slider .slide');
-            const spSlides = document.querySelectorAll('.main_img_sp_slider .slide');
-            let currentSlide = 0;
-            const maxSlides = Math.max(pcSlides.length, spSlides.length);
+    function initSlider() {
+        const pcSlides = document.querySelectorAll('.main_img_pc_slider .slide');
+        const spSlides = document.querySelectorAll('.main_img_sp_slider .slide');
+        let currentSlide = 0;
+        const maxSlides = Math.max(pcSlides.length, spSlides.length);
 
-            if (maxSlides > 0) {
-                // 中央のロゴ＆文字のフェードインがすべて完了したあとにスタート
-                setTimeout(() => {
-                    setInterval(() => {
-                        // 現在のスライドの active を外す
-                        if (pcSlides[currentSlide]) {
-                            pcSlides[currentSlide].classList.remove('active');
-                        }
-                        if (spSlides[currentSlide]) {
-                            spSlides[currentSlide].classList.remove('active');
-                        }
+        if (maxSlides > 0) {
+            // 中央のロゴ＆文字のフェードインがすべて完了したあとにスタート
+            setTimeout(() => {
+                setInterval(() => {
+                    // 現在のスライドの active を外す
+                    if (pcSlides[currentSlide]) {
+                        pcSlides[currentSlide].classList.remove('active');
+                    }
+                    if (spSlides[currentSlide]) {
+                        spSlides[currentSlide].classList.remove('active');
+                    }
 
-                        // 次のスライドインデックスを計算
-                        currentSlide = (currentSlide + 1) % maxSlides;
+                    // 次のスライドインデックスを計算
+                    currentSlide = (currentSlide + 1) % maxSlides;
 
-                        // 次のスライドに active を付与
-                        if (pcSlides[currentSlide]) {
-                            pcSlides[currentSlide].classList.add('active');
-                        }
-                        if (spSlides[currentSlide]) {
-                            spSlides[currentSlide].classList.add('active');
-                        }
-                    }, 4000);
-                }, 1000);
-            }
+                    // 次のスライドに active を付与
+                    if (pcSlides[currentSlide]) {
+                        pcSlides[currentSlide].classList.add('active');
+                    }
+                    if (spSlides[currentSlide]) {
+                        spSlides[currentSlide].classList.add('active');
+                    }
+                }, 4000);
+            }, 1000);
         }
+    }
         
     // 5. ナビゲーションのスクロール追従制御
     const nav = document.getElementById('sticky-nav');
@@ -197,7 +197,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (secondsEl) secondsEl.textContent = seconds;
         } else {
             if (daysEl) daysEl.textContent = '0';
-            if (hoursEl) daysEl.textContent = '0';
+            if (hoursEl) hoursEl.textContent = '0';
             if (minutesEl) minutesEl.textContent = '0';
             if (secondsEl) secondsEl.textContent = '0';
         }
@@ -243,5 +243,51 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
     }
+
+    // --- 9. ナビゲーションのスクロール連動アクティブ切り替え ---
+    const navMappings = [
+        { className: 'nav-top', target: document.querySelector('.first-view') },
+        { className: 'nav-message', target: document.querySelector('#message') },
+        { className: 'nav-profile', target: document.querySelector('#profile') },
+        { className: 'nav-countdown', target: document.querySelector('#countdown') },
+        { className: 'nav-events', target: document.querySelector('#events') },
+        { className: 'nav-rsvp', target: document.querySelector('#rsvp') }
+    ];
+
+    function updateActiveNav() {
+        let activeClassName = '';
+        const scrollPosition = window.scrollY + window.innerHeight / 3;
+        const firstViewEl = document.querySelector('.first-view');
+        const firstViewHeight = firstViewEl ? firstViewEl.offsetHeight : 600;
+
+        if (window.scrollY < firstViewHeight - 150) {
+            activeClassName = '';
+        } else {
+            navMappings.forEach(item => {
+                if (item.target) {
+                    const rect = item.target.getBoundingClientRect();
+                    const top = rect.top + window.scrollY;
+                    if (scrollPosition >= top) {
+                        activeClassName = item.className;
+                    }
+                }
+            });
+        }
+
+        navMappings.forEach(item => {
+            const elements = document.querySelectorAll('.' + item.className);
+            elements.forEach(el => {
+                if (item.className === activeClassName) {
+                    el.classList.add('nav-active');
+                } else {
+                    el.classList.remove('nav-active');
+                }
+            });
+        });
+    }
+
+    window.addEventListener('scroll', updateActiveNav);
+    window.addEventListener('resize', updateActiveNav);
+    updateActiveNav();
 
 });
