@@ -79,7 +79,7 @@ dd, dt, ol, p, span, ul {
     height: 100vh;
     background: url(/img/pattern_weed.jpg) repeat, #f9f8f6;
     background-size: auto;
-    z-index: 99999;
+    z 99999;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -170,7 +170,7 @@ dd, dt, ol, p, span, ul {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 9999;
+    z 9999;
 }
 
 #loader-bg .loader-img {
@@ -184,7 +184,7 @@ dd, dt, ol, p, span, ul {
     position: absolute;
     top: calc(50% - 67.5px);
     width: 100px;
-    z-index: 10000;
+    z 10000;
 }
 
 @media screen and (max-width: 1160px) {
@@ -216,7 +216,7 @@ dd, dt, ol, p, span, ul {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1;
+    z 1;
     background-color: #f9f8f6; /* スライドの下敷きとして背景色を確保 */
 }
 
@@ -248,7 +248,7 @@ dd, dt, ol, p, span, ul {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1;
+    z 1;
     background-color: #f9f8f6;
 }
 
@@ -292,7 +292,7 @@ dd, dt, ol, p, span, ul {
     top: 47%;
     transform: translateX(-50%) translateY(-50%);
     width: 670px;
-    z-index: 1;
+    z 1;
     margin: 0 auto;
     text-align: center;
 }
@@ -327,7 +327,7 @@ dd, dt, ol, p, span, ul {
     top: -17px;
     transform: translate(-50%, -50%);
     width: 40px;
-    z-index: 10;
+    z 10;
 }
 
 /* ファーストビューアニメーション（初期状態を確実に透明にする） */
@@ -343,7 +343,7 @@ dd, dt, ol, p, span, ul {
     right: 0;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 1;
+    z 1;
 }
 
 #nav li {
@@ -365,7 +365,7 @@ dd, dt, ol, p, span, ul {
     right: 62px;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 999;
+    z 999;
 }
 
 .temp-nav li {
@@ -433,7 +433,7 @@ dd, dt, ol, p, span, ul {
         left: 0;
         width: 100%;
         height: 60px;
-        z-index: 99999 !important; /* セクションの裏に隠れないよう最前面へ */
+        z 99999 !important; /* セクションの裏に隠れないよう最前面へ */
     }
 
     #nav-toggle {
@@ -447,7 +447,7 @@ dd, dt, ol, p, span, ul {
         right: 0;
         top: 0;
         width: 60px;
-        z-index: 100000 !important;
+        z 100000 !important;
     }
 
     #nav-toggle div {
@@ -490,7 +490,7 @@ dd, dt, ol, p, span, ul {
         text-align: center;
         transition: .5s ease-in-out;
         visibility: hidden;
-        z-index: 99998 !important; /* 展開時のメニューと背景を前面に */
+        z 99998 !important; /* 展開時のメニューと背景を前面に */
     }
 
     #global-nav ul {
@@ -565,7 +565,7 @@ dd, dt, ol, p, span, ul {
 /* --- コンテンツ共通・各セクション --- */
 #introduction {
     position: relative;
-    z-index: 2;
+    z 2;
     text-align: center;
     padding: 0;
 }
@@ -613,7 +613,7 @@ dd, dt, ol, p, span, ul {
 #profile {
     background-color: #fff;
     position: relative;
-    z-index: 2;
+    z 2;
     text-align: center;
     background-position: 50%;
     background-repeat: no-repeat;
@@ -691,7 +691,7 @@ dd, dt, ol, p, span, ul {
     position: absolute;
     top: 8px;
     width: 100%;
-    z-index: 2
+    z 2
 }
 
 #profile .bride img, #profile .broom img {
@@ -702,7 +702,7 @@ dd, dt, ol, p, span, ul {
     object-fit: cover;
     position: relative;
     width: 378px;
-    z-index: 1
+    z 1
 }
 
 #profile .bride span, #profile .broom span {
@@ -730,7 +730,7 @@ dd, dt, ol, p, span, ul {
 
 #profile .bride .name, #profile .broom .name {
     padding-top: 30px;
-    z-index: 0
+    z 0
 }
 
 #profile .bride .name h3, #profile .broom .name h3 {
@@ -755,7 +755,7 @@ dd, dt, ol, p, span, ul {
     padding: 80px 10% 0;
     position: relative;
     top: -40px;
-    z-index: 0
+    z 0
 }
 
 #profile .broom {
@@ -805,7 +805,7 @@ dd, dt, ol, p, span, ul {
     padding: 130px 0 100px;
     margin-bottom: 150px;
     position: relative;
-    z-index: 2;
+    z 2;
     background-color: #fff;
     text-align: center;
 }
@@ -892,7 +892,7 @@ dd, dt, ol, p, span, ul {
 #events {
     width: 62.291667%;
     position: relative;
-    z-index: 2;
+    z 2;
     background-color: #fff;
     text-align: center;
 }
@@ -1098,7 +1098,7 @@ a:link {
 #rsvp {
     padding: 200px 0 100px;
     position: relative;
-    z-index: 2;
+    z 2;
     text-align: center;
 }
 
@@ -1231,7 +1231,7 @@ iframe {
 /* --- フッター全体 --- */
 #footer {
     position: relative;
-    z-index: 2;
+    z 2;
     background-color: #fff;
     text-align: center;
     padding: 50px 0 20px;
@@ -1333,7 +1333,7 @@ iframe {
         right: 0;
         top: 0;
         width: 60px;
-        z-index: 1000;
+        z 1000;
     }
 
     #nav-toggle div {
@@ -1364,7 +1364,7 @@ iframe {
 
     #mobile-head {
         height: 60px;
-        z-index: 1;
+        z 1;
     }
 
     #global-nav,#mobile-head {
@@ -2167,4 +2167,100 @@ iframe {
         float: none;
         width: 100%
     }
+}
+
+
+/* 1. PC基準のベース設定 (左右に並ぶレイアウト) */
+#events .event_content_wrap {
+    display: flex;
+    justify-content: space-between;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+#events .event_content {
+    width: 48.125%; /* PC時は2カラムで左右に配置 */
+}
+
+/* 2. カード内部の共通バランス設計 (Flexboxで均等配置) */
+#events .events_daytime {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,.16);
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1.465; /* 縦横比を常に一定に保つ */
+    padding: 10% 6% 8%;
+    margin-bottom: 0;
+}
+
+/* 内部パーツの絶対配置解除とフロー制御 */
+#events .events_daytime .event_title {
+    position: static;
+    transform: none;
+    text-align: center;
+    margin-top: 2%;
+}
+
+#events .events_daytime .event_day {
+    position: static;
+    transform: none;
+    text-align: center;
+    margin: auto 0; /* 上下中央に自動配置 */
+}
+
+#events .events_daytime .event_day p {
+    font-size: clamp(1.5rem, 3vw, 2.8rem); /* 画面幅に応じて文字サイズが美しく伸縮 */
+}
+
+#events .events_daytime .event_time_box {
+    position: static;
+    transform: none;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 2%;
+}
+
+#events .events_daytime .event_time_box li {
+    margin: 0 30px;
+    position: relative;
+}
+
+/* 中央の縦の区切り線 */
+#events .events_daytime .event_time_box li:nth-of-type(2):before {
+    content: "";
+    display: block;
+    height: 45px;
+    left: -30px;
+    position: absolute;
+    top: 4px;
+    width: 1px;
+    border-left: 1px solid currentColor;
+}
+
+
+/* ==========================================
+   3. スマートフォン向けレスポンシブ対応 (768px以下)
+   ========================================== */
+@media screen and (max-width: 768px) {
+    /* 左右並びを縦積みに変更し、幅を100%に広げる */
+    #events .event_content_wrap {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #events .event_content {
+        width: 100%;
+        max-width: 450px; /* スマホで大きくなりすぎないように制限 */
+        margin-bottom: 40px; /* 挙式と披露宴の間隔 */
+    }
+
+    /* スマホでもaspect-ratioとflexboxにより、同じ縦長の美しいバランスが維持されます */
 }
