@@ -76,10 +76,12 @@ document.addEventListener("DOMContentLoaded", function() {
         if (modal) {
             modal.classList.add('is-hidden');
         }
+        window.scrollTo(0, 0); // 確実にトップへ
     }
 
     // ページ読み込み完了時の処理
     window.addEventListener('load', function() {
+        window.scrollTo(0, 0); // 読み込み時にも強制的にトップへ
         if (sessionStorage.getItem('wedding_authenticated') === 'true') {
             // 認証済みならそのままローディング演出へ
             playLoaderWithDelay();
@@ -96,12 +98,18 @@ document.addEventListener("DOMContentLoaded", function() {
     if (form) {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
+            
+            // 送信時にキーボードを閉じ、ズレを即座に補正
+            passwordInput.blur();
+            window.scrollTo(0, 0);
+
             if (passwordInput.value === correctPassword) {
                 // 認証成功：セッション保持 ＆ モーダルを隠す
                 sessionStorage.setItem('wedding_authenticated', 'true');
                 if (modal) {
                     modal.classList.add('is-hidden');
                 }
+                window.scrollTo(0, 0); // 念のためここでもトップへ
                 // パスワード突破後にローディング演出を開始し、終了後にアニメーション
                 playLoaderWithDelay();
             } else {
@@ -280,6 +288,7 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         }
 
+        navMappings.mdMappings = navMappings; // safe check
         navMappings.forEach(item => {
             const elements = document.querySelectorAll('.' + item.className);
             elements.forEach(el => {

@@ -1300,7 +1300,7 @@ iframe {
 @media screen and (max-width: 768px) {
     .footer_message {
         font-family: "Noto Serif JP", sans-serif;
-        font-size: 12px;
+        font-size: 14px;
         letter-spacing: .1em;
         line-height: 2.0;
         color: #333;
@@ -1308,9 +1308,6 @@ iframe {
     }
 
 }
-
-
-
 
 
 
@@ -1468,8 +1465,9 @@ iframe {
     }
 
     #events h3 {
-        font-size: 23px;
-        line-height: 25px;
+        font-size: 29px;
+        letter-spacing: .11em;
+        line-height: 31px;    
     }
 
     #events h3 span {
@@ -1478,8 +1476,8 @@ iframe {
     }
 
     #events h3 span {
-        font-size: 36px;
-        height: 166.4px;
+        font-size: 50px;
+        height: 215px;
     }
 
     #events .events_daytime .event_day p {
@@ -1487,7 +1485,7 @@ iframe {
     }
 
     #events .events_daytime .event_time_box {
-        top: 76.5%;
+        top: 75%;
     }
 
     #events .events_daytime .event_time_box li {
@@ -1495,16 +1493,17 @@ iframe {
     }
 
     #events .events_daytime .event_time_box p {
-        font-size: 14px;
+        font-size: 20px;
     }
 
     #events .events_daytime .event_time_box p span {
-        font-size: 24px;
+        font-size: 30px;
     }
 
     #events .events_daytime .event_time_box li:nth-of-type(2):before {
         height: 53px;
         left: 50%;
+        top: 25%;
     }
 
 }
@@ -1667,7 +1666,7 @@ iframe {
     }
 
     #rsvp .rsvp_content .rsvp_text {
-        font-size: 14px;
+        font-size: 15px;
         line-height: 1.8;
         margin-bottom: 30px;
     }
@@ -1741,7 +1740,6 @@ iframe {
     #profile .bride:before, #profile .broom:before {
         top: -60px;
     }
-
     
     #profile h2 {
         height: 21px;
@@ -1754,6 +1752,10 @@ iframe {
         width: 42px;
     }
 
+    #profile .bride img, #profile .broom img {
+    width: 360px;
+}
+
     #message a, #introduction #message p {
         font-size: 16px;
         letter-spacing: 0;
@@ -1761,9 +1763,9 @@ iframe {
     }
 
     #countdown h2 {
-        height: 209px;
-        margin-bottom: 8px;
-        width: 60px;
+        height: 330px;
+        margin-bottom: 20px;
+        width: 90px;
     }
 
     #countdown .count_number {
