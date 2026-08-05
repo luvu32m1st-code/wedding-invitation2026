@@ -2000,7 +2000,7 @@ iframe {
 }
 
 
-/* --- デフォルト（PCサイズ：1180px超）は横並び --- */
+/* --- デフォルト（PCサイズ：768px超）は横並び、最大幅1180px --- */
 #events .event_content_wrap {
     display: flex;
     justify-content: space-between;
@@ -2117,17 +2117,17 @@ iframe {
 }
 
 
-/* --- 1180px以下：イベントカードを縦並びに変更 --- */
-@media screen and (max-width: 1180px) {
+/* --- 768px以下：イベントカードを縦並びに変更 --- */
+@media screen and (max-width: 768px) {
     #events .event_content_wrap {
         flex-direction: column;
         align-items: center;
-        gap: 35px;
-        padding: 0 20px;
+        gap: 30px;
+        padding: 0 15px;
     }
 
     #events .event_content {
         width: 100%;
-        max-width: 460px; /* 縦並びの際にカードが大きくなりすぎないように制限 */
+        max-width: 420px;
     }
 }
