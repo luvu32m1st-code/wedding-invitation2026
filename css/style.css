@@ -1153,7 +1153,7 @@ a:link {
     height: 137px;
     left: 50%;
     position: absolute;
-    top: -21px;
+    top: -45px;
     transform: translateX(-50%);
     width: 203px;
 }
@@ -1210,16 +1210,7 @@ iframe {
         width: 100%;
         margin: 20px 0;
     }
-    
-    /* .count_number {
-        gap: 10px;
-    }
-    
-    .count_number li {
-        min-width: 50px;
-        padding: 10px;
-    }
- */
+
     .cover_ttl_center h1 {
         font-size: 1.2rem;
     }
@@ -1660,7 +1651,7 @@ iframe {
         float: none;
         width: 100%;
         max-width: 380px;
-        margin: 0 auto;
+        margin: 0 auto 30px;
     }
 
     #events h3 span {
@@ -1690,7 +1681,6 @@ iframe {
 
     #rsvp .rsvp_content {
         width: 100%;
-        padding-top: 30px; /* 上部の余白をスッキリさせる */
     }
 
     /* タイトルの絶対配置を解除して、文字のかぶりを防止 */
@@ -1700,6 +1690,10 @@ iframe {
         left: auto;
         transform: none;
         margin: 0 auto 30px auto;
+        background-size: contain;
+        height: 96px;
+        top: -29px;
+        width: 142px;
     }
 
     #rsvp .rsvp_content .rsvp_text {
@@ -1762,6 +1756,11 @@ iframe {
     #introduction #message .message_inner {
         width: 90%;
     }
+
+    #message {
+        padding-top: 100px;
+    }
+
 }
 
 @media screen and (max-width: 1160px) {
@@ -1791,6 +1790,7 @@ iframe {
     #countdown .count_number {
         height: 259px;
         max-width: 534px;
+        width: 75%;
     }
 
     #events h2 {
@@ -1808,25 +1808,25 @@ iframe {
         width: 90%;
     }
 
-    #introduction #profile h2 {
+    #profile h2 {
         height: 19px;
         margin-bottom: 79px;
         width: 167px;
     }
 
-    #introduction #profile .broom:before {
+    #profile .broom:before {
         left: unset;
         right: 5px;
         height: 72px;
         width: 19px;
     }
     
-    #introduction #profile .broom .photo:before {
+    #profile .broom .photo:before {
         background-image: url(/img/broom_deco_sp.png);
         top: -10px;
     }
 
-    #introduction #profile .bride .photo:before {
+    #profile .bride .photo:before {
         background-image: url(/img/bride_deco_sp.png);
         top: -5px;
         width: 100%;
@@ -1844,11 +1844,16 @@ iframe {
     }
     
     #events .event_party {
-        padding-top: 60px;
+        padding-top: 50px;
     }
 
     #events .events_place p {
         margin: 5px 0 5px;
+    }
+
+    .footer_inner {
+        background-size: 28%;
+        background-position: 95% 60px;
     }
 
 
