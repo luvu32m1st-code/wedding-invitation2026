@@ -79,7 +79,7 @@ dd, dt, ol, p, span, ul {
     height: 100vh;
     background: url(/img/pattern_weed.jpg) repeat, #f9f8f6;
     background-size: auto;
-    z 99999;
+    z-index: 99999;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -170,7 +170,7 @@ dd, dt, ol, p, span, ul {
     position: fixed;
     top: 0;
     width: 100%;
-    z 9999;
+    z-index: 9999;
 }
 
 #loader-bg .loader-img {
@@ -184,7 +184,7 @@ dd, dt, ol, p, span, ul {
     position: absolute;
     top: calc(50% - 67.5px);
     width: 100px;
-    z 10000;
+    z-index: 10000;
 }
 
 @media screen and (max-width: 1160px) {
@@ -216,7 +216,7 @@ dd, dt, ol, p, span, ul {
     left: 0;
     width: 100%;
     height: 100%;
-    z 1;
+    z-index: 1;
     background-color: #f9f8f6; /* スライドの下敷きとして背景色を確保 */
 }
 
@@ -248,7 +248,7 @@ dd, dt, ol, p, span, ul {
     left: 0;
     width: 100%;
     height: 100%;
-    z 1;
+    z-index: 1;
     background-color: #f9f8f6;
 }
 
@@ -292,7 +292,7 @@ dd, dt, ol, p, span, ul {
     top: 47%;
     transform: translateX(-50%) translateY(-50%);
     width: 670px;
-    z 1;
+    z-index: 1;
     margin: 0 auto;
     text-align: center;
 }
@@ -327,7 +327,7 @@ dd, dt, ol, p, span, ul {
     top: -17px;
     transform: translate(-50%, -50%);
     width: 40px;
-    z 10;
+    z-index: 10;
 }
 
 /* ファーストビューアニメーション（初期状態を確実に透明にする） */
@@ -343,7 +343,7 @@ dd, dt, ol, p, span, ul {
     right: 0;
     top: 50%;
     transform: translateY(-50%);
-    z 1;
+    z-index: 1;
 }
 
 #nav li {
@@ -365,7 +365,7 @@ dd, dt, ol, p, span, ul {
     right: 62px;
     top: 50%;
     transform: translateY(-50%);
-    z 999;
+    z-index: 999;
 }
 
 .temp-nav li {
@@ -433,7 +433,7 @@ dd, dt, ol, p, span, ul {
         left: 0;
         width: 100%;
         height: 60px;
-        z 99999 !important; /* セクションの裏に隠れないよう最前面へ */
+        z-index: 99999 !important; /* セクションの裏に隠れないよう最前面へ */
     }
 
     #nav-toggle {
@@ -447,7 +447,7 @@ dd, dt, ol, p, span, ul {
         right: 0;
         top: 0;
         width: 60px;
-        z 100000 !important;
+        z-index: 100000 !important;
     }
 
     #nav-toggle div {
@@ -490,7 +490,7 @@ dd, dt, ol, p, span, ul {
         text-align: center;
         transition: .5s ease-in-out;
         visibility: hidden;
-        z 99998 !important; /* 展開時のメニューと背景を前面に */
+        z-index: 99998 !important; /* 展開時のメニューと背景を前面に */
     }
 
     #global-nav ul {
@@ -565,7 +565,7 @@ dd, dt, ol, p, span, ul {
 /* --- コンテンツ共通・各セクション --- */
 #introduction {
     position: relative;
-    z 2;
+    z-index: 2;
     text-align: center;
     padding: 0;
 }
@@ -613,7 +613,7 @@ dd, dt, ol, p, span, ul {
 #profile {
     background-color: #fff;
     position: relative;
-    z 2;
+    z-index: 2;
     text-align: center;
     background-position: 50%;
     background-repeat: no-repeat;
@@ -691,7 +691,7 @@ dd, dt, ol, p, span, ul {
     position: absolute;
     top: 8px;
     width: 100%;
-    z 2
+    z-index: 2
 }
 
 #profile .bride img, #profile .broom img {
@@ -702,7 +702,7 @@ dd, dt, ol, p, span, ul {
     object-fit: cover;
     position: relative;
     width: 378px;
-    z 1
+    z-index: 1
 }
 
 #profile .bride span, #profile .broom span {
@@ -730,7 +730,7 @@ dd, dt, ol, p, span, ul {
 
 #profile .bride .name, #profile .broom .name {
     padding-top: 30px;
-    z 0
+    z-index: 0
 }
 
 #profile .bride .name h3, #profile .broom .name h3 {
@@ -755,7 +755,7 @@ dd, dt, ol, p, span, ul {
     padding: 80px 10% 0;
     position: relative;
     top: -40px;
-    z 0
+    z-index: 0
 }
 
 #profile .broom {
@@ -805,7 +805,7 @@ dd, dt, ol, p, span, ul {
     padding: 130px 0 100px;
     margin-bottom: 150px;
     position: relative;
-    z 2;
+    z-index: 2;
     background-color: #fff;
     text-align: center;
 }
@@ -892,7 +892,7 @@ dd, dt, ol, p, span, ul {
 #events {
     width: 62.291667%;
     position: relative;
-    z 2;
+    z-index: 2;
     background-color: #fff;
     text-align: center;
 }
@@ -1098,7 +1098,7 @@ a:link {
 #rsvp {
     padding: 200px 0 100px;
     position: relative;
-    z 2;
+    z-index: 2;
     text-align: center;
 }
 
@@ -1231,7 +1231,7 @@ iframe {
 /* --- フッター全体 --- */
 #footer {
     position: relative;
-    z 2;
+    z-index: 2;
     background-color: #fff;
     text-align: center;
     padding: 50px 0 20px;
@@ -1333,7 +1333,7 @@ iframe {
         right: 0;
         top: 0;
         width: 60px;
-        z 1000;
+        z-index: 1000;
     }
 
     #nav-toggle div {
@@ -1364,7 +1364,7 @@ iframe {
 
     #mobile-head {
         height: 60px;
-        z 1;
+        z-index: 1;
     }
 
     #global-nav,#mobile-head {
