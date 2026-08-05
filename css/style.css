@@ -1000,17 +1000,6 @@ dd, dt, ol, p, span, ul {
     margin: 0 58px;
 }
 
-#events .events_daytime .event_time_box li:nth-of-type(2):before {
-    background-color: #000;
-    content: "";
-    display: block;
-    height: 65px;
-    left: 234px;
-    position: absolute;
-    top: 17px;
-    width: 1px;
-}
-
 #events .events_daytime .event_time_box p {
     font-family: "Noto Serif JP", sans-serif;
     font-size: 17px;
@@ -2225,7 +2214,7 @@ iframe {
 }
 
 /* 中央の縦の区切り線 */
-#events .events_daytime .event_time_box:nth-of-type(2):before {
+#events .events_daytime .event_time_box:before {
     content: "";
     display: block;
     height: 45px;
@@ -2253,5 +2242,4 @@ iframe {
         margin-bottom: 40px; /* 挙式と披露宴の間隔 */
     }
 
-    /* スマホでもaspect-ratioとflexboxにより、同じ縦長の美しいバランスが維持されます */
 }
