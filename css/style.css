@@ -801,7 +801,7 @@ dd, dt, ol, p, span, ul {
 /* カウントダウン */
 #countdown {
     background: url(/img/countdown_bg.jpg) repeat;
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
     padding: 130px 0 100px;
     margin-bottom: 150px;
     position: relative;
