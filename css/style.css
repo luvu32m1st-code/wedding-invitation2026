@@ -2131,3 +2131,40 @@ iframe {
         max-width: 420px;
     }
 }
+
+
+#events .event01 {
+    float: left
+}
+
+#events .event01 h3 span {
+    padding-top: 30px
+}
+
+#events .event01 h3 span.event-party {
+    padding-top: 0
+}
+
+#events .event02 {
+    float: right
+}
+
+#layout3 #events .event01 {
+    margin-bottom: 30px
+}
+
+#layout3 #events .event01 .events_daytime {
+    float: none;
+    width: 100%
+}
+
+@media screen and (max-width: 768px) {
+    #layout3 #events .event01 {
+        margin-bottom: 30px
+    }
+
+    #layout3 #events .event01 .events_daytime {
+        float: none;
+        width: 100%
+    }
+}
