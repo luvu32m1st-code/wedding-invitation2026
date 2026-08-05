@@ -1316,7 +1316,7 @@ iframe {
 
 
 /* レスポンシブ対応 */
-@media screen and (max-width: 1160px) {
+@media screen and (max-width: 1180px) {
     .temp-nav-list {
         display:none;
     }
@@ -1733,7 +1733,7 @@ iframe {
 
 }
 
-@media screen and (max-width: 1160px) {
+@media screen and (max-width: 1180px) {
         .profile_inner {
         width: 95%;
     }
