@@ -1733,6 +1733,15 @@ iframe {
 }
 
 @media screen and (max-width: 1160px) {
+        .profile_inner {
+        width: 95%;
+    }
+
+    #profile .bride:before, #profile .broom:before {
+        top: -60px;
+    }
+
+    
     #profile h2 {
         height: 21px;
         width: 186px;
@@ -1762,6 +1771,10 @@ iframe {
         width: 75%;
     }
 
+    #events {
+        width: 82%;
+    }
+    
     #events h2 {
         height: 21px;
         margin-bottom: 40px;
