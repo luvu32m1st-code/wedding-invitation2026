@@ -1624,6 +1624,7 @@ iframe {
 
     #events h3 span {
         font-size: 30px;
+        height: 130px;
     }
 
     #events h2 {
@@ -1859,7 +1860,7 @@ iframe {
 
     .footer_inner {
         background-size: 28%;
-        background-position: 95% 60px;
+        background-position: 90% 60px;
     }
 
 
