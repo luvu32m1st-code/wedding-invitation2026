@@ -1465,7 +1465,7 @@ iframe {
     }
 
     #events h3 {
-        font-size: 29px;
+        font-size: 20px;
         letter-spacing: .11em;
         line-height: 31px;    
     }
@@ -1623,11 +1623,19 @@ iframe {
     }
 
     #events h3 span {
-        font-size: 36px;
+        font-size: 30px;
     }
 
     #events h2 {
     margin-bottom: 47px;
+    }
+
+    #events .events_daytime .event_day p {
+        font-size: 33px;
+    }
+
+    #events .events_daytime .event_time_box p {
+        font-size: 15px;
     }
 
 
@@ -1783,6 +1791,11 @@ iframe {
         margin-bottom: 40px;
         width: 158px;
     }
+
+    #events h3 {
+    font-size: 22px;
+    }
+
 
 
 
