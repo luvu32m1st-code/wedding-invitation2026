@@ -1946,15 +1946,6 @@ iframe {
     width: 100%;
 }
 
-/* 2つの時間の間の縦の区切り線を擬似要素で自動生成 */
-#events .events_daytime .event_time_box::after {
-    content: "";
-    display: block;
-    width: 1px;
-    height: 40px;
-    background-color: #000;
-}
-
 #events .events_daytime .event_time_box div {
     text-align: center;
 }
@@ -2214,13 +2205,14 @@ iframe {
 }
 
 /* 中央の縦の区切り線 */
-#events .events_daytime .event_time_box:before {
+#events .events_content .event01:before,
+#events .events_content .event02:before {
     content: "";
     display: block;
     height: 45px;
     left: 50%;
     position: absolute;
-    top: 4px;
+    bottom: 10%;
     width: 1px;
     border-left: 1px solid currentColor;
 }
