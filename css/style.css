@@ -1814,7 +1814,7 @@ iframe {
     
     #profile .broom .photo:before {
         background-image: url(/img/broom_deco_sp.png);
-        top: -10px;
+        top: 30px;
     }
 
     #profile .bride .photo:before {
