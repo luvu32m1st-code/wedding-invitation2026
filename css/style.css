@@ -1017,7 +1017,7 @@ dd, dt, ol, p, span, ul {
 
 /* 会場案内 */
 #events .events_place {
-    padding: 0 5%;
+    padding: 60px 5% 0;
 }
 
 #events .events_place li {
@@ -2098,6 +2098,27 @@ iframe {
         width: 100%;
         max-width: 420px;
     }
+
+    #events h3 span {
+        height: 115px;
+    }
+
+    #events .events_daytime .event_day p {
+    transform: translateY(-10px);
+    }
+
+    #events .events_daytime .event_time_box {
+    margin-bottom: 0;
+    }
+
+    #events .events_daytime .event_time_box:before {
+    height: 40px;
+    }
+
+    #events h3 {
+    transform: translateY(10px);
+    }
+
 }
 
 
@@ -2126,6 +2147,7 @@ iframe {
     width: 100%
 }
 
+
 @media screen and (max-width: 768px) {
     #layout3 #events .event01 {
         margin-bottom: 30px
@@ -2144,10 +2166,6 @@ iframe {
     justify-content: space-between;
     max-width: 960px;
     margin: 0 auto;
-}
-
-#events .event_content {
-    width: 48.125%; /* PC時は2カラムで左右に配置 */
 }
 
 /* 2. カード内部の共通バランス設計 (Flexboxで均等配置) */
