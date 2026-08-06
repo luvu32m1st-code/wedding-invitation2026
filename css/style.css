@@ -1014,11 +1014,6 @@ dd, dt, ol, p, span, ul {
     margin-top: -2px;
 }
 
-#events .event_party {
-    padding-top: calc(70.52083% + 58px);
-    width: 100%;
-}
-
 
 /* 会場案内 */
 #events .events_place {
@@ -1773,7 +1768,7 @@ iframe {
     }
 
     #events {
-        width: 82%;
+        width: 87%;
     }
 
     #events h2 {
@@ -1783,7 +1778,7 @@ iframe {
     }
 
     #events h3 {
-    font-size: 22px;
+        font-size: 22px;
     }
 
 
@@ -1993,7 +1988,7 @@ iframe {
 
 #events .event_content {
     float: none;
-    width: 48%;
+    width: 100%;
     margin-bottom: 0;
 }
 
@@ -2040,6 +2035,7 @@ iframe {
     letter-spacing: .11em;
     line-height: 1.3;
     margin: 20px 0 20px;
+    transform: translateY(30px);
 }
 
 #events h3 span {
@@ -2075,9 +2071,9 @@ iframe {
 
 #events .events_daytime .event_time_box p {
     font-family: "Noto Serif JP", sans-serif;
-    font-size: clamp(13px, 1.3vw, 17px);
+    font-size: clamp(13px, 1.3vw, 18px);
     letter-spacing: .1em;
-    margin-bottom: 0;
+    margin-bottom: 5px;
 }
 
 #events .events_daytime .event_time_box p span {
@@ -2187,7 +2183,7 @@ iframe {
 }
 
 #events .events_daytime .event_day p {
-    font-size: clamp(1.5rem, 3vw, 2.8rem); /* 画面幅に応じて文字サイズが美しく伸縮 */
+    font-size: clamp(1.5rem, 3vw, 2.6rem); /* 画面幅に応じて文字サイズが美しく伸縮 */
 }
 
 #events .events_daytime .event_time_box {
@@ -2199,23 +2195,30 @@ iframe {
     margin-bottom: 2%;
 }
 
+/* 中央の縦の区切り線 */
+#events .events_daytime .event_time_box:before {
+    /* height: 53px;
+    left: 50%;
+    top: 25%; */
+    content: "";
+    display: block;
+    height: 70px;
+    left: 50%;
+    position: absolute;
+    width: 1px;
+    border-left: 1.5px solid currentColor;
+}
+
+
 #events .events_daytime .event_time_box li {
     margin: 0 30px;
     position: relative;
 }
 
-/* 中央の縦の区切り線 */
-#events .events_content .event01:before,
-#events .events_content .event02:before {
-    content: "";
-    display: block;
-    height: 45px;
-    left: 50%;
-    position: absolute;
-    bottom: 10%;
-    width: 1px;
-    border-left: 1px solid currentColor;
+.event_content .event_party {
+    padding: 60px 5% 0;
 }
+
 
 
 /* ==========================================
