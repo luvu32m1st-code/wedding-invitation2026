@@ -2107,14 +2107,6 @@ iframe {
     transform: translateY(-10px);
     }
 
-    #events .events_daytime .event_time_box {
-    margin-bottom: 0;
-    }
-
-    #events .events_daytime .event_time_box:before {
-    height: 40px;
-    }
-
     #events h3 {
     transform: translateY(10px);
     }
@@ -2254,5 +2246,21 @@ iframe {
         max-width: 450px; /* スマホで大きくなりすぎないように制限 */
         margin-bottom: 40px; /* 挙式と披露宴の間隔 */
     }
+    
+    #events .events_daytime .event_time_box:before {
+    height: 40px;
+    }
 
+    #events .events_daytime .event_time_box {
+        margin-bottom: 0;
+    }
+
+
+}
+
+
+
+/* パスワード入力画面が表示されている間は、ハンバーガーメニューを非表示にする */
+body:has(#password-modal:not(.is-hidden)) #mobile-head {
+    display: none !important;
 }
