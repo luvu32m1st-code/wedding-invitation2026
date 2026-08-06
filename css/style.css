@@ -2259,6 +2259,21 @@ iframe {
 }
 
 
+@media screen and (min-width: 819px) and (max-width: 1179px) {
+    #events .events_daytime .event_day p {
+        transform: translateY(50px);
+    }
+    
+    .footer_inner {
+        background: url(/img/footer-img.png);
+        background-size: 20%;
+        background-position: 90% 0px;
+    }
+
+}
+
+
+
 
 /* パスワード入力画面が表示されている間は、ハンバーガーメニューを非表示にする */
 body:has(#password-modal:not(.is-hidden)) #mobile-head {
